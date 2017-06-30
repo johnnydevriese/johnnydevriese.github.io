@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="174ac814-cc9d-4355-8c7e-1ed89f83aa07" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/2015-03-15-building-my-photography-website.markdown" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_site/2015/03/building-my-photography-website.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2014-01-03-two-thousand-fourteen.markdown" afterPath="$PROJECT_DIR$/_posts/2017-06-29-how-to-train-a-tiger.markdown" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/footer.html" afterPath="$PROJECT_DIR$/_includes/footer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2014-09-01-solving-the-schrodinger-equation-using-chebfun.markdown" afterPath="$PROJECT_DIR$/_posts/2014-09-01-solving-the-schrodinger-equation-using-chebfun.markdown" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/2014/09/solving-the-schrodinger-equation-using-chebfun.html" afterPath="$PROJECT_DIR$/_site/2014/09/solving-the-schrodinger-equation-using-chebfun.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/2017/06/two-thousand-fourteen.html" afterPath="$PROJECT_DIR$/_site/2017/06/two-thousand-fourteen.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/about/index.html" afterPath="$PROJECT_DIR$/_site/about/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/articles/index.html" afterPath="$PROJECT_DIR$/_site/articles/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/feed.xml" afterPath="$PROJECT_DIR$/_site/feed.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/resources/index.html" afterPath="$PROJECT_DIR$/_site/resources/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.markdown" afterPath="$PROJECT_DIR$/index.markdown" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,12 +22,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.markdown" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.markdown" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.markdown">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <first_editor relative-caret-position="140">
+                <caret line="7" column="724" lean-forward="false" selection-start-line="7" selection-start-column="724" selection-end-line="7" selection-end-column="724" />
                 <folding />
               </first_editor>
               <second_editor>
@@ -109,7 +102,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="400">
-                <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+                <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor>
@@ -119,12 +112,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2015-03-15-building-my-photography-website.markdown" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2015-03-15-building-my-photography-website.markdown" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2015-03-15-building-my-photography-website.markdown">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
               <caret line="19" column="130" lean-forward="false" selection-start-line="19" selection-start-column="130" selection-end-line="19" selection-end-column="130" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2017-06-29-how-to-train-a-tiger.markdown" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2017-06-29-how-to-train-a-tiger.markdown">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="140">
+                <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor>
+                <js_state />
+              </second_editor>
             </state>
           </provider>
         </entry>
@@ -219,7 +227,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/_site/index.html" />
         <option value="$PROJECT_DIR$/_includes/navigation.html" />
-        <option value="$PROJECT_DIR$/index.markdown" />
         <option value="$PROJECT_DIR$/_pages/about.markdown" />
         <option value="$PROJECT_DIR$/_pages/resources.markdown" />
         <option value="$PROJECT_DIR$/_posts/2014-09-01-solving-the-schrodinger-equation-using-chebfun.markdown" />
@@ -227,6 +234,8 @@
         <option value="$PROJECT_DIR$/_includes/footer.html" />
         <option value="$PROJECT_DIR$/_posts/2015-03-15-building-my-photography-website" />
         <option value="$PROJECT_DIR$/_posts/2015-03-15-building-my-photography-website.markdown" />
+        <option value="$PROJECT_DIR$/_posts/2017-06-29-how-to-train-a-tiger.markdown" />
+        <option value="$PROJECT_DIR$/index.markdown" />
       </list>
     </option>
   </component>
@@ -431,12 +440,12 @@
       <updated>1498763592061</updated>
       <workItem from="1498763593946" duration="7241000" />
       <workItem from="1498838216920" duration="6974000" />
-      <workItem from="1498846094783" duration="4657000" />
+      <workItem from="1498846094783" duration="5270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18872000" />
+    <option name="totallyTimeSpent" value="19485000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1680" height="1023" extended-state="0" />
@@ -471,14 +480,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_pages/about.markdown">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
@@ -497,7 +498,7 @@
         <state relative-caret-position="140">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <marker date="1498854160430" expanded="true" signature="2577:4108" ph="..." />
+            <marker date="1498854792338" expanded="true" signature="2532:4063" ph="..." />
           </folding>
         </state>
       </provider>
@@ -599,25 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.markdown">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor>
-            <js_state />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_pages/about.markdown">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -661,7 +643,7 @@
         <state relative-caret-position="140">
           <caret line="34" column="24" lean-forward="false" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
           <folding>
-            <marker date="1498854160430" expanded="true" signature="2577:4108" ph="..." />
+            <marker date="1498854792338" expanded="true" signature="2532:4063" ph="..." />
           </folding>
         </state>
       </provider>
@@ -700,7 +682,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="400">
-            <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor>
@@ -714,6 +696,38 @@
         <state relative-caret-position="380">
           <caret line="19" column="130" lean-forward="false" selection-start-line="19" selection-start-column="130" selection-end-line="19" selection-end-column="130" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2017-06-29-how-to-train-a-tiger.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="140">
+            <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.markdown">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="140">
+            <caret line="7" column="724" lean-forward="false" selection-start-line="7" selection-start-column="724" selection-end-line="7" selection-end-column="724" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
         </state>
       </provider>
     </entry>
