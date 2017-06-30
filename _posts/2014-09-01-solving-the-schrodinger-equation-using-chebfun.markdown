@@ -16,7 +16,7 @@ I hope to put my significantly longer write up along with all of the code on Git
 
 
 [chebfun-writeup]: http://www.chebfun.org/examples/ode-eig/OpticalResponse.html
-[jared-github]: https://github.com/jaurentz
+[jared-github]: http://jaurentz.github.io/
 
 
 Here's a plot from Wikipedia of the first five chebyshev polynomials.
