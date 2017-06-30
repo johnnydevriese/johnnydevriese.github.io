@@ -6,8 +6,8 @@
 </description>
     <link>http://example.com/</link>
     <atom:link href="http://example.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 29 Jun 2017 17:54:01 -0600</pubDate>
-    <lastBuildDate>Thu, 29 Jun 2017 17:54:01 -0600</lastBuildDate>
+    <pubDate>Fri, 30 Jun 2017 10:53:08 -0600</pubDate>
+    <lastBuildDate>Fri, 30 Jun 2017 10:53:08 -0600</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -24,12 +24,25 @@
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>Solving The Schrodinger Equation Using Chebfun!</title>
+        <description>&lt;p&gt;My first introduction to scientific computing was working with &lt;a href=&quot;https://github.com/jaurentz&quot;&gt;Jared L. Aurentz&lt;/a&gt;.
+Over the summer of 2014 we worked on developing an algorithm in C, Python, and eventually Matlab
+to solve the Schrodinger and then calculate the hyperpolerizatbility of with the given potential.&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;You can read through Jared’s write brief write-up through Oxford’s research group &lt;a href=&quot;http://www.chebfun.org/examples/ode-eig/OpticalResponse.html&quot;&gt;Chebfun website&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;I hope to put my significantly longer write up along with all of the code on GitHub soon!&lt;/p&gt;
+
+&lt;p&gt;Here’s a plot from Wikipedia of the first five chebyshev polynomials.
+&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Chebyshev_Polynomials_of_the_First_Kind.svg/640px-Chebyshev_Polynomials_of_the_First_Kind.svg.png?1498838992669&quot; alt=&quot;Chebyshev Polynomials are fun&quot; title=&quot;Chebyshev polynomials are fun!&quot; /&gt;&lt;/p&gt;
+
+&lt;!--
+You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+
+To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+
+Jekyll also offers powerful support for code snippets:
+
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
@@ -37,17 +50,21 @@
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
+--&gt;
 
 </description>
-        <pubDate>Tue, 01 Dec 2015 16:52:21 -0700</pubDate>
-        <link>http://example.com/2015/12/welcome-to-jekyll</link>
-        <guid isPermaLink="true">http://example.com/2015/12/welcome-to-jekyll</guid>
+        <pubDate>Mon, 01 Sep 2014 17:52:21 -0600</pubDate>
+        <link>http://example.com/2014/09/solving-the-schrodinger-equation-using-chebfun</link>
+        <guid isPermaLink="true">http://example.com/2014/09/solving-the-schrodinger-equation-using-chebfun</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>chebfun</category>
         
       </item>
     
