@@ -1,17 +1,12 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html class="t-{{ site.themeColor }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  {% include head.html %}
+  <body>
+    {% include navigation.html %}
 
-{% include head.html %}
-
-<body>
-
-<div class="container">
-  {% include header.html %}
-  <div class="posts-wrapper">
     {{ content }}
-  </div>
-  {% include footer.html %}
-</div>
 
-</body>
+    {% include footer.html %}
+  </body>
 </html>
