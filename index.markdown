@@ -5,22 +5,25 @@ title: Johnny Devriese
 
 # Welcome!
 
+![alt text](https://lh3.googleusercontent.com/QINtyP3CA_fYok4hP8NcVRYmvJCAGwyj6KVXixuBeJgt_ObuRQVRz2oNjo_67dWjixmjc1x6gdACl7I=w1680-h1050-rw-no "Mt. Rainier towering above the trees")
+
 Welcome to my new and wonderful blog.
 I hope to bring insights into software development, scientific computing, and also some chatting about photography.
 
 
 # Under Active Development
 
-I just started this blog, and now that every waking moment isn't spent trying to appease the Physics Gods with menacing homework problems.
+Now that every waking moment isn't spent trying to appease the Physics Gods with menacing homework problems
 I'm going to begin to migrate some/all/most of my programming work onto my GitHub and on this blog. So, please bear with me if something seems a bit funny for the time being!
 
 
-## Landscape Photography
-
-Mount Rainier is truly a sight to behold. It's a fantastic part of the Seattle skyline on the handful of clear days.
-![alt text](https://lh3.googleusercontent.com/QINtyP3CA_fYok4hP8NcVRYmvJCAGwyj6KVXixuBeJgt_ObuRQVRz2oNjo_67dWjixmjc1x6gdACl7I=w1680-h1050-rw-no "Mt. Rainier towering above the trees")
 
 <!--
+#### Landscape Photography
+
+Mount Rainier is truly a sight to behold. It's a fantastic part of the Seattle skyline on the handful of clear days.
+
+
  ~~strike~~
 
 I can write something here
