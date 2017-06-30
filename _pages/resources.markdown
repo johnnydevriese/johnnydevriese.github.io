@@ -4,9 +4,9 @@ title: Resources
 permalink: /resources/
 ---
 
-There are loads of great resources to learn. Here's an active list of resources that I've found useful.
+There are loads of great resources to learn nowadays. Here's a list of sites that I've found useful.
 
-#Python
+# Python
 * [Learn Python The Hard Way](https://learnpythonthehardway.org/book/ex0.html)
 If you already have programming experience this is a great way to see how things are done in Python.
 
