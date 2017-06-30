@@ -1,4 +1,9 @@
-# material-jekyll-theme
+# Johnny Devriese Personal Website
+
+This website was built using the [Material Jekyll Theme by Alex Carpenter](https://alexcarpenter.github.io/material-jekyll-theme).
+
+
+<!--
 [Demo](http://alexcarpenter.github.io/material-jekyll-theme)
 
 ![Material Jekyll Theme](https://d13yacurqjgara.cloudfront.net/users/37718/screenshots/2430279/slice_1.jpg)
@@ -21,3 +26,5 @@ Customize your options within the `_config.yml` file.
 + Fixed Navigation
   - True
   - False
+
+-->
