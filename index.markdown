@@ -13,8 +13,8 @@ I hope to bring insights into software development, scientific computing, and al
 
 # Under Active Development
 
-Now that every waking moment isn't spent trying to appease the Physics Gods with menacing homework problems
-I'm going to begin to migrate some/all/most of my programming work onto my GitHub and on this blog. So, please bear with me if something seems a bit funny for the time being!
+Now that every waking moment isn't spent trying to appease my physics professors with menacing homework problems
+I'm going to begin to migrate some/all/most of my programming work onto my [GitHub](https://github.com/johnnydevriese) and on this blog. So, please bear with me if something seems a bit funny for the time being!
 
 
 
