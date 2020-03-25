@@ -1,0 +1,7 @@
+---
+layout: post
+title:  "Hello 2020!"
+date:   2020-03-25 18:52:21
+categories: training
+---
+This is a test that the deployment still works! 
