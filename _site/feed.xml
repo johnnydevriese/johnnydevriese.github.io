@@ -6,13 +6,13 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 26 Mar 2020 16:46:13 -0600</pubDate>
-    <lastBuildDate>Thu, 26 Mar 2020 16:46:13 -0600</lastBuildDate>
+    <pubDate>Thu, 26 Mar 2020 16:57:11 -0600</pubDate>
+    <lastBuildDate>Thu, 26 Mar 2020 16:57:11 -0600</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
-        <title>Running PostgrSQL in Docker</title>
-        <description>&lt;p&gt;POSTGRES my beauty&lt;/p&gt;
+        <title>Running PostgreSQL in Docker</title>
+        <description>&lt;p&gt;PostgreSQL is like therapy after trying to wrangle Cassandra for years! Lets get it up and running in a docker container.&lt;/p&gt;
 
 &lt;p&gt;I tried to install/run with brew but got an error connection refused. I think this has to do with other fuzion config found in /etc/hosts&lt;/p&gt;
 
@@ -132,6 +132,69 @@ SSL: DISABLED
         <category>database</category>
         
         <category>docker</category>
+        
+      </item>
+    
+      <item>
+        <title>Serverless Data Lake On AWS</title>
+        <description>&lt;p&gt;What is a data lake and why is everyone talking about it?&lt;/p&gt;
+</description>
+        <pubDate>Fri, 18 Oct 2019 12:52:21 -0600</pubDate>
+        <link>http://localhost:4000/2019/10/serverless-data-lake-on-aws</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/10/serverless-data-lake-on-aws</guid>
+        
+        
+        <category>aws</category>
+        
+        <category>spark</category>
+        
+        <category>s3</category>
+        
+      </item>
+    
+      <item>
+        <title>Introduction to Pyspark</title>
+        <description>&lt;p&gt;I’ve spent a load of time learning about botht the internals of Spark as well as learning about Pyspark for analytics. I still need to collect my thoughts but this is more of a placeholder.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 21 Apr 2019 12:52:21 -0600</pubDate>
+        <link>http://localhost:4000/2019/04/introduction-to-pyspark</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/04/introduction-to-pyspark</guid>
+        
+        
+        <category>spark</category>
+        
+        <category>pyspark</category>
+        
+        <category>big</category>
+        
+        <category>data</category>
+        
+        <category>machine</category>
+        
+        <category>learning</category>
+        
+        <category>streaming</category>
+        
+      </item>
+    
+      <item>
+        <title>React and Redux - A New World</title>
+        <description>&lt;p&gt;Learning about components and managing state with redux.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/facebook/create-react-app&quot;&gt;A great place to start it CRA&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 17 Mar 2019 12:52:21 -0600</pubDate>
+        <link>http://localhost:4000/2019/03/react-redux</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/03/react-redux</guid>
+        
+        
+        <category>JavaScript</category>
+        
+        <category>React</category>
+        
+        <category>Redux</category>
         
       </item>
     
@@ -354,107 +417,6 @@ turn it into a timestamp object.&lt;/p&gt;
         <pubDate>Mon, 08 Jan 2018 11:52:21 -0700</pubDate>
         <link>http://localhost:4000/2018/01/lazy-loading-images</link>
         <guid isPermaLink="true">http://localhost:4000/2018/01/lazy-loading-images</guid>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>Dictionary To Run Function</title>
-        <description>&lt;p&gt;Getting a taste of the power of Functional Programming.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lookup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;johnnyCat&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;johnnyCat&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#questionAuthorship&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slideDown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;medium&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)};&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// slide down the jQuery&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lookup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;A similiar way of doing it is like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;katana&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;isSharp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isSharp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isSharp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;katana&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Sat, 06 Jan 2018 11:52:21 -0700</pubDate>
-        <link>http://localhost:4000/2018/01/dictionary-to-run-function</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/01/dictionary-to-run-function</guid>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>Thoughts On Programming</title>
-        <description>&lt;p&gt;Interesting thoughts from /u/drawkbox that sort of remind me of the ‘The Zen of Python’.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;“Programmers with lots of hours of maintaining code eventually evolve to return early, sorting exit conditions at top and meat of the methods at the bottom.&lt;/p&gt;
-
-&lt;p&gt;Same way you evolve out of one liners.&lt;/p&gt;
-
-&lt;p&gt;Same way comments are extra weight that should only be in public or algorithm/need to know areas.&lt;/p&gt;
-
-&lt;p&gt;Same way braces go on the end of the method/class name to reduce LOC.&lt;/p&gt;
-
-&lt;p&gt;Same way you move on from heavy OO to dicts/lists.&lt;/p&gt;
-
-&lt;p&gt;Same way you go more composition instead of inheritance.&lt;/p&gt;
-
-&lt;p&gt;Same way while/do/while usually fades away, and if needed exit conditions.&lt;/p&gt;
-
-&lt;p&gt;Same way you move on from single condition bracket-less ifs. (debatable but more merge friendly and OP hasn’t yet)&lt;/p&gt;
-
-&lt;p&gt;Same way you get joy deleting large swaths of code.&lt;/p&gt;
-
-&lt;p&gt;and many others on and on.&lt;/p&gt;
-
-&lt;p&gt;Usually these come from hours of writing/maintaining code and styles that lead to bugs.”&lt;/p&gt;
-
-&lt;hr /&gt;
-</description>
-        <pubDate>Sun, 17 Dec 2017 11:52:21 -0700</pubDate>
-        <link>http://localhost:4000/2017/12/thought-on-programming</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/12/thought-on-programming</guid>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>Clever jQuery Chaining</title>
-        <description>&lt;p&gt;“With jQuery, you can chain together actions/methods.&lt;/p&gt;
-
-&lt;p&gt;Chaining allows us to run multiple jQuery methods (on the same element) within a single statement.”&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.focus&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;border-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;removeClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;focus&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;focus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;focus&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Tue, 05 Dec 2017 11:52:21 -0700</pubDate>
-        <link>http://localhost:4000/2017/12/clever-jquery-chaining</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/12/clever-jquery-chaining</guid>
         
         
         <category>JavaScript</category>

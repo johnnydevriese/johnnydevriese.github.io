@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Running PostgrSQL in Docker"
+title:  "Running PostgreSQL in Docker"
 date:   2020-02-09 18:52:21
 categories: postgreSQL database docker
 ---
 
-POSTGRES my beauty 
+PostgreSQL is like therapy after trying to wrangle Cassandra for years! Lets get it up and running in a docker container.
 
 I tried to install/run with brew but got an error connection refused. I think this has to do with other fuzion config found in /etc/hosts 
 
