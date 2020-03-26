@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="t-blue">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Running PostgrSQL in Docker</title>
+  <meta name="description" content="POSTGRES my beauty">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700|Roboto+Mono:400,500' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/02/running-postgresql-in-docker">
+  <link rel="alternate" type="application/rss+xml" title="Johnny Devriese" href="http://localhost:4000/feed.xml">
+</head>
+
+  <body>
+    <nav class="c-navigation is-fixed">
+  <div class="c-navigation__container u-container">
+    <a class="c-navigation__item " href="/">Home</a>
+    <a class="c-navigation__item " href="/articles/">Articles</a>
+    <a class="c-navigation__item " href="/resources/">Resources</a>
+    <a class="c-navigation__item " href="/about/">About</a>
+  </div>
+</nav>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<article class="c-article">
+  <header class="c-header c-article__header">
+    <div class="u-container">
+      <h1 class="c-header__title">Running PostgrSQL in Docker</h1>
+    </div>
+  </header>
+
+  <div class="c-article__main">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<p>POSTGRES my beauty</p>
+
+<p>I tried to install/run with brew but got an error connection refused. I think this has to do with other fuzion config found in /etc/hosts</p>
+
+<p>So instead we can just run it in a docker container.</p>
+
+<p><code class="language-plaintext highlighter-rouge">$ docker run -d --name my_postgres -v my_dbdata:/var/lib/postgresql/data -p 54320:5432 postgres:11</code></p>
+
+<p>Can check that it is running with the usual</p>
+
+<p><code class="language-plaintext highlighter-rouge">$ docker ps -a</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS                      PORTS                                                       NAMES
+1c96b234b5ad        postgres:11                        <span class="s2">"docker-entrypoint.s…"</span>   4 minutes ago       Up 4 minutes                0.0.0.0:54320-&gt;5432/tcp                                     my_postgres
+3bc6faa05d0e        fuzion-kafka-docker_fuzion-kafka   <span class="s2">"start-kafka.sh"</span>         5 months ago        Exited <span class="o">(</span>143<span class="o">)</span> 2 months ago                                                               fuzion-kafka-docker_fuzion-kafka_1
+9321f95e9c08        wurstmeister/zookeeper             <span class="s2">"/bin/sh -c '/usr/sb…"</span>   5 months ago        Exited <span class="o">(</span>137<span class="o">)</span> 2 months ago                                                               fuzion-kafka-docker_fuzion-zookeeper_1
+4dddc20d66b7        cassandra:3.11                     <span class="s2">"docker-entrypoint.s…"</span>   19 months ago       Up 6 days                   7000-7001/tcp, 7199/tcp, 9160/tcp, 0.0.0.0:9042-&gt;9042/tcp   cassandra
+</code></pre></div></div>
+
+<p>Can view logs:</p>
+
+<p><code class="language-plaintext highlighter-rouge">$ docker logs -f my_postgres</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">$ docker exec -it my_postgres psql -U postgres</code></p>
+
+<p>https://www.taniarascia.com/node-express-postgresql-heroku/</p>
+
+<p>Further setup</p>
+
+<p>for some reason when I do</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">postgres</span><span class="o">=#</span> <span class="k">CREATE</span> <span class="k">ROLE</span> <span class="n">admin_user</span> <span class="n">LOGIN</span> <span class="n">PASSWORD</span> <span class="s1">'johnnycat'</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="k">ROLE</span>
+<span class="n">postgres</span><span class="o">=#</span> <span class="k">ALTER</span> <span class="k">ROLE</span> <span class="n">admin_user</span> <span class="k">CREATEDB</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">ROLE</span>
+<span class="n">postgres</span><span class="o">=#</span> <span class="err">\</span><span class="n">q</span>
+</code></pre></div></div>
+
+<p>I cannot do</p>
+
+<p><code class="language-plaintext highlighter-rouge">$ docker exec -it my_postgres psql -U admin_user</code></p>
+
+<p>Might have to tell which database to connect to. Obviously using ‘postgres’ user is not great but I’m just trying to get going.</p>
+
+<p>Anyways, we can create a database and then connect to it.</p>
+
+<p><code class="language-plaintext highlighter-rouge">postgres=# CREATE DATABASE fuzion_files;</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">postgres=# \c fuzion_files;</code></p>
+
+<p>Right off the bat: WE want to have UUIDs as the PK.</p>
+
+<p><code class="language-plaintext highlighter-rouge">CREATE EXTENSION IF NOT EXISTS "uuid-ossp";</code></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">meta_data</span> <span class="p">(</span>
+    <span class="n">file_id</span> <span class="n">uuid</span> <span class="k">DEFAULT</span> <span class="n">uuid_generate_v4</span> <span class="p">(),</span>
+    <span class="n">fuzion_event_id</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="k">version</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">name</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">description</span> <span class="nb">VARCHAR</span><span class="p">,</span>
+    <span class="k">type</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">file_id</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">meta_data</span> <span class="p">(</span>
+    <span class="n">fuzion_event_id</span><span class="p">,</span>
+    <span class="k">version</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">,</span>
+    <span class="n">description</span>
+<span class="p">)</span>
+<span class="k">VALUES</span>
+    <span class="p">(</span>
+        <span class="s1">'11E9F4595A14F3A0989B9BF9CE051B56'</span><span class="p">,</span>
+        <span class="s1">'1'</span><span class="p">,</span>
+        <span class="s1">'foo'</span><span class="p">,</span>
+        <span class="s1">'a picture of a cat'</span>
+    <span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s1">'11E9F4C2518D7A908B85717A8E7E3383'</span><span class="p">,</span>
+        <span class="s1">'12'</span><span class="p">,</span>
+        <span class="s1">'bar'</span><span class="p">,</span>
+        <span class="s1">'a pdf of cat pictures'</span>
+    <span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s1">'11EA3EDA364A8EF0A2F0E13FD80832FE'</span><span class="p">,</span>
+        <span class="s1">'66'</span><span class="p">,</span>
+        <span class="s1">'baz'</span><span class="p">,</span>
+        <span class="s1">'pictures of chad in his comically low chair'</span>
+    <span class="p">);</span>
+</code></pre></div></div>
+
+<p>We can now query our records very easily:</p>
+
+<p><code class="language-plaintext highlighter-rouge">postgres=# select * from meta_data;</code></p>
+
+<p>We can connect to our postgres db in tableplus with</p>
+
+<hr />
+<p>host: 127.0.0.1 port:54320 
+user: postgres
+password: <blank> 
+SSL: DISABLED 
+---</blank></p>
+
+<p>BOOOOOOMMMMMMMMMMM!</p>
+
+<p>I’m very excited to return back to the land of relational databases where we don’t have to worry about querying by primary key like in Cassandra.</p>
+
+
+
+  </div>
+</article>
+
+
+    <footer class="c-footer">
+  <div class="u-container c-footer__container">
+    <p>&copy; Johnny Devriese 2020</p>
+    <p>
+        <a href="https://github.com/johnnydevriese">GitHub</a>
+        <a href="https://instagram.com/johnnydevriese">Instagram</a>
+      <a href="https://twitter.com/johnnydevriese">Twitter</a>
+      <a href="https://500px.com/johnminor07">500px</a>
+      
+      
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>
