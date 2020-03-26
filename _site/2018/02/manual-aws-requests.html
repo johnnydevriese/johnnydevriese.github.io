@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html class="t-blue">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Manually Making Requests to S3 (don't)</title>
+  <meta name="description" content="You should probably be a normal human being and use the SDK, but one day I was tasked with figuring this out. So I figured I should document it.">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700|Roboto+Mono:400,500' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2018/02/manual-aws-requests">
+  <link rel="alternate" type="application/rss+xml" title="Johnny Devriese" href="http://localhost:4000/feed.xml">
+</head>
+
+  <body>
+    <nav class="c-navigation is-fixed">
+  <div class="c-navigation__container u-container">
+    <a class="c-navigation__item " href="/">Home</a>
+    <a class="c-navigation__item " href="/articles/">Articles</a>
+    <a class="c-navigation__item " href="/resources/">Resources</a>
+    <a class="c-navigation__item " href="/about/">About</a>
+  </div>
+</nav>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<article class="c-article">
+  <header class="c-header c-article__header">
+    <div class="u-container">
+      <h1 class="c-header__title">Manually Making Requests to S3 (don't)</h1>
+    </div>
+  </header>
+
+  <div class="c-article__main">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<p>You should probably be a normal human being and use the SDK, but one day I was tasked with figuring this out. So I figured I should document it.</p>
+
+<p>we need to derive the signing key and could use Crypto.js</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/hmac-sha256.js"&gt;&lt;/script&gt;
+&lt;script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  var hash = CryptoJS.HmacSHA256("Message", "secret");
+  var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
+  document.write(hashInBase64);
+&lt;/script&gt;
+</code></pre></div></div>
+
+<p>And then we have to manually sign requests if we are making making direct HTTP/HTTPS requests.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">crypto-js</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">getSignatureKey</span><span class="p">(</span><span class="nx">Crypto</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">dateStamp</span><span class="p">,</span> <span class="nx">regionName</span><span class="p">,</span> <span class="nx">serviceName</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">kDate</span> <span class="o">=</span> <span class="nx">Crypto</span><span class="p">.</span><span class="nx">HmacSHA256</span><span class="p">(</span><span class="nx">dateStamp</span><span class="p">,</span> <span class="dl">"</span><span class="s2">AWS4</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">key</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">kRegion</span> <span class="o">=</span> <span class="nx">Crypto</span><span class="p">.</span><span class="nx">HmacSHA256</span><span class="p">(</span><span class="nx">regionName</span><span class="p">,</span> <span class="nx">kDate</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">kService</span> <span class="o">=</span> <span class="nx">Crypto</span><span class="p">.</span><span class="nx">HmacSHA256</span><span class="p">(</span><span class="nx">serviceName</span><span class="p">,</span> <span class="nx">kRegion</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">kSigning</span> <span class="o">=</span> <span class="nx">Crypto</span><span class="p">.</span><span class="nx">HmacSHA256</span><span class="p">(</span><span class="dl">"</span><span class="s2">aws4_request</span><span class="dl">"</span><span class="p">,</span> <span class="nx">kService</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">kSigning</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>And to make the date in ISO 8601 format.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var current_timestamp = new Date();
+
+pm.environment.set("current_timestamp", current_timestamp.toISOString());
+</code></pre></div></div>
+
+<p>check here: https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html</p>
+
+
+  </div>
+</article>
+
+
+    <footer class="c-footer">
+  <div class="u-container c-footer__container">
+    <p>&copy; Johnny Devriese 2020</p>
+    <p>
+      <a href="https://twitter.com/johnnydevriese">Twitter</a>
+      <a href="https://github.com/johnnydevriese">GitHub</a>
+      <a href="https://instagram.com/johnnydevriese">Instagram</a>
+      <a href="https://plus.google.com/+JohnnyMinor">Google+</a>
+      <a href="https://500px.com/johnminor07">500px</a>
+      
+      
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

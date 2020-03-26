@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="t-blue">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Composer and phantomjs (for PDF and Excel reports on Analytics)</title>
+  <meta name="description" content="Despite the directions in the google drive they don’t actually work because composer wants a composer.json file which doesn’t get created when we do: $ brew ...">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700|Roboto+Mono:400,500' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2017/11/composer-and-phantom">
+  <link rel="alternate" type="application/rss+xml" title="Johnny Devriese" href="http://localhost:4000/feed.xml">
+</head>
+
+  <body>
+    <nav class="c-navigation is-fixed">
+  <div class="c-navigation__container u-container">
+    <a class="c-navigation__item " href="/">Home</a>
+    <a class="c-navigation__item " href="/articles/">Articles</a>
+    <a class="c-navigation__item " href="/resources/">Resources</a>
+    <a class="c-navigation__item " href="/about/">About</a>
+  </div>
+</nav>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<article class="c-article">
+  <header class="c-header c-article__header">
+    <div class="u-container">
+      <h1 class="c-header__title">Composer and phantomjs (for PDF and Excel reports on Analytics)</h1>
+    </div>
+  </header>
+
+  <div class="c-article__main">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<p>Despite the directions in the google drive they don’t actually work because <code class="language-plaintext highlighter-rouge">composer</code> wants a <code class="language-plaintext highlighter-rouge">composer.json</code> file which doesn’t get created when we do: 
+<code class="language-plaintext highlighter-rouge">$ brew install composer</code>. All it does is creates a <code class="language-plaintext highlighter-rouge">composer.lock</code> file. And then when we try to use composer to install all of our projects dependencies which it would 
+usually get from our <code class="language-plaintext highlighter-rouge">composer.json</code> file (much like npm’s <code class="language-plaintext highlighter-rouge">package.json</code> file) it can’t find any! Well, we can just create one and copy/paste our dependencies into it and then all will, once again, be right in the world.</p>
+
+<p>Install composer with brew: 
+<code class="language-plaintext highlighter-rouge">$ brew install composer</code> 
+You can check the install with: 
+<code class="language-plaintext highlighter-rouge">$ composer -V</code></p>
+
+<p>create a composer.json file within project directory ( ~/Sites/project/ ): 
+<code class="language-plaintext highlighter-rouge">$ vim composer.json</code></p>
+
+<p>I went into to github and copy/pasted the <code class="language-plaintext highlighter-rouge">composer.lock</code> contents into our new <code class="language-plaintext highlighter-rouge">composer.lock</code> file. 
+(use <code class="language-plaintext highlighter-rouge">:wq</code> to exit vim. :D )</p>
+
+<p>Now, we can run <code class="language-plaintext highlighter-rouge">$ composer install</code> which will go through and install all the dependencies. 
+Now we’ll have a /bin/ directory (before we didnt). <code class="language-plaintext highlighter-rouge">cd</code> into it and then give phantomjs read/write priviliges with. 
+<code class="language-plaintext highlighter-rouge">$ chmod 777 phantomjs</code></p>
+
+<p>go and get your reporting on.</p>
+
+
+  </div>
+</article>
+
+
+    <footer class="c-footer">
+  <div class="u-container c-footer__container">
+    <p>&copy; Johnny Devriese 2020</p>
+    <p>
+      <a href="https://twitter.com/johnnydevriese">Twitter</a>
+      <a href="https://github.com/johnnydevriese">GitHub</a>
+      <a href="https://instagram.com/johnnydevriese">Instagram</a>
+      <a href="https://plus.google.com/+JohnnyMinor">Google+</a>
+      <a href="https://500px.com/johnminor07">500px</a>
+      
+      
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

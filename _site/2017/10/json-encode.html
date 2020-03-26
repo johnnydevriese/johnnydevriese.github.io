@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="t-blue">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>PHP JSON parsing problem</title>
+  <meta name="description" content="Problem: json_encode() returns FALSE. This means that our crap is broken. Intially it looked like the depth could be set wrong, but that didn’t solve the iss...">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700|Roboto+Mono:400,500' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2017/10/json-encode">
+  <link rel="alternate" type="application/rss+xml" title="Johnny Devriese" href="http://localhost:4000/feed.xml">
+</head>
+
+  <body>
+    <nav class="c-navigation is-fixed">
+  <div class="c-navigation__container u-container">
+    <a class="c-navigation__item " href="/">Home</a>
+    <a class="c-navigation__item " href="/articles/">Articles</a>
+    <a class="c-navigation__item " href="/resources/">Resources</a>
+    <a class="c-navigation__item " href="/about/">About</a>
+  </div>
+</nav>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<article class="c-article">
+  <header class="c-header c-article__header">
+    <div class="u-container">
+      <h1 class="c-header__title">PHP JSON parsing problem</h1>
+    </div>
+  </header>
+
+  <div class="c-article__main">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<p><strong>Problem</strong>: json_encode() returns FALSE. This means that our crap is broken. 
+Intially it looked like the depth could be set wrong, but that didn’t solve the issue. 
+Fix: Use json_last_error_msg() which will output why it is broken. 
+We could write an entire error handler so we would know about these things</p>
+
+<p>Something like this would be sweet:</p>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">function_exists</span><span class="p">(</span><span class="s1">'json_last_error_msg'</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">function</span> <span class="nf">json_last_error_msg</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">static</span> <span class="nv">$ERRORS</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+                <span class="nx">JSON_ERROR_NONE</span> <span class="o">=&gt;</span> <span class="s1">'No error'</span><span class="p">,</span>
+                <span class="nx">JSON_ERROR_DEPTH</span> <span class="o">=&gt;</span> <span class="s1">'Maximum stack depth exceeded'</span><span class="p">,</span>
+                <span class="nx">JSON_ERROR_STATE_MISMATCH</span> <span class="o">=&gt;</span> <span class="s1">'State mismatch (invalid or malformed JSON)'</span><span class="p">,</span>
+                <span class="nx">JSON_ERROR_CTRL_CHAR</span> <span class="o">=&gt;</span> <span class="s1">'Control character error, possibly incorrectly encoded'</span><span class="p">,</span>
+                <span class="nx">JSON_ERROR_SYNTAX</span> <span class="o">=&gt;</span> <span class="s1">'Syntax error'</span><span class="p">,</span>
+                <span class="nx">JSON_ERROR_UTF8</span> <span class="o">=&gt;</span> <span class="s1">'Malformed UTF-8 characters, possibly incorrectly encoded'</span>
+            <span class="p">);</span>
+
+            <span class="nv">$error</span> <span class="o">=</span> <span class="nb">json_last_error</span><span class="p">();</span>
+            <span class="k">return</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$ERRORS</span><span class="p">[</span><span class="nv">$error</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$ERRORS</span><span class="p">[</span><span class="nv">$error</span><span class="p">]</span> <span class="o">:</span> <span class="s1">'Unknown error'</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+<p>Also, in PHP 5.5.0+ we could just change our json_encode to:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$foo</span><span class="p">,</span> <span class="nx">JSON_PARTIAL_OUTPUT_ON_ERROR</span> <span class="o">|</span> <span class="nx">JSON_PRETTY_PRINT</span><span class="p">);</span>
+</code></pre></div></div>
+
+
+  </div>
+</article>
+
+
+    <footer class="c-footer">
+  <div class="u-container c-footer__container">
+    <p>&copy; Johnny Devriese 2020</p>
+    <p>
+      <a href="https://twitter.com/johnnydevriese">Twitter</a>
+      <a href="https://github.com/johnnydevriese">GitHub</a>
+      <a href="https://instagram.com/johnnydevriese">Instagram</a>
+      <a href="https://plus.google.com/+JohnnyMinor">Google+</a>
+      <a href="https://500px.com/johnminor07">500px</a>
+      
+      
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

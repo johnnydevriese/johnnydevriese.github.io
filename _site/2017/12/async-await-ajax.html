@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="t-blue">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Async Await an AJAX Request</title>
+  <meta name="description" content="This will only work on more modern browsers! :)">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700|Roboto+Mono:400,500' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2017/12/async-await-ajax">
+  <link rel="alternate" type="application/rss+xml" title="Johnny Devriese" href="http://localhost:4000/feed.xml">
+</head>
+
+  <body>
+    <nav class="c-navigation is-fixed">
+  <div class="c-navigation__container u-container">
+    <a class="c-navigation__item " href="/">Home</a>
+    <a class="c-navigation__item " href="/articles/">Articles</a>
+    <a class="c-navigation__item " href="/resources/">Resources</a>
+    <a class="c-navigation__item " href="/about/">About</a>
+  </div>
+</nav>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<article class="c-article">
+  <header class="c-header c-article__header">
+    <div class="u-container">
+      <h1 class="c-header__title">Async Await an AJAX Request</h1>
+    </div>
+  </header>
+
+  <div class="c-article__main">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<p>This will only work on more modern browsers! :)</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">doAjax</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">result</span><span class="p">;</span>
+
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+            <span class="na">url</span><span class="p">:</span> <span class="nx">ajaxurl</span><span class="p">,</span>
+            <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">data</span><span class="p">:</span> <span class="nx">args</span>
+        <span class="p">});</span>
+
+        <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// two ways to call this async function: </span>
+
+<span class="c1">// Elsewhere in code, inside an async function</span>
+<span class="kd">const</span> <span class="nx">stuff</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">doAjax</span><span class="p">();</span>
+
+
+
+<span class="nx">doAjax</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">doStuff</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">)</span>
+</code></pre></div></div>
+
+
+  </div>
+</article>
+
+
+    <footer class="c-footer">
+  <div class="u-container c-footer__container">
+    <p>&copy; Johnny Devriese 2020</p>
+    <p>
+      <a href="https://twitter.com/johnnydevriese">Twitter</a>
+      <a href="https://github.com/johnnydevriese">GitHub</a>
+      <a href="https://instagram.com/johnnydevriese">Instagram</a>
+      <a href="https://plus.google.com/+JohnnyMinor">Google+</a>
+      <a href="https://500px.com/johnminor07">500px</a>
+      
+      
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

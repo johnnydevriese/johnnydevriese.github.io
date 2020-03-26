@@ -1,0 +1,36 @@
+---
+layout: post
+title:  "Async Await an AJAX Request"
+date:   2017-12-05 18:52:21
+categories: JavaScript
+---
+
+This will only work on more modern browsers! :) 
+
+```javascript
+
+async function doAjax(args) {
+    let result;
+
+    try {
+        result = await $.ajax({
+            url: ajaxurl,
+            type: 'POST',
+            data: args
+        });
+
+        return result;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// two ways to call this async function: 
+
+// Elsewhere in code, inside an async function
+const stuff = await doAjax();
+
+
+
+doAjax().then( (data) => doStuff(data) )
+```

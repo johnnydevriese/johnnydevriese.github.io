@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="t-blue">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Using Google Maps API to Return the Local Time </title>
+  <meta name="description" content="https://developers.google.com/maps/documentation/timezone/intro#Responses">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700|Roboto+Mono:400,500' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2018/01/getting-timezone-from-google">
+  <link rel="alternate" type="application/rss+xml" title="Johnny Devriese" href="http://localhost:4000/feed.xml">
+</head>
+
+  <body>
+    <nav class="c-navigation is-fixed">
+  <div class="c-navigation__container u-container">
+    <a class="c-navigation__item " href="/">Home</a>
+    <a class="c-navigation__item " href="/articles/">Articles</a>
+    <a class="c-navigation__item " href="/resources/">Resources</a>
+    <a class="c-navigation__item " href="/about/">About</a>
+  </div>
+</nav>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<article class="c-article">
+  <header class="c-header c-article__header">
+    <div class="u-container">
+      <h1 class="c-header__title">Using Google Maps API to Return the Local Time </h1>
+    </div>
+  </header>
+
+  <div class="c-article__main">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<p><code class="language-plaintext highlighter-rouge">https://developers.google.com/maps/documentation/timezone/intro#Responses</code></p>
+
+<p>This is some half baked code that we copy/pasted the variables around. Essentially just a proof of concept.</p>
+
+<p>This just shows how we could get a timestamp and geolocation from the browser, send that to the Maps API and get back both the offset and daylight savings offset too.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">function</span> <span class="nx">successFunction</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">long</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Your latitude is :</span><span class="dl">'</span><span class="o">+</span><span class="nx">lat</span><span class="o">+</span><span class="dl">'</span><span class="s1"> and longitude is </span><span class="dl">'</span><span class="o">+</span><span class="nx">long</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// get the longitude and latitude from browser. </span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">successFunction</span><span class="p">,</span> <span class="nx">errorFunction</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// get a timestamp and covnert stupid JS millisecond to seconds. </span>
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>
+
+<span class="c1">// send this off to Maps API. </span>
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://maps.googleapis.com/maps/api/timezone/json?location=43.6779426,-116.35970530000002&amp;timestamp=1522881075211&amp;key=AIzaSyBQ4TieD5Zik7Axu1Rp8LsyY3ayPEhXVHA</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">myJson</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myJson</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre></div></div>
+
+<p>From the docs: 
+The local time of a given location is the sum of the timestamp parameter, and the dstOffset and rawOffset fields from the result.</p>
+
+<p>We could then either use an online UNIX timestamp converter or we could just write some other code to 
+turn it into a timestamp object.</p>
+
+
+  </div>
+</article>
+
+
+    <footer class="c-footer">
+  <div class="u-container c-footer__container">
+    <p>&copy; Johnny Devriese 2020</p>
+    <p>
+      <a href="https://twitter.com/johnnydevriese">Twitter</a>
+      <a href="https://github.com/johnnydevriese">GitHub</a>
+      <a href="https://instagram.com/johnnydevriese">Instagram</a>
+      <a href="https://plus.google.com/+JohnnyMinor">Google+</a>
+      <a href="https://500px.com/johnminor07">500px</a>
+      
+      
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

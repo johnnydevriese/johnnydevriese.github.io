@@ -6,17 +6,17 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 25 Mar 2020 11:31:46 -0600</pubDate>
-    <lastBuildDate>Wed, 25 Mar 2020 11:31:46 -0600</lastBuildDate>
-    <generator>Jekyll v3.7.4</generator>
+    <pubDate>Thu, 26 Mar 2020 16:06:43 -0600</pubDate>
+    <lastBuildDate>Thu, 26 Mar 2020 16:06:43 -0600</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
     
       <item>
-        <title>How to Train A Tiger</title>
-        <description>&lt;p&gt;Training a Tiger is no simple task. You first need salmon. In actuality you need a LOT of salmon.&lt;/p&gt;
+        <title>Hello 2020!</title>
+        <description>&lt;p&gt;This is a test that the deployment still works!&lt;/p&gt;
 </description>
-        <pubDate>Thu, 29 Jun 2017 12:52:21 -0600</pubDate>
-        <link>http://localhost:4000/2017/06/how-to-train-a-tiger</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/06/how-to-train-a-tiger</guid>
+        <pubDate>Wed, 25 Mar 2020 12:52:21 -0600</pubDate>
+        <link>http://localhost:4000/2020/03/hello-2020</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/03/hello-2020</guid>
         
         
         <category>training</category>
@@ -24,90 +24,328 @@
       </item>
     
       <item>
-        <title>Building My Photography Website</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/pgqrZpVzULSb5dDqGxL2jfKHbjJ2EMXZacOi6ZhTDEaW3dRcWB1Z8qlqy6DDmX9Nli_SRajnEsexOVrbrCzNK3qucTsLcrEPbNpry1j5o-wbRfuSLr1L8o30pHtl2Hd5mORz18Tm9PaWRcmwmJWuLc9Ekeniy6XYGh0_aj1-TX_uMm20JfpyK1rmPASkWLRh7saH_ZL9Nx-OfGD899Lb54jUpK_uS0OHgwoeamPhFtXyjnEA_QKSF-ccbX9Lbl4NoiXUDXNAK-fjlIsfPBq7kJdZI4EEzLJ9Bg4R5NmVOiWSlcbPzSuYYSLARGz1F0n_YOOouho_qSTDgVfFuYn81N7g153DdbUTeDOX30cIPMnBGcFQdRwUDMGIKM8vwgUlficdcJdbxxdBpm7Fym9bnm0J9oIEH2gjzzc5KVL74ID-dFUj6dGFpSA_H6c2DlmW4OUNPaRDroaiUH9Xhv3VZBJ7fOQhWRr-A6bWMqs2oaFv5d983JR3SKpambQOtj2CKI1My5JGkc62CP6_O6mrg_rWizcVWAflz8SYU1AtoVCbe4vYU0mFmxb_6gYxJCryud1mJ4mP1exn5SC3cjjV_fR8jm6TjVXSQasrRNrz5ZoJZzccsHHftw=w1534-h957-no&quot; alt=&quot;Home Page&quot; /&gt;&lt;/p&gt;
+        <title>Filtering Elements By Value</title>
+        <description>&lt;p&gt;very good answer: https://stackoverflow.com/questions/286141/remove-blank-attributes-from-an-object-in-javascript&lt;/p&gt;
 
-&lt;p&gt;Back in 2015 I decided I would dedicate my spring break to building my first website. Being a photographer it had to be as
-current and modern as possible. However, web development has gotten incredibly complicated so I chose to instead spend a few bucks on
-a nice parallax single page website. It seems like it would be relatively straightforward to just paste in your own photos, but
-since it was my first foray into this new world it still took me the entirety of my spring break to choose a template,
-go through my portfolio and choose the photos, tweak the template to my liking, and finally deploy the website.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let foo = {
+  bar: null,
+  baz: undefined,
+  dingetje: &quot;&quot;,
+  good: &quot;cat&quot;
+};
 
-&lt;p&gt;At the time I went with GoDaddy for my domain name &lt;code class=&quot;highlighter-rouge&quot;&gt;jminorphotography.com&lt;/code&gt;. They were actually quite good for the year that I had it hosted there.
-After the first year I decided not to renew the site since it was around $100 for the year, and it didn’t see much traffic at all since most people have gone to more photo-centric website anyways.&lt;/p&gt;
-
-&lt;p&gt;Well, now with GitHub hosting available it has been resurrected. Although I’m currently facing issues with it loading the JavaScript correctly (surprise surprise), but hopefully I can get it sorted out.
-In the meantime I’ve taken some screenshots of the exact same &lt;a href=&quot;https://github.com/johnnydevriese/jminorphotography&quot;&gt;GitHub repo(!)&lt;/a&gt; running locally to show it off.&lt;/p&gt;
-
-&lt;p&gt;Above is the landing page with a carousel of my three favorite images at the time, and here is the ‘About Me’ part of the page once you scroll down.
-&lt;img src=&quot;https://lh3.googleusercontent.com/Ywz4VnpcP6Bxk7QMClC_RhbmHdie-YaCqUuYLXPqWwauLHELnIIDLLTmp3Z5M73oWVlDoYs_YgTHhXzakrJTxNLdk9fyjXWFGlpYBOstWiwJcOhMqW0XhmqATo_xFi9GiKdjGRQv4SxrYcuyzJl4mKZI-cLQc5r0leEFra8yy84gWarvNmFG-JrLDZhmsXOrWuk99rDAUGFfpIp0TpUeMlQHzTBKUO7KpmxYCeGBv6toy3gbwQswHFroQOWs9zpFdvQQhG18C9ITR4s4KsSsUX5yuyYCiMTsCDfMXil7jMJk0vgbT5B8nPTLBzw8q0xBOgglpfK0KthqOBBDgLvSTrwzxdnPLXHb2GvxF4Xst9y3iq_C47eZW3a9fQvPifSvaHcSG6ycNA507sjK9ivP0_I_kY_3RX3vHzb6GZ98Yx7svpQpUBmSvymRBLLulJq-RUa6yvKpszcHBnvdkx5YSSetD-wAcE6PkvD-zYDbbP5yLZQjW9dZV0w-SK46mEEsQRV4Q0lHVw8RSHEalfJiSYHiY6YdrTgjSklqp51UgIUKLZuf9j3fsBJatVTDr2oX2MBLaujXZ76VyHYJQbRQj9NrgriPrurQU4qxLWRUquaON1zTAQ=w1534-h957-no&quot; alt=&quot;About Me&quot; /&gt;&lt;/p&gt;
-
-&lt;!--
-
-[Landing Page][website1]
-
-[About me][website2]
-
-[jared-github]: http://jaurentz.github.io/
+let filter = key =&amp;gt; {
+  return (foo[key] === null || foo[key] === undefined || foo[key] === &quot;&quot;) &amp;amp;&amp;amp; delete foo[key];
+}
 
 
-[website1]: https://lh3.googleusercontent.com/bGm_C0Esk7boBLFLs0MyhVCOeSulH2LOHbvePT_Bnd7DBBpK7SV0uCIq5sPVGtcIbFVbezIyVeK1lJE8SeZ65mcpDSNZ1kMv_TpDJuaqNjR3F8--KmX3FNUCjS-acSObpdd8tOI6P0I1pJZKnErtNmbNzQxO43Iq_Y6-wKVU7QVYvq0SquRlod2zQ3VYqriOscL0dcCUriMOnkJEmeglHjlQN6E4_EIor0ENNjWNztyb6phd8HBVNA2EzIBguzpapF9ig1G5alnIckd2o2FsYJ_vevLPNq1ZzSBY23MnVWJzS0f8abz2a6R_waMxqiCTyKJJuKt3sCKxWjcsKIvEkJgWGiF5X8o3mbLFFDlDu-J_jGGdmDa_6nZrFAEBSq-ZcggpIxbcLuqFtPOHk421Otehshh-0qRc8r1QBe2drwcHpYMsjqUBvAntyZ9LYBIgirjgdbfdoDb1PUbdL4rSBigN_XUWZRuqorC4vvAPTjNktX_FlWySq79Tl20VL_VQQ209h0CelPfXXZpVIR_W1HfYNBIyyONOwB1GMtxlEROCtxsU-ld2mhvKTbLlM5GnjrL9J8XQVrPNCRT_-_C5krOZY5JmThE-gYCSQdKn-fYU8mBsaQ=w339-h211-no
-[website2]: https://lh3.googleusercontent.com/Ywz4VnpcP6Bxk7QMClC_RhbmHdie-YaCqUuYLXPqWwauLHELnIIDLLTmp3Z5M73oWVlDoYs_YgTHhXzakrJTxNLdk9fyjXWFGlpYBOstWiwJcOhMqW0XhmqATo_xFi9GiKdjGRQv4SxrYcuyzJl4mKZI-cLQc5r0leEFra8yy84gWarvNmFG-JrLDZhmsXOrWuk99rDAUGFfpIp0TpUeMlQHzTBKUO7KpmxYCeGBv6toy3gbwQswHFroQOWs9zpFdvQQhG18C9ITR4s4KsSsUX5yuyYCiMTsCDfMXil7jMJk0vgbT5B8nPTLBzw8q0xBOgglpfK0KthqOBBDgLvSTrwzxdnPLXHb2GvxF4Xst9y3iq_C47eZW3a9fQvPifSvaHcSG6ycNA507sjK9ivP0_I_kY_3RX3vHzb6GZ98Yx7svpQpUBmSvymRBLLulJq-RUa6yvKpszcHBnvdkx5YSSetD-wAcE6PkvD-zYDbbP5yLZQjW9dZV0w-SK46mEEsQRV4Q0lHVw8RSHEalfJiSYHiY6YdrTgjSklqp51UgIUKLZuf9j3fsBJatVTDr2oX2MBLaujXZ76VyHYJQbRQj9NrgriPrurQU4qxLWRUquaON1zTAQ=w1534-h957-no
---&gt;
+Object.keys(foo).forEach(filter);
+
+console.log(foo);
+&amp;gt;&amp;gt; {good: &quot;cat&quot; }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Need to think about this one that uses recursion.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const removeEmpty = obj =&amp;gt;
+  Object.fromEntries(
+    Object.entries(obj)
+      .filter(([k, v]) =&amp;gt; v != null)
+      .map(([k, v]) =&amp;gt; (typeof v === &quot;object&quot; ? [k, removeEmpty(v)] : [k, v]))
+  );
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
-        <pubDate>Sun, 15 Mar 2015 17:52:21 -0600</pubDate>
-        <link>http://localhost:4000/2015/03/building-my-photography-website</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/03/building-my-photography-website</guid>
+        <pubDate>Sat, 17 Mar 2018 12:52:21 -0600</pubDate>
+        <link>http://localhost:4000/2018/03/filtering-elements-by-value</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/03/filtering-elements-by-value</guid>
         
         
-        <category>web</category>
-        
-        <category>development</category>
+        <category>JavaScript</category>
         
       </item>
     
       <item>
-        <title>Solving The Schrodinger Equation Using Chebfun!</title>
-        <description>&lt;p&gt;My first introduction to scientific computing was working with &lt;a href=&quot;http://jaurentz.github.io/&quot;&gt;Jared L. Aurentz&lt;/a&gt;.
-Over the summer of 2014 we worked on developing an algorithm in C, Python, and eventually Matlab
-to solve the Schrodinger and then calculate the hyperpolerizatbility of with the given potential.&lt;/p&gt;
+        <title>Git Merge Tricks</title>
+        <description>&lt;p&gt;Sometimes you might just want to merge and accept the master branch (or whomevers) changes because you know they will overrule you no matter what. So this is a pretty slick Git trick.&lt;/p&gt;
 
-&lt;p&gt;You can read through Jared’s write brief write-up through Oxford’s research group &lt;a href=&quot;http://www.chebfun.org/examples/ode-eig/OpticalResponse.html&quot;&gt;Chebfun website&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;git-merge-ours-and-theirs&quot;&gt;Git merge ours and theirs&lt;/h2&gt;
 
-&lt;p&gt;I hope to put my significantly longer write up along with all of the code on GitHub soon!&lt;/p&gt;
+&lt;p&gt;Try this:&lt;/p&gt;
 
-&lt;p&gt;Here’s a plot from Wikipedia of the first five chebyshev polynomials.
-&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Chebyshev_Polynomials_of_the_First_Kind.svg/640px-Chebyshev_Polynomials_of_the_First_Kind.svg.png?1498838992669&quot; alt=&quot;Chebyshev Polynomials are fun&quot; title=&quot;Chebyshev polynomials are fun!&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;To accept theirs changes: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge --strategy-option theirs&lt;/code&gt;&lt;/p&gt;
 
-&lt;!--
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+&lt;p&gt;To accept yours: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge --strategy-option ours&lt;/code&gt;&lt;/p&gt;
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+&lt;p&gt;Nice!&lt;/p&gt;
 
-Jekyll also offers powerful support for code snippets:
-
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
---&gt;
-
+&lt;p&gt;##&lt;/p&gt;
 </description>
-        <pubDate>Mon, 01 Sep 2014 17:52:21 -0600</pubDate>
-        <link>http://localhost:4000/2014/09/solving-the-schrodinger-equation-using-chebfun</link>
-        <guid isPermaLink="true">http://localhost:4000/2014/09/solving-the-schrodinger-equation-using-chebfun</guid>
+        <pubDate>Sun, 04 Mar 2018 11:52:21 -0700</pubDate>
+        <link>http://localhost:4000/2018/03/git-merge-tricks</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/03/git-merge-tricks</guid>
         
         
-        <category>chebfun</category>
+        <category>JavaScript,</category>
+        
+        <category>Git</category>
+        
+      </item>
+    
+      <item>
+        <title>Manually Making Requests to S3 (don't)</title>
+        <description>&lt;p&gt;You should probably be a normal human being and use the SDK, but one day I was tasked with figuring this out. So I figured I should document it.&lt;/p&gt;
+
+&lt;p&gt;we need to derive the signing key and could use Crypto.js&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script src=&quot;http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/hmac-sha256.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+
+&amp;lt;script&amp;gt;
+  var hash = CryptoJS.HmacSHA256(&quot;Message&quot;, &quot;secret&quot;);
+  var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
+  document.write(hashInBase64);
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And then we have to manually sign requests if we are making making direct HTTP/HTTPS requests.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crypto&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;crypto-js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getSignatureKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Crypto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dateStamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regionName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;serviceName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kDate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Crypto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HmacSHA256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dateStamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;AWS4&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kRegion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Crypto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HmacSHA256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regionName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kDate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Crypto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HmacSHA256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;serviceName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kRegion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kSigning&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Crypto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HmacSHA256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;aws4_request&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kSigning&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;And to make the date in ISO 8601 format.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var current_timestamp = new Date();
+
+pm.environment.set(&quot;current_timestamp&quot;, current_timestamp.toISOString());
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;check here: https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html&lt;/p&gt;
+</description>
+        <pubDate>Mon, 05 Feb 2018 11:52:21 -0700</pubDate>
+        <link>http://localhost:4000/2018/02/manual-aws-requests</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/02/manual-aws-requests</guid>
+        
+        
+        <category>JavaScript,</category>
+        
+        <category>AWS,</category>
+        
+        <category>S3</category>
+        
+      </item>
+    
+      <item>
+        <title>Finding String In JS Array</title>
+        <description>&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://www.tjvantoll.com/2013/03/14/better-ways-of-comparing-a-javascript-string-to-multiple-values/&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dingetje&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;tiger&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;tiger&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dingetje&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Pretty slick, for JS.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 22 Jan 2018 11:52:21 -0700</pubDate>
+        <link>http://localhost:4000/2018/01/find-string-in-javascript-list</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/01/find-string-in-javascript-list</guid>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>Using Google Maps API to Return the Local Time </title>
+        <description>&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://developers.google.com/maps/documentation/timezone/intro#Responses&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This is some half baked code that we copy/pasted the variables around. Essentially just a proof of concept.&lt;/p&gt;
+
+&lt;p&gt;This just shows how we could get a timestamp and geolocation from the browser, send that to the Maps API and get back both the offset and daylight savings offset too.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;successFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;coords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latitude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;coords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;longitude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Your latitude is :&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; and longitude is &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;long&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// get the longitude and latitude from browser. &lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;geolocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;geolocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getCurrentPosition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;successFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;errorFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// get a timestamp and covnert stupid JS millisecond to seconds. &lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// send this off to Maps API. &lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://maps.googleapis.com/maps/api/timezone/json?location=43.6779426,-116.35970530000002&amp;amp;timestamp=1522881075211&amp;amp;key=AIzaSyBQ4TieD5Zik7Axu1Rp8LsyY3ayPEhXVHA&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;From the docs: 
+The local time of a given location is the sum of the timestamp parameter, and the dstOffset and rawOffset fields from the result.&lt;/p&gt;
+
+&lt;p&gt;We could then either use an online UNIX timestamp converter or we could just write some other code to 
+turn it into a timestamp object.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 16 Jan 2018 11:52:21 -0700</pubDate>
+        <link>http://localhost:4000/2018/01/getting-timezone-from-google</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/01/getting-timezone-from-google</guid>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>Lazy Loading Images</title>
+        <description>&lt;p&gt;This takes a placeholder image in src tag and then we replace it with the actual data-src.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://assets.imgix.net/unsplash/jellyfish.jpg?w=800&amp;amp;h=400&amp;amp;fit=crop&amp;amp;crop=entropy&quot;&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://assets.imgix.net/unsplash/jellyfish.jpg?w=800&amp;amp;h=400&amp;amp;fit=crop&amp;amp;crop=entropy&amp;amp;px=16&amp;amp;blur=200&amp;amp;fm=webp&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Script goes just before &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/body&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// Script from https://varvy.com/pagespeed/defer-images.html&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imgDefer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imgDefer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imgDefer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getAttribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;data-src&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;imgDefer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imgDefer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getAttribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;data-src&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Mon, 08 Jan 2018 11:52:21 -0700</pubDate>
+        <link>http://localhost:4000/2018/01/lazy-loading-images</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/01/lazy-loading-images</guid>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>Dictionary To Run Function</title>
+        <description>&lt;p&gt;Getting a taste of the power of Functional Programming.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lookup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;johnnyCat&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;johnnyCat&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#questionAuthorship&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slideDown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;medium&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)};&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// slide down the jQuery&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lookup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A similiar way of doing it is like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;katana&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;isSharp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isSharp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isSharp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;katana&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Sat, 06 Jan 2018 11:52:21 -0700</pubDate>
+        <link>http://localhost:4000/2018/01/dictionary-to-run-function</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/01/dictionary-to-run-function</guid>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>Thoughts On Programming</title>
+        <description>&lt;p&gt;Interesting thoughts from /u/drawkbox that sort of remind me of the ‘The Zen of Python’.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;“Programmers with lots of hours of maintaining code eventually evolve to return early, sorting exit conditions at top and meat of the methods at the bottom.&lt;/p&gt;
+
+&lt;p&gt;Same way you evolve out of one liners.&lt;/p&gt;
+
+&lt;p&gt;Same way comments are extra weight that should only be in public or algorithm/need to know areas.&lt;/p&gt;
+
+&lt;p&gt;Same way braces go on the end of the method/class name to reduce LOC.&lt;/p&gt;
+
+&lt;p&gt;Same way you move on from heavy OO to dicts/lists.&lt;/p&gt;
+
+&lt;p&gt;Same way you go more composition instead of inheritance.&lt;/p&gt;
+
+&lt;p&gt;Same way while/do/while usually fades away, and if needed exit conditions.&lt;/p&gt;
+
+&lt;p&gt;Same way you move on from single condition bracket-less ifs. (debatable but more merge friendly and OP hasn’t yet)&lt;/p&gt;
+
+&lt;p&gt;Same way you get joy deleting large swaths of code.&lt;/p&gt;
+
+&lt;p&gt;and many others on and on.&lt;/p&gt;
+
+&lt;p&gt;Usually these come from hours of writing/maintaining code and styles that lead to bugs.”&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+        <pubDate>Sun, 17 Dec 2017 11:52:21 -0700</pubDate>
+        <link>http://localhost:4000/2017/12/thought-on-programming</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/thought-on-programming</guid>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>Clever jQuery Chaining</title>
+        <description>&lt;p&gt;“With jQuery, you can chain together actions/methods.&lt;/p&gt;
+
+&lt;p&gt;Chaining allows us to run multiple jQuery methods (on the same element) within a single statement.”&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.focus&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;border-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;removeClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;focus&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;focus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;focus&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 05 Dec 2017 11:52:21 -0700</pubDate>
+        <link>http://localhost:4000/2017/12/clever-jquery-chaining</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/clever-jquery-chaining</guid>
+        
+        
+        <category>JavaScript</category>
         
       </item>
     
