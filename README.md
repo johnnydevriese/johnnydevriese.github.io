@@ -13,6 +13,7 @@ This website was built using the [Material Jekyll Theme by Alex Carpenter](https
 2. `cd material-jekyll-theme`
 3. Configure the `_config.yml` file as needed
 4. `jekyll serve`
+5. might have to do `bundle exec jekyll serve` on macOS
 
 ## Options
 Customize your options within the `_config.yml` file.
