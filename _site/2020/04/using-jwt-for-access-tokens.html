@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="t-blue">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Using JWTs For API Access Tokens</title>
+  <meta name="description" content="Introduction">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700|Roboto+Mono:400,500' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/04/using-jwt-for-access-tokens">
+  <link rel="alternate" type="application/rss+xml" title="Johnny Devriese" href="http://localhost:4000/feed.xml">
+</head>
+
+  <body>
+    <nav class="c-navigation is-fixed">
+  <div class="c-navigation__container u-container">
+    <a class="c-navigation__item " href="/">Home</a>
+    <a class="c-navigation__item " href="/articles/">Articles</a>
+    <a class="c-navigation__item " href="/resources/">Resources</a>
+    <a class="c-navigation__item " href="/about/">About</a>
+  </div>
+</nav>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<article class="c-article">
+  <header class="c-header c-article__header">
+    <div class="u-container">
+      <h1 class="c-header__title">Using JWTs For API Access Tokens</h1>
+    </div>
+  </header>
+
+  <div class="c-article__main">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<h1 id="introduction">Introduction</h1>
+
+<p>The old way of doing authentication is for you to manage an authentication server that issues credentials for your partners. An example of this would be something like <a href="https://identityserver4.readthedocs.io/en/latest/">IdentityServer4</a>. However, this can easily be offloaded to a service such as Auth0 or Okta. A cloud provider makes the management and security much easier.</p>
+
+<!-- We first need to understand OAuth2.0. Since the OAuth 2.0 standard does not specify which type of token is used. 
+
+We would like to authenticate API partners using OAuth2.0. However, the standard does not necessarily mean that we would use a JWT.  -->
+
+<!-- [auth0 on oauth2.0](https://auth0.com/docs/protocols/oauth2) -->
+
+<h1 id="what-is-oauth-20">What is OAuth 2.0?</h1>
+
+<p><a href="https://auth0.com/docs/protocols/oauth2">OAuth 2.0 is a protocol that allows a user to grant limited access to their resources on one site, to another site, without having to expose their credentials.</a></p>
+
+<p>As discussed in the Auth0 article, OAuth 2.0 has many different ‘flavors’ for obtaining a token for authentication. We are interested in a <code class="language-plaintext highlighter-rouge">machine-to-machine</code> grant that allows partners to access the protected resource (in this case our server).</p>
+
+<p>For this we can use the <a href="https://oauth.net/2/grant-types/client-credentials/">client credentials grant</a>.</p>
+
+<h1 id="why-use-jwts-for-access">Why use JWTs For access?</h1>
+
+<p>A partner is issued a key and secret key that they are then make a request to an authentication server (Auth0) that then issues them a JWT that they can use to make requests to our Node.js API.</p>
+
+<p>The JWT is useful because it is asymetrically signed, it’s opaque so a user can decode it and see what <code class="language-plaintext highlighter-rouge">scopes</code> and <code class="language-plaintext highlighter-rouge">audience</code> it has been issued for, and since it is self expiring it is less prone to abuse.</p>
+
+<h1 id="how-can-we-use-oauth-20-for-authenticating-our-api-users">How can we use OAuth 2.0 for authenticating our API users?</h1>
+
+<p>Initially the OAuth language can be confusing and what relationships exist can be a little confusing. 
+We first create our API in Auth0. This is <em>our</em> protected resource, that we are merely registering in Auth0. We setup our scopes which should correspond to each of RESTful endpoints. For example, if we have a list users endpoint we should have a scope in Auth0 for <code class="language-plaintext highlighter-rouge">list:users</code>.</p>
+
+<p>Now, we create an <code class="language-plaintext highlighter-rouge">application</code> in Auth0. This is sometimes also called a <code class="language-plaintext highlighter-rouge">client</code> and you may see <code class="language-plaintext highlighter-rouge">client</code> in older docs from Auth0.</p>
+
+<h1 id="how-to-handle-these-jwts-in-our-node-api">How to handle these JWTs in our Node API?</h1>
+
+<p>There are are some fantastic libraries which make our lives much easier.</p>
+
+<p>We first need to authenticate the request. For this we need to consider is the JWT valid, and can use <a href="">authz</a>.</p>
+
+<p>Next we need to check the scopes of the authenticated request to see if the user has access to the endpoint they’re requesting. For this we can use <a href=""></a>.</p>
+
+<p>Now, after all the middleware has ran we will have a <code class="language-plaintext highlighter-rouge">user</code> on the <code class="language-plaintext highlighter-rouge">req</code> object. That will have a <code class="language-plaintext highlighter-rouge">sub</code> claim which is essentially the unique <code class="language-plaintext highlighter-rouge">client_id</code>. Now we can use this <code class="language-plaintext highlighter-rouge">client_id</code> to look up our user and provide them with the data they’re requesting.</p>
+
+<h1 id="managing-auth0">Managing Auth0</h1>
+
+<p>Auth0 of course has an SDK where we can manage the different applications, APIs, and everything else.</p>
+
+<p><a href="https://www.npmjs.com/package/auth0">Auth0 SDK</a></p>
+
+
+
+  </div>
+</article>
+
+
+    <footer class="c-footer">
+  <div class="u-container c-footer__container">
+    <p>&copy; Johnny Devriese 2020</p>
+    <p>
+        <a href="https://github.com/johnnydevriese">GitHub</a>
+        <a href="https://instagram.com/johnnydevriese">Instagram</a>
+      <a href="https://twitter.com/johnnydevriese">Twitter</a>
+      <a href="https://500px.com/johnminor07">500px</a>
+      
+      
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

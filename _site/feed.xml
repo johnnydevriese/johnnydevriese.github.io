@@ -6,9 +6,102 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Apr 2020 14:04:08 -0600</pubDate>
-    <lastBuildDate>Wed, 08 Apr 2020 14:04:08 -0600</lastBuildDate>
+    <pubDate>Mon, 01 Jun 2020 11:08:49 -0600</pubDate>
+    <lastBuildDate>Mon, 01 Jun 2020 11:08:49 -0600</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Multi Layer Architecture In Node.js</title>
+        <description>&lt;p&gt;We need a separation of concerns when building an API. Often times there will be a distinction between the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;service&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;repository&lt;/code&gt; layer.&lt;/p&gt;
+
+&lt;p&gt;The request layer is where we handle preparing the data to pass to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;service&lt;/code&gt; layer and also handling the responses.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;service&lt;/code&gt; layer is where all business logic is placed and calls to the database. We can handle all asyncronous tasks in this layer and will determine what request is appropriate to send back to client.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;repository&lt;/code&gt; layer is where the ORM works with the database. In our case we often use this to re-use common relational queries.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 12 May 2020 12:52:21 -0600</pubDate>
+        <link>http://localhost:4000/2020/05/multi-layer-architecture-node-js</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/multi-layer-architecture-node-js</guid>
+        
+        
+        <category>architecture</category>
+        
+        <category>node</category>
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Using JWTs For API Access Tokens</title>
+        <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;The old way of doing authentication is for you to manage an authentication server that issues credentials for your partners. An example of this would be something like &lt;a href=&quot;https://identityserver4.readthedocs.io/en/latest/&quot;&gt;IdentityServer4&lt;/a&gt;. However, this can easily be offloaded to a service such as Auth0 or Okta. A cloud provider makes the management and security much easier.&lt;/p&gt;
+
+&lt;!-- We first need to understand OAuth2.0. Since the OAuth 2.0 standard does not specify which type of token is used. 
+
+We would like to authenticate API partners using OAuth2.0. However, the standard does not necessarily mean that we would use a JWT.  --&gt;
+
+&lt;!-- [auth0 on oauth2.0](https://auth0.com/docs/protocols/oauth2) --&gt;
+
+&lt;h1 id=&quot;what-is-oauth-20&quot;&gt;What is OAuth 2.0?&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://auth0.com/docs/protocols/oauth2&quot;&gt;OAuth 2.0 is a protocol that allows a user to grant limited access to their resources on one site, to another site, without having to expose their credentials.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As discussed in the Auth0 article, OAuth 2.0 has many different ‘flavors’ for obtaining a token for authentication. We are interested in a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;machine-to-machine&lt;/code&gt; grant that allows partners to access the protected resource (in this case our server).&lt;/p&gt;
+
+&lt;p&gt;For this we can use the &lt;a href=&quot;https://oauth.net/2/grant-types/client-credentials/&quot;&gt;client credentials grant&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;why-use-jwts-for-access&quot;&gt;Why use JWTs For access?&lt;/h1&gt;
+
+&lt;p&gt;A partner is issued a key and secret key that they are then make a request to an authentication server (Auth0) that then issues them a JWT that they can use to make requests to our Node.js API.&lt;/p&gt;
+
+&lt;p&gt;The JWT is useful because it is asymetrically signed, it’s opaque so a user can decode it and see what &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scopes&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;audience&lt;/code&gt; it has been issued for, and since it is self expiring it is less prone to abuse.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-can-we-use-oauth-20-for-authenticating-our-api-users&quot;&gt;How can we use OAuth 2.0 for authenticating our API users?&lt;/h1&gt;
+
+&lt;p&gt;Initially the OAuth language can be confusing and what relationships exist can be a little confusing. 
+We first create our API in Auth0. This is &lt;em&gt;our&lt;/em&gt; protected resource, that we are merely registering in Auth0. We setup our scopes which should correspond to each of RESTful endpoints. For example, if we have a list users endpoint we should have a scope in Auth0 for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;list:users&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, we create an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application&lt;/code&gt; in Auth0. This is sometimes also called a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;client&lt;/code&gt; and you may see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;client&lt;/code&gt; in older docs from Auth0.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-to-handle-these-jwts-in-our-node-api&quot;&gt;How to handle these JWTs in our Node API?&lt;/h1&gt;
+
+&lt;p&gt;There are are some fantastic libraries which make our lives much easier.&lt;/p&gt;
+
+&lt;p&gt;We first need to authenticate the request. For this we need to consider is the JWT valid, and can use &lt;a href=&quot;&quot;&gt;authz&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Next we need to check the scopes of the authenticated request to see if the user has access to the endpoint they’re requesting. For this we can use &lt;a href=&quot;&quot;&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, after all the middleware has ran we will have a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user&lt;/code&gt; on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;req&lt;/code&gt; object. That will have a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sub&lt;/code&gt; claim which is essentially the unique &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;client_id&lt;/code&gt;. Now we can use this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;client_id&lt;/code&gt; to look up our user and provide them with the data they’re requesting.&lt;/p&gt;
+
+&lt;h1 id=&quot;managing-auth0&quot;&gt;Managing Auth0&lt;/h1&gt;
+
+&lt;p&gt;Auth0 of course has an SDK where we can manage the different applications, APIs, and everything else.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/auth0&quot;&gt;Auth0 SDK&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 17 Apr 2020 12:52:21 -0600</pubDate>
+        <link>http://localhost:4000/2020/04/using-jwt-for-access-tokens</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/04/using-jwt-for-access-tokens</guid>
+        
+        
+        <category>authentication</category>
+        
+        <category>JSON</category>
+        
+        <category>Web</category>
+        
+        <category>Tokens</category>
+        
+        <category>node</category>
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>Fibonacci Sequence In JavaScript</title>
@@ -357,80 +450,6 @@ pm.environment.set(&quot;current_timestamp&quot;, current_timestamp.toISOString(
         <category>AWS,</category>
         
         <category>S3</category>
-        
-      </item>
-    
-      <item>
-        <title>Finding String In JS Array</title>
-        <description>&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://www.tjvantoll.com/2013/03/14/better-ways-of-comparing-a-javascript-string-to-multiple-values/&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dingetje&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;tiger&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
-
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;tiger&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dingetje&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
-
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; 
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Pretty slick, for JS.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 22 Jan 2018 11:52:21 -0700</pubDate>
-        <link>http://localhost:4000/2018/01/find-string-in-javascript-list</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/01/find-string-in-javascript-list</guid>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>Using Google Maps API to Return the Local Time </title>
-        <description>&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://developers.google.com/maps/documentation/timezone/intro#Responses&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This is some half baked code that we copy/pasted the variables around. Essentially just a proof of concept.&lt;/p&gt;
-
-&lt;p&gt;This just shows how we could get a timestamp and geolocation from the browser, send that to the Maps API and get back both the offset and daylight savings offset too.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;successFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;coords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latitude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;coords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;longitude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Your latitude is :&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; and longitude is &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;long&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// get the longitude and latitude from browser. &lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;geolocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;geolocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getCurrentPosition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;successFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;errorFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// get a timestamp and covnert stupid JS millisecond to seconds. &lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// send this off to Maps API. &lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://maps.googleapis.com/maps/api/timezone/json?location=43.6779426,-116.35970530000002&amp;amp;timestamp=1522881075211&amp;amp;key=AIzaSyBQ4TieD5Zik7Axu1Rp8LsyY3ayPEhXVHA&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;From the docs: 
-The local time of a given location is the sum of the timestamp parameter, and the dstOffset and rawOffset fields from the result.&lt;/p&gt;
-
-&lt;p&gt;We could then either use an online UNIX timestamp converter or we could just write some other code to 
-turn it into a timestamp object.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 16 Jan 2018 11:52:21 -0700</pubDate>
-        <link>http://localhost:4000/2018/01/getting-timezone-from-google</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/01/getting-timezone-from-google</guid>
-        
-        
-        <category>JavaScript</category>
         
       </item>
     
