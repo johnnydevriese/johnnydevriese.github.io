@@ -1,4 +1,3 @@
-
 ---
 title: The Loop Unwound - How Deep Networks Are Just Optimized Algorithms in Disguise
 author: Johnny Devriese
