@@ -1,1 +1,23 @@
 .history
+
+# Dependencies
+node_modules
+
+# Build output
+dist
+_site
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+.idea
+
+# OS
+.DS_Store
+
+# Environment
+.env
+.env.local
+
+# Keep public assets (like profile picture)
+!public/
