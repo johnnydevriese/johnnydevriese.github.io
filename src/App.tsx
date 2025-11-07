@@ -408,10 +408,10 @@ export default function Blog() {
               </div>
               <div style={{display: 'flex', gap: '1.5rem'}}>
                 {[
-                  { label: 'Twitter', url: 'https://x.com/johnnydevriese' },
-                  { label: 'GitHub', url: 'https://github.com/johnnydevriese/' },
-                  { label: 'Bluesky', url: 'https://bsky.app/profile/johnnydevriese.bsky.social' },
-                  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/johnny-devriese-080556129/' }
+                    { label: 'GitHub', url: 'https://github.com/johnnydevriese/' },
+                    { label: 'Bluesky', url: 'https://bsky.app/profile/johnnydevriese.bsky.social' },
+                    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/johnny-devriese-080556129/' },
+                    { label: 'Twitter', url: 'https://x.com/johnnydevriese' },
                 ].map((social) => (
                   <a
                     key={social.label}
