@@ -1,12 +1,20 @@
 // Enhanced markdown renderer for better Jekyll post compatibility
+import hljs from 'highlight.js';
 
 export function renderMarkdown(content: string, isDark: boolean, colors: any): string {
   let html = content;
   
   // Handle Jekyll code blocks with syntax highlighting
   html = html.replace(/\{%\s*highlight\s+(\w+)\s*%\}([\s\S]*?)\{%\s*endhighlight\s*%\}/g, 
-    (_match, _lang, code) => {
-      return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[100]};"><code style="font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.5; white-space: pre-wrap; display: block;">${escapeHtml(code.trim())}</code></pre>`;
+    (_match, lang, code) => {
+      const trimmedCode = code.trim();
+      let highlighted;
+      try {
+        highlighted = hljs.highlight(trimmedCode, { language: lang }).value;
+      } catch (e) {
+        highlighted = escapeHtml(trimmedCode);
+      }
+      return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[200]}; font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.6;"><code class="hljs language-${lang}" style="font-family: inherit; display: block;">${highlighted}</code></pre>`;
   });
   
   // Handle Jekyll comments
@@ -26,8 +34,20 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
   });
   
   // Code blocks (triple backticks)
-  html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (_match, _lang, code) => {
-    return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[100]};"><code style="font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.5; white-space: pre-wrap; display: block;">${escapeHtml(code.trim())}</code></pre>`;
+  html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (_match, lang, code) => {
+    const trimmedCode = code.trim();
+    let highlighted;
+    if (lang) {
+      try {
+        highlighted = hljs.highlight(trimmedCode, { language: lang }).value;
+      } catch (e) {
+        highlighted = escapeHtml(trimmedCode);
+      }
+    } else {
+      highlighted = escapeHtml(trimmedCode);
+    }
+    const langClass = lang ? ` language-${lang}` : '';
+    return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[200]}; font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.6;"><code class="hljs${langClass}" style="font-family: inherit; display: block;">${highlighted}</code></pre>`;
   });
   
   // Images with optional title

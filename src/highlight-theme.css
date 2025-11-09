@@ -1,0 +1,120 @@
+/* Import base highlight.js styles */
+@import 'highlight.js/styles/github-dark.css';
+
+/* Custom syntax highlighting colors for both themes */
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Keywords, control flow */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: #cf222e;
+}
+
+[data-theme="dark"] .hljs-keyword,
+[data-theme="dark"] .hljs-selector-tag,
+[data-theme="dark"] .hljs-literal,
+[data-theme="dark"] .hljs-section,
+[data-theme="dark"] .hljs-link {
+  color: #ff7b72;
+}
+
+/* Strings */
+.hljs-string {
+  color: #0a3069;
+}
+
+[data-theme="dark"] .hljs-string {
+  color: #a5d6ff;
+}
+
+/* Functions, methods */
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.function_ {
+  color: #8250df;
+}
+
+[data-theme="dark"] .hljs-title,
+[data-theme="dark"] .hljs-title.class_,
+[data-theme="dark"] .hljs-title.function_ {
+  color: #d2a8ff;
+}
+
+/* Comments */
+.hljs-comment,
+.hljs-quote {
+  color: #6e7781;
+  font-style: italic;
+}
+
+[data-theme="dark"] .hljs-comment,
+[data-theme="dark"] .hljs-quote {
+  color: #8b949e;
+}
+
+/* Numbers, constants */
+.hljs-number,
+.hljs-regexp,
+.hljs-variable.constant_ {
+  color: #0550ae;
+}
+
+[data-theme="dark"] .hljs-number,
+[data-theme="dark"] .hljs-regexp,
+[data-theme="dark"] .hljs-variable.constant_ {
+  color: #79c0ff;
+}
+
+/* Attributes, properties */
+.hljs-attr,
+.hljs-property,
+.hljs-variable {
+  color: #953800;
+}
+
+[data-theme="dark"] .hljs-attr,
+[data-theme="dark"] .hljs-property,
+[data-theme="dark"] .hljs-variable {
+  color: #ffa657;
+}
+
+/* Types, classes */
+.hljs-type,
+.hljs-built_in,
+.hljs-class {
+  color: #116329;
+}
+
+[data-theme="dark"] .hljs-type,
+[data-theme="dark"] .hljs-built_in,
+[data-theme="dark"] .hljs-class {
+  color: #7ee787;
+}
+
+/* Operators */
+.hljs-operator,
+.hljs-punctuation {
+  color: #24292f;
+}
+
+[data-theme="dark"] .hljs-operator,
+[data-theme="dark"] .hljs-punctuation {
+  color: #e6edf3;
+}
+
+/* Meta, decorators (for Python @ syntax) */
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+  color: #8250df;
+}
+
+[data-theme="dark"] .hljs-meta,
+[data-theme="dark"] .hljs-meta .hljs-keyword {
+  color: #d2a8ff;
+}

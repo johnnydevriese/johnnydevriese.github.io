@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { posts, Post } from './data/posts';
 import { renderMarkdown } from './utils/markdown';
+import './highlight-theme.css';
 
 declare global {
   interface Window {
@@ -14,6 +15,11 @@ export default function Blog() {
   const [isDark, setIsDark] = useState(false);
   const [activeSection, setActiveSection] = useState<Section>('posts');
   const [currentPost, setCurrentPost] = useState<Post | null>(null);
+
+  // Update data-theme attribute when theme changes
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
 
   useEffect(() => {
     // Load MathJax
