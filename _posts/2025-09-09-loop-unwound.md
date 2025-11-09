@@ -35,7 +35,7 @@ current_solution = initial_guess
 for step in range(num_iterations):
     current_solution = update_rule(current_solution, fixed_parameters)
 return current_solution
-````
+```
 
 Now, imagine taking that `for` loop and literally "unwinding" it. Instead of a loop, we create a fixed sequence of operations, where each step of the original algorithm becomes a distinct "layer" in a neural network.
 
