@@ -6,7 +6,7 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
   // Handle Jekyll code blocks with syntax highlighting
   html = html.replace(/\{%\s*highlight\s+(\w+)\s*%\}([\s\S]*?)\{%\s*endhighlight\s*%\}/g, 
     (_match, _lang, code) => {
-      return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[100]};"><code style="font-family: IBM Plex Mono; font-size: 0.9rem; line-height: 1.5;">${code.trim()}</code></pre>`;
+      return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[100]};"><code style="font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.5; white-space: pre-wrap; display: block;">${escapeHtml(code.trim())}</code></pre>`;
   });
   
   // Handle Jekyll comments
@@ -27,7 +27,7 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
   
   // Code blocks (triple backticks)
   html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (_match, _lang, code) => {
-    return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[100]};"><code style="font-family: IBM Plex Mono; font-size: 0.9rem; line-height: 1.5; white-space: pre;">${escapeHtml(code.trim())}</code></pre>`;
+    return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[100]};"><code style="font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.5; white-space: pre-wrap; display: block;">${escapeHtml(code.trim())}</code></pre>`;
   });
   
   // Images with optional title
