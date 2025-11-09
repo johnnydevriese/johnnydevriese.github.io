@@ -14,7 +14,7 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
       } catch (e) {
         highlighted = escapeHtml(trimmedCode);
       }
-      return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[200]}; font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.6;"><code class="hljs language-${lang}" style="font-family: inherit; display: block;">${highlighted}</code></pre>`;
+      return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[200]}; font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.6;"><code class="hljs language-${lang}" style="font-family: inherit; display: block; white-space: pre;">${highlighted}</code></pre>`;
   });
   
   // Handle Jekyll comments
@@ -47,7 +47,7 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
       highlighted = escapeHtml(trimmedCode);
     }
     const langClass = lang ? ` language-${lang}` : '';
-    return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[200]}; font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.6;"><code class="hljs${langClass}" style="font-family: inherit; display: block;">${highlighted}</code></pre>`;
+    return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[200]}; font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.6;"><code class="hljs${langClass}" style="font-family: inherit; display: block; white-space: pre;">${highlighted}</code></pre>`;
   });
   
   // Images with optional title
