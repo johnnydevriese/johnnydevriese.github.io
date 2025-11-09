@@ -5,6 +5,11 @@
 .hljs {
   background: transparent !important;
   padding: 0 !important;
+  color: #24292f !important; /* Default text color for light mode */
+}
+
+[data-theme="dark"] .hljs {
+  color: #e6edf3 !important; /* Default text color for dark mode */
 }
 
 /* Keywords, control flow */
@@ -117,4 +122,26 @@
 [data-theme="dark"] .hljs-meta,
 [data-theme="dark"] .hljs-meta .hljs-keyword {
   color: #d2a8ff;
+}
+
+/* Parameters, names */
+.hljs-params,
+.hljs-name {
+  color: #24292f;
+}
+
+[data-theme="dark"] .hljs-params,
+[data-theme="dark"] .hljs-name {
+  color: #e6edf3;
+}
+
+/* Identifiers that aren't otherwise highlighted */
+.hljs-variable.language_,
+.hljs-name.builtin {
+  color: #0550ae;
+}
+
+[data-theme="dark"] .hljs-variable.language_,
+[data-theme="dark"] .hljs-name.builtin {
+  color: #79c0ff;
 }
