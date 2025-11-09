@@ -16,6 +16,30 @@ export default function Blog() {
   const [activeSection, setActiveSection] = useState<Section>('posts');
   const [currentPost, setCurrentPost] = useState<Post | null>(null);
 
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+      if (event.state) {
+        setActiveSection(event.state.section);
+        setCurrentPost(event.state.post || null);
+      } else {
+        setActiveSection('posts');
+        setCurrentPost(null);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    
+    // Set initial state
+    if (!window.history.state) {
+      window.history.replaceState({ section: 'posts', post: null }, '', '/');
+    }
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
   // Update data-theme attribute when theme changes
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
@@ -89,14 +113,27 @@ export default function Blog() {
   const navigateToPost = (post: Post) => {
     setCurrentPost(post);
     setActiveSection('post-detail');
+    window.history.pushState({ section: 'post-detail', post }, '', `#${post.slug}`);
     window.scrollTo(0, 0);
   };
 
   const navigateBack = () => {
     setActiveSection('posts');
     setCurrentPost(null);
+    window.history.pushState({ section: 'posts', post: null }, '', '/');
     window.scrollTo(0, 0);
   };
+
+  // Separate posts into recent and archive based on year
+  const recentPosts = posts.filter(post => {
+    const year = new Date(post.dateObj).getFullYear();
+    return year >= 2020;
+  });
+
+  const archivePosts = posts.filter(post => {
+    const year = new Date(post.dateObj).getFullYear();
+    return year < 2020;
+  });
 
   const renderPostContent = (content: string) => {
     return renderMarkdown(content, isDark, flexoki);
@@ -197,7 +234,11 @@ export default function Blog() {
                     {['posts', 'about'].map((section) => (
                       <button
                         key={section}
-                        onClick={() => setActiveSection(section as Section)}
+                        onClick={() => {
+                          const newSection = section as Section;
+                          setActiveSection(newSection);
+                          window.history.pushState({ section: newSection, post: null }, '', newSection === 'posts' ? '/' : `#${section}`);
+                        }}
                         style={{
                           fontFamily: 'IBM Plex Mono',
                           fontSize: '0.95rem',
@@ -264,13 +305,14 @@ export default function Blog() {
           {/* Posts Section */}
           {activeSection === 'posts' && (
             <div>
-              {posts.map((post, idx) => (
+              {/* Recent Posts */}
+              {recentPosts.map((post) => (
                 <article 
                   key={post.slug} 
                   style={{
-                    marginBottom: idx === posts.length - 1 ? 0 : '4rem',
-                    paddingBottom: idx === posts.length - 1 ? 0 : '4rem',
-                    borderBottomWidth: idx === posts.length - 1 ? 0 : '1px',
+                    marginBottom: '4rem',
+                    paddingBottom: '4rem',
+                    borderBottomWidth: '1px',
                     borderBottomColor: isDark ? darkBorder : lightBorder,
                     borderBottomStyle: 'solid',
                     cursor: 'pointer',
@@ -316,6 +358,60 @@ export default function Blog() {
                   </div>
                 </article>
               ))}
+
+              {/* Archive Section */}
+              {archivePosts.length > 0 && (
+                <div style={{
+                  marginTop: '3rem',
+                  paddingTop: '3rem',
+                  borderTopWidth: '2px',
+                  borderTopColor: isDark ? darkBorder : lightBorder,
+                  borderTopStyle: 'solid'
+                }}>
+                  <h2 style={{
+                    fontFamily: 'IBM Plex Mono',
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    marginBottom: '2rem',
+                    color: isDark ? darkText : lightText
+                  }}>
+                    Archive
+                  </h2>
+                  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+                    {archivePosts.map((post) => (
+                      <div
+                        key={post.slug}
+                        style={{
+                          cursor: 'pointer',
+                          transition: 'opacity 0.2s',
+                          display: 'flex',
+                          gap: '1.5rem',
+                          alignItems: 'baseline'
+                        }}
+                        onClick={() => navigateToPost(post)}
+                        onMouseOver={(e) => (e.currentTarget as HTMLElement).style.opacity = '0.7'}
+                        onMouseOut={(e) => (e.currentTarget as HTMLElement).style.opacity = '1'}
+                      >
+                        <span style={{
+                          fontFamily: 'IBM Plex Mono',
+                          fontSize: '0.85rem',
+                          color: isDark ? darkMuted : lightMuted,
+                          minWidth: '100px'
+                        }}>
+                          {post.date}
+                        </span>
+                        <span style={{
+                          fontFamily: 'IBM Plex Mono',
+                          fontSize: '0.95rem',
+                          color: isDark ? darkText : lightText
+                        }}>
+                          {post.title}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
@@ -373,7 +469,7 @@ export default function Blog() {
                 marginBottom: '1rem',
                 color: isDark ? darkText : lightText
               }}>
-                I'm passionate about research and engineering at the frontier of artificial intelligence.
+                I have a background in physics from WSU and have taken graduate courses in AI from Stanford. I'm passionate about applying frontier AI research to solve real-world business problems.
               </p>
               <p style={{
                 fontFamily: 'IBM Plex Mono',
