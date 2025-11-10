@@ -338,12 +338,9 @@ export default function Blog() {
                     borderBottomWidth: '1px',
                     borderBottomColor: isDark ? darkBorder : lightBorder,
                     borderBottomStyle: 'solid',
-                    cursor: 'pointer',
-                    transition: 'opacity 0.2s'
+                    cursor: 'pointer'
                   }}
                   onClick={() => navigateToPost(post)}
-                  onMouseOver={(e) => (e.currentTarget as HTMLElement).style.opacity = '0.7'}
-                  onMouseOut={(e) => (e.currentTarget as HTMLElement).style.opacity = '1'}
                 >
                   <div style={{
                     marginBottom: '0.75rem',
@@ -359,8 +356,12 @@ export default function Blog() {
                     fontSize: '1.3rem',
                     fontWeight: 600,
                     marginBottom: '1rem',
-                    lineHeight: 1.4
-                  }}>
+                    lineHeight: 1.4,
+                    transition: 'color 0.2s'
+                  }}
+                  onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? flexoki.orange.light : flexoki.orange.DEFAULT}
+                  onMouseOut={(e) => (e.target as HTMLElement).style.color = isDark ? darkText : lightText}
+                  >
                     {post.title}
                   </h2>
                   <p style={{
@@ -406,14 +407,11 @@ export default function Blog() {
                         key={post.slug}
                         style={{
                           cursor: 'pointer',
-                          transition: 'opacity 0.2s',
                           display: 'flex',
                           gap: '1.5rem',
                           alignItems: 'baseline'
                         }}
                         onClick={() => navigateToPost(post)}
-                        onMouseOver={(e) => (e.currentTarget as HTMLElement).style.opacity = '0.7'}
-                        onMouseOut={(e) => (e.currentTarget as HTMLElement).style.opacity = '1'}
                       >
                         <span style={{
                           fontFamily: 'IBM Plex Mono',
@@ -426,8 +424,12 @@ export default function Blog() {
                         <span style={{
                           fontFamily: 'IBM Plex Mono',
                           fontSize: '0.95rem',
-                          color: isDark ? darkText : lightText
-                        }}>
+                          color: isDark ? darkText : lightText,
+                          transition: 'color 0.2s'
+                        }}
+                        onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? flexoki.orange.light : flexoki.orange.DEFAULT}
+                        onMouseOut={(e) => (e.target as HTMLElement).style.color = isDark ? darkText : lightText}
+                        >
                           {post.title}
                         </span>
                       </div>
