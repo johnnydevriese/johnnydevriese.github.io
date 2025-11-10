@@ -273,7 +273,7 @@ export default function Blog() {
                           cursor: 'pointer',
                           transition: 'color 0.2s'
                         }}
-                        onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? darkText : lightText}
+                        onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? flexoki.orange.light : flexoki.orange.DEFAULT}
                         onMouseOut={(e) => (e.target as HTMLElement).style.color = activeSection === section 
                           ? (isDark ? darkText : lightText)
                           : (isDark ? darkMuted : lightMuted)}
@@ -295,7 +295,7 @@ export default function Blog() {
                       cursor: 'pointer',
                       transition: 'color 0.2s'
                     }}
-                    onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? darkText : lightText}
+                    onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? flexoki.orange.light : flexoki.orange.DEFAULT}
                     onMouseOut={(e) => (e.target as HTMLElement).style.color = isDark ? darkMuted : lightMuted}
                   >
                     ← back to posts
@@ -551,7 +551,7 @@ export default function Blog() {
                       transition: 'color 0.2s',
                       cursor: 'pointer'
                     }}
-                    onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? flexoki.blue.light : flexoki.blue.DEFAULT}
+                    onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? flexoki.orange.light : flexoki.orange.DEFAULT}
                     onMouseOut={(e) => (e.target as HTMLElement).style.color = isDark ? darkMuted : lightMuted}
                   >
                     {social.label}
