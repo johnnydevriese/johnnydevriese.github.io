@@ -130,7 +130,8 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
         para.startsWith('<hr') ||
         para.startsWith('<ul') ||
         para.startsWith('<ol') ||
-        para.startsWith('<blockquote')) {
+        para.startsWith('<blockquote') ||
+        para.startsWith('__LATEX_DISPLAY_')) {
       return para;
     }
     return `<p style="font-family: IBM Plex Mono; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; color: ${isDark ? colors.base.paper : colors.base.black};">${para}</p>`;
@@ -138,8 +139,17 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
   
   // Restore LaTeX expressions
   latexExpressions.forEach((latex, index) => {
-    html = html.replace(`__LATEX_DISPLAY_${index}__`, latex);
-    html = html.replace(`__LATEX_INLINE_${index}__`, latex);
+    // We use a function as second argument to avoid special characters (like $)
+    // in the replacement string being interpreted.
+    const displayPlaceholder = `__LATEX_DISPLAY_${index}__`;
+    const inlinePlaceholder = `__LATEX_INLINE_${index}__`;
+    
+    if (html.includes(displayPlaceholder)) {
+      html = html.replace(displayPlaceholder, () => latex);
+    }
+    if (html.includes(inlinePlaceholder)) {
+      html = html.replace(inlinePlaceholder, () => latex);
+    }
   });
   
   return html;
