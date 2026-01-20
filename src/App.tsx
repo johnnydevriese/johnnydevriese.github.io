@@ -550,18 +550,9 @@ export default function Blog() {
                 fontFamily: 'IBM Plex Mono',
                 fontSize: '0.95rem',
                 lineHeight: 1.7,
-                marginBottom: '1rem',
                 color: isDark ? darkText : lightText
               }}>
-                I have a background in physics from WSU and have taken graduate courses in AI from Stanford. I'm passionate about applying frontier AI research to solve real-world business problems.
-              </p>
-              <p style={{
-                fontFamily: 'IBM Plex Mono',
-                fontSize: '0.95rem',
-                lineHeight: 1.7,
-                color: isDark ? darkText : lightText
-              }}>
-                I explore fundamental questions about model scaling, efficiency, evaluation, and safety across a range of scales and modalities.
+                I build production GenAI systems. Background in physics from WSU, graduate AI coursework from Stanford. Most of my work is figuring out how to take interesting research and turn it into reliable systems. I write about RAG architecture, evaluation, and the engineering decisions that don't fit in academic papers.
               </p>
             </div>
           )}
