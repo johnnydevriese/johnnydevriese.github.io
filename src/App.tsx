@@ -552,7 +552,7 @@ export default function Blog() {
                 lineHeight: 1.7,
                 color: isDark ? darkText : lightText
               }}>
-                I build production GenAI systems. Background in physics from WSU, graduate AI coursework from Stanford. Most of my work is figuring out how to take interesting research and turn it into reliable systems. I write about RAG architecture, evaluation, and the engineering decisions that don't fit in academic papers.
+                I build production GenAI systems. Background in physics from WSU, graduate AI coursework from Stanford. Most of my work is figuring out how to take interesting research and turn it into reliable systems - currently focused on RAG pipelines, LLM evaluation, and deploying models that actually work at scale. I write about the engineering decisions that don't fit in academic papers.
               </p>
             </div>
           )}
