@@ -9,28 +9,28 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
   
   // Preserve display math \[...\]
   html = html.replace(/\\\[([\s\S]*?)\\\]/g, (_match, latex) => {
-    const placeholder = `__LATEX_DISPLAY_${latexExpressions.length}__`;
+    const placeholder = `LATEXDPH${latexExpressions.length}X`;
     latexExpressions.push(`\\[${latex}\\]`);
     return placeholder;
   });
   
   // Preserve display math $$...$$
   html = html.replace(/\$\$([\s\S]*?)\$\$/g, (_match, latex) => {
-    const placeholder = `__LATEX_DISPLAY_${latexExpressions.length}__`;
+    const placeholder = `LATEXDPH${latexExpressions.length}X`;
     latexExpressions.push(`$$${latex}$$`);
     return placeholder;
   });
   
   // Preserve inline math \(...\)
   html = html.replace(/\\\(([\s\S]*?)\\\)/g, (_match, latex) => {
-    const placeholder = `__LATEX_INLINE_${latexExpressions.length}__`;
+    const placeholder = `LATEXIPH${latexExpressions.length}X`;
     latexExpressions.push(`\\(${latex}\\)`);
     return placeholder;
   });
   
   // Preserve inline math $...$
   html = html.replace(/\$([^\$\n]+?)\$/g, (_match, latex) => {
-    const placeholder = `__LATEX_INLINE_${latexExpressions.length}__`;
+    const placeholder = `LATEXIPH${latexExpressions.length}X`;
     latexExpressions.push(`$${latex}$`);
     return placeholder;
   });
@@ -138,7 +138,7 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
         para.startsWith('<ul') ||
         para.startsWith('<ol') ||
         para.startsWith('<blockquote') ||
-        para.startsWith('__LATEX_DISPLAY_')) {
+        para.startsWith('LATEXDPH')) {
       return para;
     }
     return `<p style="font-family: IBM Plex Mono; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; color: ${isDark ? colors.base.paper : colors.base.black};">${para}</p>`;
@@ -148,8 +148,8 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
   latexExpressions.forEach((latex, index) => {
     // We use a function as second argument to avoid special characters (like $)
     // in the replacement string being interpreted.
-    const displayPlaceholder = `__LATEX_DISPLAY_${index}__`;
-    const inlinePlaceholder = `__LATEX_INLINE_${index}__`;
+    const displayPlaceholder = `LATEXDPH${index}X`;
+    const inlinePlaceholder = `LATEXIPH${index}X`;
     
     if (html.includes(displayPlaceholder)) {
       html = html.replace(displayPlaceholder, () => latex);
