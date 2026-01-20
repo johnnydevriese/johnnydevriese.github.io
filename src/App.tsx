@@ -70,12 +70,25 @@ export default function Blog() {
   }, []);
 
   useEffect(() => {
+    // MathJax configuration
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+
     // Load MathJax
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js';
     script.async = true;
     script.onload = () => {
-      if (window.MathJax) {
+      if (window.MathJax && window.MathJax.typesetPromise) {
         window.MathJax.typesetPromise().catch((err: any) => console.log(err));
       }
     };
