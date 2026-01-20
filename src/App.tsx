@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { posts, Post } from './data/posts';
 import { renderMarkdown } from './utils/markdown';
+import { SocialIcons } from './components/SocialIcons';
 import './highlight-theme.css';
 
 declare global {
@@ -94,44 +95,55 @@ export default function Blog() {
     }
   }, [activeSection, isDark, currentPost]);
 
-  const flexoki = {
-    base: {
-      black: '#100F0F',
-      950: '#1C1B1A',
-      900: '#282726',
-      850: '#343331',
-      800: '#403E3C',
-      700: '#575653',
-      600: '#6F6E69',
-      500: '#878580',
-      300: '#B7B5AC',
-      200: '#CECDC3',
-      150: '#DAD8CE',
-      100: '#E6E4D9',
-      50: '#F2F0E5',
-      paper: '#FFFCF0',
+  // Kanagawa Theme Colors
+  const kanagawa = {
+    // Dragon (Dark)
+    dragon: {
+      bg: '#181616',        // dragonBlack0
+      bgSoft: '#1D1C19',    // dragonBlack1
+      bgSofter: '#282727',  // dragonBlack3
+      fg: '#C5C9C5',        // dragonWhite
+      fgSoft: '#A6A69C',    // dragonGray
+      fgDim: '#737C73',     // dragonGray3
+      red: '#C4746E',       // dragonRed
+      orange: '#B6927B',    // dragonOrange
+      yellow: '#C4B28A',    // dragonYellow
+      green: '#87A987',     // dragonGreen
+      cyan: '#8EA4A2',      // dragonAqua
+      blue: '#8BA4B0',      // dragonBlue
+      purple: '#A292A3',    // dragonViolet
+      pink: '#B98D7B',      // dragonPink
     },
-    red: { DEFAULT: '#AF3029', light: '#D14D41' },
-    orange: { DEFAULT: '#BC5215', light: '#DA702C' },
-    yellow: { DEFAULT: '#AD8301', light: '#D0A215' },
-    green: { DEFAULT: '#66800B', light: '#879A39' },
-    cyan: { DEFAULT: '#24837B', light: '#3AA99F' },
-    blue: { DEFAULT: '#205EA6', light: '#4385BE' },
-    purple: { DEFAULT: '#5E409D', light: '#8B7EC8' },
-    magenta: { DEFAULT: '#A02F6F', light: '#CE5D97' },
+    // Lotus (Light)
+    lotus: {
+      bg: '#F2F4F8',        // lotusWhite0
+      bgSoft: '#E6ECF1',    // lotusWhite2
+      bgSofter: '#DCDFE4',  // lotusWhite4
+      fg: '#43444B',        // lotusInk1
+      fgSoft: '#545464',    // lotusInk2
+      fgDim: '#716E61',     // lotusGray
+      red: '#C84053',       // lotusRed
+      orange: '#CC6D00',    // lotusOrange
+      yellow: '#77713F',    // lotusYellow
+      green: '#6F894E',     // lotusGreen
+      cyan: '#4D696B',      // lotusAqua
+      blue: '#4E618D',      // lotusBlue
+      purple: '#9F7186',    // lotusViolet
+      pink: '#B35B79',      // lotusPink
+    }
   };
 
-  const lightBg = flexoki.base.paper;
-  const lightText = flexoki.base.black;
-  const lightBorder = flexoki.base[100];
-  const lightMuted = flexoki.base[600];
-  const lightDimmed = flexoki.base[300];
+  const lightBg = kanagawa.lotus.bg;
+  const lightText = kanagawa.lotus.fg;
+  const lightBorder = kanagawa.lotus.bgSofter;
+  const lightMuted = kanagawa.lotus.fgSoft;
+  const lightDimmed = kanagawa.lotus.fgDim;
 
-  const darkBg = flexoki.base.black;
-  const darkText = flexoki.base.paper;
-  const darkBorder = flexoki.base[850];
-  const darkMuted = flexoki.base[500];
-  const darkDimmed = flexoki.base[700];
+  const darkBg = kanagawa.dragon.bg;
+  const darkText = kanagawa.dragon.fg;
+  const darkBorder = kanagawa.dragon.bgSofter;
+  const darkMuted = kanagawa.dragon.fgSoft;
+  const darkDimmed = kanagawa.dragon.fgDim;
 
   const navigateToPost = (post: Post) => {
     setCurrentPost(post);
@@ -159,7 +171,31 @@ export default function Blog() {
   });
 
   const renderPostContent = (content: string) => {
-    return renderMarkdown(content, isDark, flexoki);
+    // We pass the kanagawa theme colors to the markdown renderer
+    // Creating a compatible object for the markdown renderer
+    // Note: 'paper' is used for text color in dark mode, 'black' for light mode
+    const themeColors = {
+      base: {
+        paper: isDark ? darkText : lightBg,  // text color in dark mode
+        black: isDark ? darkBg : lightText,  // text color in light mode
+        100: isDark ? darkBorder : lightBorder,
+        200: isDark ? kanagawa.dragon.bgSofter : kanagawa.lotus.bgSofter,
+        300: isDark ? darkMuted : lightMuted,
+        700: isDark ? darkDimmed : lightDimmed,
+        850: isDark ? darkBorder : lightBorder,
+        900: isDark ? kanagawa.dragon.bgSoft : kanagawa.lotus.bgSoft,
+      },
+      orange: { 
+        DEFAULT: isDark ? kanagawa.dragon.orange : kanagawa.lotus.orange, 
+        light: isDark ? kanagawa.dragon.orange : kanagawa.lotus.orange 
+      },
+      blue: {
+        DEFAULT: isDark ? kanagawa.dragon.blue : kanagawa.lotus.blue,
+        light: isDark ? kanagawa.dragon.blue : kanagawa.lotus.blue
+      }
+    };
+    
+    return renderMarkdown(content, isDark, themeColors);
   };
 
   return (
@@ -196,6 +232,11 @@ export default function Blog() {
         .math-content {
           overflow-x: auto;
         }
+        /* Selection color */
+        ::selection {
+          background: ${isDark ? kanagawa.dragon.bgSofter : kanagawa.lotus.bgSofter};
+          color: ${isDark ? kanagawa.dragon.orange : kanagawa.lotus.orange};
+        }
       `}</style>
       <div style={{
         backgroundColor: isDark ? darkBg : lightBg,
@@ -220,7 +261,7 @@ export default function Blog() {
                   height: '64px',
                   minWidth: '64px',
                   borderRadius: '50%',
-                  backgroundColor: isDark ? flexoki.base[850] : flexoki.base[150],
+                  backgroundColor: isDark ? kanagawa.dragon.bgSoft : kanagawa.lotus.bgSoft,
                   border: `2px solid ${isDark ? darkBorder : lightBorder}`,
                   backgroundImage: 'url(/johnnydevriese_profile_pic.jpg)',
                   backgroundSize: 'cover',
@@ -236,7 +277,8 @@ export default function Blog() {
                       fontWeight: 700, 
                       marginBottom: '0.375rem', 
                       fontFamily: 'IBM Plex Mono',
-                      cursor: activeSection === 'post-detail' ? 'pointer' : 'default'
+                      cursor: activeSection === 'post-detail' ? 'pointer' : 'default',
+                      color: isDark ? kanagawa.dragon.red : kanagawa.lotus.red
                     }}
                     onClick={() => activeSection === 'post-detail' && navigateBack()}
                   >
@@ -271,9 +313,10 @@ export default function Blog() {
                           backgroundColor: 'transparent',
                           border: 'none',
                           cursor: 'pointer',
-                          transition: 'color 0.2s'
+                          transition: 'color 0.2s',
+                          fontWeight: activeSection === section ? 600 : 400
                         }}
-                        onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? flexoki.orange.light : flexoki.orange.DEFAULT}
+                        onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? kanagawa.dragon.orange : kanagawa.lotus.orange}
                         onMouseOut={(e) => (e.target as HTMLElement).style.color = activeSection === section 
                           ? (isDark ? darkText : lightText)
                           : (isDark ? darkMuted : lightMuted)}
@@ -295,7 +338,7 @@ export default function Blog() {
                       cursor: 'pointer',
                       transition: 'color 0.2s'
                     }}
-                    onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? flexoki.orange.light : flexoki.orange.DEFAULT}
+                    onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? kanagawa.dragon.orange : kanagawa.lotus.orange}
                     onMouseOut={(e) => (e.target as HTMLElement).style.color = isDark ? darkMuted : lightMuted}
                   >
                     ← back to posts
@@ -314,9 +357,10 @@ export default function Blog() {
                     fontSize: '0.9rem',
                     border: `1px solid ${isDark ? darkDimmed : lightDimmed}`,
                     transition: 'background-color 0.2s',
-                    whiteSpace: 'nowrap'
+                    whiteSpace: 'nowrap',
+                    borderRadius: '4px'
                   }}
-                  onMouseOver={(e) => (e.target as HTMLElement).style.backgroundColor = isDark ? flexoki.base[850] : flexoki.base[100]}
+                  onMouseOver={(e) => (e.target as HTMLElement).style.backgroundColor = isDark ? kanagawa.dragon.bgSofter : kanagawa.lotus.bgSofter}
                   onMouseOut={(e) => (e.target as HTMLElement).style.backgroundColor = 'transparent'}
                 >
                   {isDark ? '☀ light' : '🌙 dark'}
@@ -357,10 +401,11 @@ export default function Blog() {
                     fontWeight: 600,
                     marginBottom: '1rem',
                     lineHeight: 1.4,
-                    transition: 'color 0.2s'
+                    transition: 'color 0.2s',
+                    color: isDark ? kanagawa.dragon.yellow : kanagawa.lotus.yellow
                   }}
-                  onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? flexoki.orange.light : flexoki.orange.DEFAULT}
-                  onMouseOut={(e) => (e.target as HTMLElement).style.color = isDark ? darkText : lightText}
+                  onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? kanagawa.dragon.orange : kanagawa.lotus.orange}
+                  onMouseOut={(e) => (e.target as HTMLElement).style.color = isDark ? kanagawa.dragon.yellow : kanagawa.lotus.yellow}
                   >
                     {post.title}
                   </h2>
@@ -427,7 +472,7 @@ export default function Blog() {
                           color: isDark ? darkText : lightText,
                           transition: 'color 0.2s'
                         }}
-                        onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? flexoki.orange.light : flexoki.orange.DEFAULT}
+                        onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? kanagawa.dragon.orange : kanagawa.lotus.orange}
                         onMouseOut={(e) => (e.target as HTMLElement).style.color = isDark ? darkText : lightText}
                         >
                           {post.title}
@@ -457,7 +502,8 @@ export default function Blog() {
                 fontSize: '1.75rem',
                 fontWeight: 600,
                 marginBottom: '2rem',
-                lineHeight: 1.3
+                lineHeight: 1.3,
+                color: isDark ? kanagawa.dragon.yellow : kanagawa.lotus.yellow
               }}>
                 {currentPost.title}
               </h1>
@@ -533,33 +579,12 @@ export default function Blog() {
                   human made
                 </p>
               </div>
-              <div style={{display: 'flex', gap: '1.5rem'}}>
-                {[
-                    { label: 'GitHub', url: 'https://github.com/johnnydevriese/' },
-                    { label: 'Bluesky', url: 'https://bsky.app/profile/johnnydevriese.bsky.social' },
-                    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/johnny-devriese-080556129/' },
-                    { label: 'Twitter', url: 'https://x.com/johnnydevriese' },
-                ].map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      fontFamily: 'IBM Plex Mono',
-                      fontSize: '0.9rem',
-                      color: isDark ? darkMuted : lightMuted,
-                      textDecoration: 'none',
-                      transition: 'color 0.2s',
-                      cursor: 'pointer'
-                    }}
-                    onMouseOver={(e) => (e.target as HTMLElement).style.color = isDark ? flexoki.orange.light : flexoki.orange.DEFAULT}
-                    onMouseOut={(e) => (e.target as HTMLElement).style.color = isDark ? darkMuted : lightMuted}
-                  >
-                    {social.label}
-                  </a>
-                ))}
-              </div>
+              <SocialIcons 
+                colors={{
+                  default: isDark ? darkMuted : lightMuted,
+                  hover: isDark ? kanagawa.dragon.orange : kanagawa.lotus.orange
+                }}
+              />
             </div>
           </footer>
         </div>

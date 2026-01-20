@@ -4,6 +4,30 @@ import hljs from 'highlight.js';
 export function renderMarkdown(content: string, isDark: boolean, colors: any): string {
   let html = content;
   
+  // Preserve LaTeX expressions by replacing them with placeholders
+  const latexExpressions: string[] = [];
+  
+  // Preserve display math \[...\]
+  html = html.replace(/\\\[([\s\S]*?)\\\]/g, (_match, latex) => {
+    const placeholder = `__LATEX_DISPLAY_${latexExpressions.length}__`;
+    latexExpressions.push(`\\[${latex}\\]`);
+    return placeholder;
+  });
+  
+  // Preserve display math $$...$$
+  html = html.replace(/\$\$([\s\S]*?)\$\$/g, (_match, latex) => {
+    const placeholder = `__LATEX_DISPLAY_${latexExpressions.length}__`;
+    latexExpressions.push(`$$${latex}$$`);
+    return placeholder;
+  });
+  
+  // Preserve inline math $...$
+  html = html.replace(/\$([^\$\n]+?)\$/g, (_match, latex) => {
+    const placeholder = `__LATEX_INLINE_${latexExpressions.length}__`;
+    latexExpressions.push(`$${latex}$`);
+    return placeholder;
+  });
+  
   // Handle Jekyll code blocks with syntax highlighting
   html = html.replace(/\{%\s*highlight\s+(\w+)\s*%\}([\s\S]*?)\{%\s*endhighlight\s*%\}/g, 
     (_match, lang, code) => {
@@ -111,6 +135,12 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
     }
     return `<p style="font-family: IBM Plex Mono; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; color: ${isDark ? colors.base.paper : colors.base.black};">${para}</p>`;
   }).join('\n');
+  
+  // Restore LaTeX expressions
+  latexExpressions.forEach((latex, index) => {
+    html = html.replace(`__LATEX_DISPLAY_${index}__`, latex);
+    html = html.replace(`__LATEX_INLINE_${index}__`, latex);
+  });
   
   return html;
 }
