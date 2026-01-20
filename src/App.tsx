@@ -103,7 +103,7 @@ export default function Blog() {
 
   useEffect(() => {
     // Rerender MathJax when content changes
-    if (window.MathJax) {
+    if (window.MathJax && window.MathJax.typesetPromise) {
       window.MathJax.typesetPromise().catch((err: any) => console.log(err));
     }
   }, [activeSection, isDark, currentPost]);
