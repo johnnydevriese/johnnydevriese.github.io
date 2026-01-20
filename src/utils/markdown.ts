@@ -21,6 +21,13 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
     return placeholder;
   });
   
+  // Preserve inline math \(...\)
+  html = html.replace(/\\\(([\s\S]*?)\\\)/g, (_match, latex) => {
+    const placeholder = `__LATEX_INLINE_${latexExpressions.length}__`;
+    latexExpressions.push(`\\(${latex}\\)`);
+    return placeholder;
+  });
+  
   // Preserve inline math $...$
   html = html.replace(/\$([^\$\n]+?)\$/g, (_match, latex) => {
     const placeholder = `__LATEX_INLINE_${latexExpressions.length}__`;
