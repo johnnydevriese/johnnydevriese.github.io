@@ -175,12 +175,12 @@ export default function Blog() {
   // Separate posts into recent and archive based on year
   const recentPosts = posts.filter(post => {
     const year = new Date(post.dateObj).getFullYear();
-    return year >= 2020;
+    return year >= 2021;
   });
 
   const archivePosts = posts.filter(post => {
     const year = new Date(post.dateObj).getFullYear();
-    return year < 2020;
+    return year <= 2020;
   });
 
   const renderPostContent = (content: string) => {
