@@ -291,7 +291,7 @@ export default function Blog() {
                       marginBottom: '0.375rem', 
                       fontFamily: 'IBM Plex Mono',
                       cursor: activeSection === 'post-detail' ? 'pointer' : 'default',
-                      color: isDark ? kanagawa.dragon.red : kanagawa.lotus.red
+                      color: isDark ? '#3AA99F' : '#24837B'
                     }}
                     onClick={() => activeSection === 'post-detail' && navigateBack()}
                   >
