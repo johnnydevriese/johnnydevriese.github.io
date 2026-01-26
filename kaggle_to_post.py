@@ -94,6 +94,10 @@ def fetch_and_convert(slug):
         rel_image_path = f"/assets/images/posts/{kernel_name}/"
         content = content.replace(f"{kernel_name}_files/", rel_image_path)
 
+    # Remove broken attachment: references (embedded notebook images that can't be recovered)
+    # These come from Jupyter cell attachments that nbconvert doesn't extract
+    content = re.sub(r'!\[[^\]]*\]\(attachment:[^\)]+\)', '*[Image not available - embedded notebook attachment]*', content)
+
     # Prepare Frontmatter
     title = kernel_name.replace("-", " ").title()
     

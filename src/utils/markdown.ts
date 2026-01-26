@@ -81,9 +81,13 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
     return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[200]}; font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.6;"><code class="hljs${langClass}" style="font-family: inherit; display: block; white-space: pre;">${highlighted}</code></pre>`;
   });
   
-  // Images with optional title
+  // Images with optional title - preserve them before bold/italic processing
+  const imageReplacements: string[] = [];
   html = html.replace(/!\[([^\]]*)\]\(([^\)]+?)(?:\s+"([^"]+)")?\)/g, (_match, alt, url, title) => {
-    return `<img src="${url}" alt="${alt}" title="${title || alt}" style="max-width: 100%; height: auto; margin: 1.5rem 0; border-radius: 4px; border: 1px solid ${isDark ? colors.base[850] : colors.base[100]};" />`;
+    const imgTag = `<img src="${url}" alt="${alt}" title="${title || alt}" style="max-width: 100%; height: auto; margin: 1.5rem 0; border-radius: 4px; border: 1px solid ${isDark ? colors.base[850] : colors.base[100]};" />`;
+    const placeholder = `IMGPH${imageReplacements.length}X`;
+    imageReplacements.push(imgTag);
+    return placeholder;
   });
   
   // Headers (must be before bold/italic)
@@ -138,7 +142,8 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
         para.startsWith('<ul') ||
         para.startsWith('<ol') ||
         para.startsWith('<blockquote') ||
-        para.startsWith('LATEXDPH')) {
+        para.startsWith('LATEXDPH') ||
+        para.startsWith('IMGPH')) {
       return para;
     }
     return `<p style="font-family: IBM Plex Mono; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; color: ${isDark ? colors.base.paper : colors.base.black};">${para}</p>`;
@@ -157,6 +162,12 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
     if (html.includes(inlinePlaceholder)) {
       html = html.replace(inlinePlaceholder, () => latex);
     }
+  });
+  
+  // Restore image tags
+  imageReplacements.forEach((imgTag, index) => {
+    const placeholder = `IMGPH${index}X`;
+    html = html.replace(placeholder, imgTag);
   });
   
   return html;

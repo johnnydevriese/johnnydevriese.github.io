@@ -81,7 +81,7 @@ Suppose our neural net is shallow instead of deep. It has this first layer of 4 
 
 The goal in optimizing $ x = A_1, b_1, A_2, b_2$ is that the output values $v_l = v_2$ at the last layer ($l = 2$) should correctly capture the important features of the training data $v_0$. 
 
-![feed_forward_neural_net.png](attachment:6034da16-e73c-4ba9-a8dd-9a9361b9e746.png)
+*[Diagram: Feed-Forward Neural Network showing input layer v₀ with 3 neurons, hidden layer v₁ with 4 neurons, and output layer v₂ with 1 neuron. Connections between layers represent weight matrices A₁ and A₂.]*
 
 * For a **classfication problem** each sample v_0 of the training data is assigned **1 or -1**. We want the output $v_2$ to have that correct sign. 
 
