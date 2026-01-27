@@ -8,6 +8,8 @@ slug: the-shannon-problem
 
 # The Shannon Problem: Why We Need a Mathematics of Neural Networks
 
+![Claude Shannon](https://raw.githubusercontent.com/johnnydevriese/johnnydevriese.github.io/master/blog_assets/claude_shannon_header.png)
+
 In 1937, Claude Shannon was a master's student at MIT working on a theoretical problem that seemed narrow and academic: could you describe electrical circuits using algebra?
 
 Before Shannon, people built circuits by trial and error. They worked. Engineers knew rules of thumb. But there was no systematic mathematical framework to describe what a circuit actually computed. You couldn't look at a circuit and write down its logic. You couldn't design one from first principles.
