@@ -334,7 +334,7 @@ export default function PrincipalAI() {
                   color: isDark ? darkMuted : lightMuted,
                   marginBottom: '0.25rem'
                 }}>
-                  © 2025 Johnny Devriese
+                  © 2026 Johnny Devriese
                 </p>
                 <p style={{
                   fontFamily: 'IBM Plex Mono',

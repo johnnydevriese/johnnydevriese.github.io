@@ -1,4 +1,4 @@
-// Enhanced markdown renderer for better Jekyll post compatibility
+// Enhanced markdown renderer for the legacy markdown/frontmatter post format
 import hljs from 'highlight.js';
 
 export function renderMarkdown(content: string, isDark: boolean, colors: any): string {
@@ -35,7 +35,7 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
     return placeholder;
   });
   
-  // Handle Jekyll code blocks with syntax highlighting
+  // Handle Liquid-style highlight blocks with syntax highlighting
   html = html.replace(/\{%\s*highlight\s+(\w+)\s*%\}([\s\S]*?)\{%\s*endhighlight\s*%\}/g, 
     (_match, lang, code) => {
       const trimmedCode = code.trim();
@@ -48,10 +48,10 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
       return `<pre style="background-color: ${isDark ? colors.base[900] : colors.base[100]}; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid ${isDark ? colors.base[850] : colors.base[200]}; font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; line-height: 1.6;"><code class="hljs language-${lang}" style="font-family: inherit; display: block; white-space: pre;">${highlighted}</code></pre>`;
   });
   
-  // Handle Jekyll comments
+  // Handle HTML comments
   html = html.replace(/<!--[\s\S]*?-->/g, '');
   
-  // Handle Jekyll links [text][ref]
+  // Handle reference-style links [text][ref]
   const linkRefs: {[key: string]: string} = {};
   html = html.replace(/\[([^\]]+)\]:\s*(.+)/g, (_match, ref, url) => {
     linkRefs[ref.toLowerCase()] = url.trim();

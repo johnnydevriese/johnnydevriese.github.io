@@ -26,7 +26,7 @@ A modern, minimalist blog built with React, TypeScript, and Vite, featuring a cl
 npm install
 ```
 
-2. Parse existing Jekyll posts (converts _posts to TypeScript data):
+2. Parse existing markdown posts (converts `content/posts` to TypeScript data):
 ```bash
 npm run parse-posts
 ```
@@ -42,7 +42,7 @@ npm run dev
 
 ### Adding New Posts
 
-1. Add your markdown file to the `_posts` directory following the Jekyll naming convention:
+1. Add your markdown file to the `content/posts` directory using the date-prefixed naming convention:
    ```
    YYYY-MM-DD-title-of-post.md
    ```
@@ -86,8 +86,8 @@ npm run preview
 │   ├── main.tsx          # React entry point
 │   └── data/
 │       └── posts.ts      # Generated posts data (auto-generated)
-├── _posts/               # Jekyll-style markdown posts
-├── parse-posts.js        # Script to convert posts to TypeScript
+├── content/posts/        # Markdown post source files
+├── parse-posts.cjs       # Script to convert posts to TypeScript
 ├── index.html
 ├── package.json
 ├── tsconfig.json

@@ -4,8 +4,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "tsc && vite build",
+        "dev": "npm run parse-posts && vite",
+        "build": "npm run parse-posts && tsc && vite build",
         "preview": "vite preview",
         "parse-posts": "node parse-posts.cjs"
     },

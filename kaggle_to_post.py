@@ -113,10 +113,10 @@ def fetch_and_convert(slug):
     fm_str = "---\n" + yaml.dump(frontmatter) + "---\n\n"
     final_content = fm_str + content
     
-    # Output to _posts
+    # Output to content/posts
     post_filename = f"{original_date}-{kernel_name}.md"
-    post_path = Path("_posts") / post_filename
-    os.makedirs("_posts", exist_ok=True)
+    post_path = Path("content/posts") / post_filename
+    os.makedirs("content/posts", exist_ok=True)
     
     with open(post_path, "w") as f:
         f.write(final_content)

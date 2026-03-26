@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const postsDir = "./_posts";
+const postsDir = "./content/posts";
 const outputFile = "./src/data/posts.ts";
 
 function parseFrontMatter(content) {
@@ -89,7 +89,7 @@ function extractTags(categories) {
 
 const posts = [];
 
-// Read all files in the _posts directory
+// Read all files in the content/posts directory
 const files = fs
   .readdirSync(postsDir)
   .filter((f) => f.endsWith(".md") || f.endsWith(".markdown"));
@@ -117,8 +117,8 @@ files.forEach((filename) => {
 posts.sort((a, b) => new Date(b.dateObj) - new Date(a.dateObj));
 
 // Generate TypeScript file
-const tsContent = `// Auto-generated from Jekyll posts
-// Run 'node parse-posts.js' to regenerate
+const tsContent = `// Auto-generated from content/posts
+// Run 'node parse-posts.cjs' to regenerate
 
 export interface Post {
   slug: string;
@@ -151,3 +151,50 @@ fs.writeFileSync(outputFile, tsContent);
 
 console.log(`✓ Parsed ${posts.length} posts`);
 console.log(`✓ Generated ${outputFile}`);
+
+// RSS Generation
+const SITE_URL = "https://johnnydevriese.github.io";
+const RSS_PATH = "./public/rss.xml";
+
+function escapeXml(unsafe) {
+  return unsafe.replace(/[<>&'"]/g, (c) => {
+    switch (c) {
+      case "<": return "&lt;";
+      case ">": return "&gt;";
+      case "&": return "&amp;";
+      case "'": return "&apos;";
+      case "\"": return "&quot;";
+    }
+  });
+}
+
+const rssItems = posts.map(post => `
+    <item>
+      <title>${escapeXml(post.title)}</title>
+      <link>${SITE_URL}/#${post.slug}</link>
+      <guid>${SITE_URL}/#${post.slug}</guid>
+      <pubDate>${new Date(post.dateObj).toUTCString()}</pubDate>
+      <description>${escapeXml(post.excerpt)}</description>
+    </item>`).join("");
+
+const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Johnny Devriese</title>
+    <link>${SITE_URL}</link>
+    <description>Thoughts on programming, data science, and more.</description>
+    <language>en-us</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml" />
+    ${rssItems}
+  </channel>
+</rss>`;
+
+// Ensure public directory exists
+const publicDir = "./public";
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
+}
+
+fs.writeFileSync(RSS_PATH, rssFeed);
+console.log(`✓ Generated ${RSS_PATH}`);

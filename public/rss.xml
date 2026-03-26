@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Johnny Devriese</title>
+    <link>https://johnnydevriese.github.io</link>
+    <description>Thoughts on programming, data science, and more.</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Mar 2026 21:09:19 GMT</lastBuildDate>
+    <atom:link href="https://johnnydevriese.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Shannon Problem: Why We Need a Mathematics of Neural Networks</title>
+      <link>https://johnnydevriese.github.io/#the-shannon-problem</link>
+      <guid>https://johnnydevriese.github.io/#the-shannon-problem</guid>
+      <pubDate>Mon, 26 Jan 2026 00:00:00 GMT</pubDate>
+      <description>The Shannon Problem: Why We Need a Mathematics of Neural Networks In 1937, Claude Shannon was a master&apos;s student at MIT working on a theoretical problem that seemed narrow and academic: could you describe electrical circuits using algebra? Before Shannon, people built circuits by trial and error. Th...</description>
+    </item>
+    <item>
+      <title>The Librarian in the Machine: Retrieval, Generation, and the Search for Truth</title>
+      <link>https://johnnydevriese.github.io/#the-librarian-in-the-machine</link>
+      <guid>https://johnnydevriese.github.io/#the-librarian-in-the-machine</guid>
+      <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
+      <description>The Librarian in the Machine: Retrieval, Generation, and the Search for Truth In the popular imagination, a Large Language Model is a brilliant, albeit somewhat eccentric, scholar who has read everything but remembers nothing specifically. Ask it about the intricacies of the Byzantine tax code or th...</description>
+    </item>
+    <item>
+      <title>The Loop Unwound - How Deep Networks Are Just Optimized Algorithms in Disguise</title>
+      <link>https://johnnydevriese.github.io/#loop-unwound</link>
+      <guid>https://johnnydevriese.github.io/#loop-unwound</guid>
+      <pubDate>Tue, 09 Sep 2025 06:00:00 GMT</pubDate>
+      <description>The Loop Unwound: How Deep Networks Are Just Optimized Algorithms in Disguise Hey there, fellow travelers on the AI frontier! As a research engineer, especially one with a physics background, you&apos;ve probably felt that familiar pull towards understanding the &quot;why&quot; behind the &quot;what works.&quot; We&apos;ve seen ...</description>
+    </item>
+    <item>
+      <title>Virigina Tech Bicycle Helmets</title>
+      <link>https://johnnydevriese.github.io/#virigina-tech-bicycle-helmets</link>
+      <guid>https://johnnydevriese.github.io/#virigina-tech-bicycle-helmets</guid>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 GMT</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>Building an AI Agent for Glucose Tracking</title>
+      <link>https://johnnydevriese.github.io/#glucose-agent</link>
+      <guid>https://johnnydevriese.github.io/#glucose-agent</guid>
+      <pubDate>Mon, 03 Mar 2025 07:00:00 GMT</pubDate>
+      <description>Building an AI Agent for Glucose Tracking The Promise of Agentic AI in Healthcare AI agents represent a fundamental shift in how we interact with intelligent systems. Unlike traditional models that simply predict the next token, agents can reason about which tools to use, when to use them, and how t...</description>
+    </item>
+    <item>
+      <title>How To Debug A Model</title>
+      <link>https://johnnydevriese.github.io/#how-to-debug-a-model</link>
+      <guid>https://johnnydevriese.github.io/#how-to-debug-a-model</guid>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 GMT</pubDate>
+      <description>Learning curves are plots that show how model performance changes as you add more training data. They&apos;re incredibly useful for diagnosing model behavior. Let me break down the key aspects: 1. What Learning Curves Show: - Training score: How well the model performs on training data - Cross-validation...</description>
+    </item>
+    <item>
+      <title>Adaptive Bayesian Scanning Algorithms For Aesa Rad</title>
+      <link>https://johnnydevriese.github.io/#adaptive-bayesian-scanning-algorithms-for-aesa-rad</link>
+      <guid>https://johnnydevriese.github.io/#adaptive-bayesian-scanning-algorithms-for-aesa-rad</guid>
+      <pubDate>Sun, 09 Feb 2025 00:00:00 GMT</pubDate>
+      <description>Adaptive Bayesian Scanning Algorithms for AESA Radar Systems **Author:** Johnny Devriese --- Abstract Traditional Active Electronically Scanned Array (AESA) radar systems often employ linear or predetermined scanning patterns that, while effective in many scenarios, may not optimally allocate resour...</description>
+    </item>
+    <item>
+      <title>Stats Test Vs Building Model</title>
+      <link>https://johnnydevriese.github.io/#stats-test-vs-building-model</link>
+      <guid>https://johnnydevriese.github.io/#stats-test-vs-building-model</guid>
+      <pubDate>Sun, 09 Feb 2025 00:00:00 GMT</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>My macOS Setup</title>
+      <link>https://johnnydevriese.github.io/#my-macos-setup</link>
+      <guid>https://johnnydevriese.github.io/#my-macos-setup</guid>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 GMT</pubDate>
+      <description>My macOS Setup This is my current macOS development setup that I&apos;ve refined over the years to maximize productivity and maintain a clean workflow. Essential Apps Development Tools - **VS Code** - My primary code editor with GitHub Copilot integration - **iTerm2** - Superior terminal emulator with sp...</description>
+    </item>
+    <item>
+      <title>Theneedledrop Ratings</title>
+      <link>https://johnnydevriese.github.io/#theneedledrop-ratings</link>
+      <guid>https://johnnydevriese.github.io/#theneedledrop-ratings</guid>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 GMT</pubDate>
+      <description>Decision Trees (CART) Decision trees are defined by recursively partitioning the input space, and defining a local model in each resulting region of input space. The overall model can be represented by a tree, with one leaf per region. (image removed because Kaggle was complaininga about size limits...</description>
+    </item>
+    <item>
+      <title>Pytorch Examples</title>
+      <link>https://johnnydevriese.github.io/#pytorch-examples</link>
+      <guid>https://johnnydevriese.github.io/#pytorch-examples</guid>
+      <pubDate>Wed, 13 Oct 2021 00:00:00 GMT</pubDate>
+      <description>Computation graphs MLPs are a simple kind of DNN in which each layer feeds directly into the next, forming a chain structure, as shown in Figure 13.10. However, modern DNNs can combine differentiable components in much more complex ways, to create a computation graph, analogous to how programmers co...</description>
+    </item>
+    <item>
+      <title>Mathematics Of Deep Neural Nets</title>
+      <link>https://johnnydevriese.github.io/#mathematics-of-deep-neural-nets</link>
+      <guid>https://johnnydevriese.github.io/#mathematics-of-deep-neural-nets</guid>
+      <pubDate>Fri, 08 Oct 2021 00:00:00 GMT</pubDate>
+      <description>Mathematics of Deep Neural Nets Neural Nets are defined by a **learning function** $F(x,v)$ where the **weights** are $x$ and the **training data** are $v$. The most important aspects of creating $F$: 1. Composition $ F = F_3(F_2(F_1(x,v,)))$ 2. Chain Rule for $x$-derivatives of $F$ 3. Stochastic Gr...</description>
+    </item>
+    <item>
+      <title>Detecting The Higgs Boson With Tpus</title>
+      <link>https://johnnydevriese.github.io/#detecting-the-higgs-boson-with-tpus</link>
+      <guid>https://johnnydevriese.github.io/#detecting-the-higgs-boson-with-tpus</guid>
+      <pubDate>Wed, 01 Sep 2021 00:00:00 GMT</pubDate>
+      <description>Searching for the Higgs Boson # The Standard Model is a theory in particle physics that describes some of the most basic forces of nature. One fundamental particle, the Higgs boson, is what accounts for the *mass* of matter. First theorized in the 1964, the Higgs boson eluded observation for almost ...</description>
+    </item>
+    <item>
+      <title>Monet Cyclegan Tutorial</title>
+      <link>https://johnnydevriese.github.io/#monet-cyclegan-tutorial</link>
+      <guid>https://johnnydevriese.github.io/#monet-cyclegan-tutorial</guid>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 GMT</pubDate>
+      <description>Introduction and Setup This notebook utilizes a CycleGAN architecture to add Monet-style to photos. For this tutorial, we will be using the TFRecord dataset. Import the following packages and change the accelerator to TPU. For more information, check out TensorFlow and Keras CycleGAN documentation p...</description>
+    </item>
+    <item>
+      <title>Exploring Features</title>
+      <link>https://johnnydevriese.github.io/#exploring-features</link>
+      <guid>https://johnnydevriese.github.io/#exploring-features</guid>
+      <pubDate>Wed, 11 Aug 2021 00:00:00 GMT</pubDate>
+      <description>var3: nationality of the customer Add feature that counts the number of zeros in a row num_var4 : number of bank products Var38 var38 is important according to XGBOOST see https://www.kaggle.com/cast42/santander-customer-satisfaction/xgboost-with-early-stopping/files Also RFC thinks var38 is importa...</description>
+    </item>
+    <item>
+      <title>Tpu Flowers</title>
+      <link>https://johnnydevriese.github.io/#tpu-flowers</link>
+      <guid>https://johnnydevriese.github.io/#tpu-flowers</guid>
+      <pubDate>Wed, 11 Aug 2021 00:00:00 GMT</pubDate>
+      <description>TPU or GPU detection Competition data access TPUs read data directly from Google Cloud Storage (GCS). This Kaggle utility will copy the dataset to a GCS bucket co-located with the TPU. If you have multiple datasets attached to the notebook, you can pass the name of a specific dataset to the get_gcs_...</description>
+    </item>
+    <item>
+      <title>Multi Layer Architecture In Node.js</title>
+      <link>https://johnnydevriese.github.io/#multi-layer-architecture-node-js</link>
+      <guid>https://johnnydevriese.github.io/#multi-layer-architecture-node-js</guid>
+      <pubDate>Wed, 13 May 2020 00:52:21 GMT</pubDate>
+      <description>We need a separation of concerns when building an API. Often times there will be a distinction between the , , and layer. The request layer is where we handle preparing the data to pass to the layer and also handling the responses. The layer is where all business logic is placed and calls to the dat...</description>
+    </item>
+    <item>
+      <title>Using JWTs For API Access Tokens</title>
+      <link>https://johnnydevriese.github.io/#using-jwt-for-access-tokens</link>
+      <guid>https://johnnydevriese.github.io/#using-jwt-for-access-tokens</guid>
+      <pubDate>Sat, 18 Apr 2020 00:52:21 GMT</pubDate>
+      <description>Introduction The old way of doing authentication is for you to manage an authentication server that issues credentials for your partners. An example of this would be something like IdentityServer4. However, this can easily be offloaded to a service such as Auth0 or Okta. A cloud provider makes the m...</description>
+    </item>
+    <item>
+      <title>Fibonacci Sequence In JavaScript</title>
+      <link>https://johnnydevriese.github.io/#fibonacci-sequence-in-javascript</link>
+      <guid>https://johnnydevriese.github.io/#fibonacci-sequence-in-javascript</guid>
+      <pubDate>Sat, 04 Apr 2020 00:52:21 GMT</pubDate>
+      <description>I was looking into the often posed question of how to solve the Fibonacci sequence in . I always figured if asked this I would just answer with &quot;Look up the list of the Fibonacci numbers and throw them in an array. Voila!&quot; However, it turns out there&apos;s perhaps more clever but less cheeky version whi...</description>
+    </item>
+    <item>
+      <title>Running PostgreSQL in Docker</title>
+      <link>https://johnnydevriese.github.io/#running-postgresql-in-docker</link>
+      <guid>https://johnnydevriese.github.io/#running-postgresql-in-docker</guid>
+      <pubDate>Mon, 10 Feb 2020 01:52:21 GMT</pubDate>
+      <description>PostgreSQL is like therapy after trying to wrangle Cassandra for years! Lets get it up and running in a docker container. I tried to install/run with brew but got an error connection refused. I think this has to do with other fuzion config found in /etc/hosts So instead we can just run it in a docke...</description>
+    </item>
+    <item>
+      <title>Serverless Data Lake On AWS</title>
+      <link>https://johnnydevriese.github.io/#serverless-data-lake-on-aws</link>
+      <guid>https://johnnydevriese.github.io/#serverless-data-lake-on-aws</guid>
+      <pubDate>Sat, 19 Oct 2019 00:52:21 GMT</pubDate>
+      <description>What is a data lake and why is everyone talking about it?</description>
+    </item>
+    <item>
+      <title>Introduction to Pyspark</title>
+      <link>https://johnnydevriese.github.io/#introduction-to-pyspark</link>
+      <guid>https://johnnydevriese.github.io/#introduction-to-pyspark</guid>
+      <pubDate>Mon, 22 Apr 2019 00:52:21 GMT</pubDate>
+      <description>I&apos;ve spent a load of time learning about botht the internals of Spark as well as learning about Pyspark for analytics. I still need to collect my thoughts but this is more of a placeholder.</description>
+    </item>
+    <item>
+      <title>React and Redux - A New World</title>
+      <link>https://johnnydevriese.github.io/#react-redux</link>
+      <guid>https://johnnydevriese.github.io/#react-redux</guid>
+      <pubDate>Mon, 18 Mar 2019 00:52:21 GMT</pubDate>
+      <description>Learning about components and managing state with redux. A great place to start it CRA</description>
+    </item>
+    <item>
+      <title>Filtering Elements By Value</title>
+      <link>https://johnnydevriese.github.io/#filtering-elements-by-value</link>
+      <guid>https://johnnydevriese.github.io/#filtering-elements-by-value</guid>
+      <pubDate>Sun, 18 Mar 2018 00:52:21 GMT</pubDate>
+      <description>very good answer: https://stackoverflow.com/questions/286141/remove-blank-attributes-from-an-object-in-javascript Need to think about this one that uses recursion.</description>
+    </item>
+    <item>
+      <title>Git Merge Tricks</title>
+      <link>https://johnnydevriese.github.io/#git-merge-tricks</link>
+      <guid>https://johnnydevriese.github.io/#git-merge-tricks</guid>
+      <pubDate>Mon, 05 Mar 2018 01:52:21 GMT</pubDate>
+      <description>Sometimes you might just want to merge and accept the master branch (or whomevers) changes because you know they will overrule you no matter what. So this is a pretty slick Git trick. Git merge ours and theirs Try this: To accept theirs changes: To accept yours: Nice! ##</description>
+    </item>
+    <item>
+      <title>Manually Making Requests to S3 (don&apos;t)</title>
+      <link>https://johnnydevriese.github.io/#manual-aws-requests</link>
+      <guid>https://johnnydevriese.github.io/#manual-aws-requests</guid>
+      <pubDate>Tue, 06 Feb 2018 01:52:21 GMT</pubDate>
+      <description>You should probably be a normal human being and use the SDK, but one day I was tasked with figuring this out. So I figured I should document it. we need to derive the signing key and could use Crypto.js And then we have to manually sign requests if we are making making direct HTTP/HTTPS requests. An...</description>
+    </item>
+    <item>
+      <title>Finding String In JS Array</title>
+      <link>https://johnnydevriese.github.io/#find-string-in-javascript-list</link>
+      <guid>https://johnnydevriese.github.io/#find-string-in-javascript-list</guid>
+      <pubDate>Tue, 23 Jan 2018 01:52:21 GMT</pubDate>
+      <description>Pretty slick, for JS.</description>
+    </item>
+    <item>
+      <title>Using Google Maps API to Return the Local Time </title>
+      <link>https://johnnydevriese.github.io/#getting-timezone-from-google</link>
+      <guid>https://johnnydevriese.github.io/#getting-timezone-from-google</guid>
+      <pubDate>Wed, 17 Jan 2018 01:52:21 GMT</pubDate>
+      <description>This is some half baked code that we copy/pasted the variables around. Essentially just a proof of concept. This just shows how we could get a timestamp and geolocation from the browser, send that to the Maps API and get back both the offset and daylight savings offset too. From the docs: The local ...</description>
+    </item>
+    <item>
+      <title>Lazy Loading Images</title>
+      <link>https://johnnydevriese.github.io/#lazy-loading-images</link>
+      <guid>https://johnnydevriese.github.io/#lazy-loading-images</guid>
+      <pubDate>Tue, 09 Jan 2018 01:52:21 GMT</pubDate>
+      <description>This takes a placeholder image in src tag and then we replace it with the actual data-src.</description>
+    </item>
+    <item>
+      <title>Dictionary To Run Function</title>
+      <link>https://johnnydevriese.github.io/#dictionary-to-run-function</link>
+      <guid>https://johnnydevriese.github.io/#dictionary-to-run-function</guid>
+      <pubDate>Sun, 07 Jan 2018 01:52:21 GMT</pubDate>
+      <description>Getting a taste of the power of Functional Programming. A similiar way of doing it is like this:</description>
+    </item>
+    <item>
+      <title>Thoughts On Programming</title>
+      <link>https://johnnydevriese.github.io/#thought-on-programming</link>
+      <guid>https://johnnydevriese.github.io/#thought-on-programming</guid>
+      <pubDate>Mon, 18 Dec 2017 01:52:21 GMT</pubDate>
+      <description>Interesting thoughts from /u/drawkbox that sort of remind me of the &apos;The Zen of Python&apos;. --- &quot;Programmers with lots of hours of maintaining code eventually evolve to return early, sorting exit conditions at top and meat of the methods at the bottom. Same way you evolve out of one liners. Same way co...</description>
+    </item>
+    <item>
+      <title>Async Await an AJAX Request</title>
+      <link>https://johnnydevriese.github.io/#async-await-ajax</link>
+      <guid>https://johnnydevriese.github.io/#async-await-ajax</guid>
+      <pubDate>Wed, 06 Dec 2017 01:52:21 GMT</pubDate>
+      <description>This will only work on more modern browsers! :)</description>
+    </item>
+    <item>
+      <title>Clever jQuery Chaining</title>
+      <link>https://johnnydevriese.github.io/#clever-jquery-chaining</link>
+      <guid>https://johnnydevriese.github.io/#clever-jquery-chaining</guid>
+      <pubDate>Wed, 06 Dec 2017 01:52:21 GMT</pubDate>
+      <description>&quot;With jQuery, you can chain together actions/methods. Chaining allows us to run multiple jQuery methods (on the same element) within a single statement.&quot;</description>
+    </item>
+    <item>
+      <title>Callback Hell</title>
+      <link>https://johnnydevriese.github.io/#callback-hell</link>
+      <guid>https://johnnydevriese.github.io/#callback-hell</guid>
+      <pubDate>Mon, 04 Dec 2017 01:52:21 GMT</pubDate>
+      <description>Avoid the callback triangle of doom with three simple rules: 1. keep your code shallow 2. modularize 3. handle every single error example:</description>
+    </item>
+    <item>
+      <title>Check For An Key In Object in JS and PHP</title>
+      <link>https://johnnydevriese.github.io/#checking-empty-object</link>
+      <guid>https://johnnydevriese.github.io/#checking-empty-object</guid>
+      <pubDate>Thu, 16 Nov 2017 01:52:21 GMT</pubDate>
+      <description>Coming From Python this felt a little funny since Python has so many nice features for looking up keys and setting defaults etc. Check if object has a key in JavaScript https://stackoverflow.com/questions/455338/how-do-i-check-if-an-object-has-a-key-in-javascript check if array has a key in PHP</description>
+    </item>
+    <item>
+      <title>AJAX URL Path Issue</title>
+      <link>https://johnnydevriese.github.io/#ajax-url-argument</link>
+      <guid>https://johnnydevriese.github.io/#ajax-url-argument</guid>
+      <pubDate>Wed, 15 Nov 2017 01:52:21 GMT</pubDate>
+      <description>You need to be careful becasue if in your pathURL argument you have a relative path (something like ../../foo/bar) it will break when we use that prototype/ ajax call within a different file because the ajax call uses the path from the CURRENT PAGE you are on. So, it seems if you want to make the sa...</description>
+    </item>
+    <item>
+      <title>Composer and phantomjs (for PDF and Excel reports on Analytics)</title>
+      <link>https://johnnydevriese.github.io/#composer-and-phantom</link>
+      <guid>https://johnnydevriese.github.io/#composer-and-phantom</guid>
+      <pubDate>Sat, 11 Nov 2017 01:52:21 GMT</pubDate>
+      <description>Despite the directions in the google drive they don&apos;t actually work because wants a file which doesn&apos;t get created when we do: . All it does is creates a file. And then when we try to use composer to install all of our projects dependencies which it would usually get from our file (much like npm&apos;s f...</description>
+    </item>
+    <item>
+      <title>PHP JSON parsing problem</title>
+      <link>https://johnnydevriese.github.io/#json-encode</link>
+      <guid>https://johnnydevriese.github.io/#json-encode</guid>
+      <pubDate>Sat, 21 Oct 2017 00:52:21 GMT</pubDate>
+      <description>**Problem**: json_encode() returns FALSE. This means that our crap is broken. Intially it looked like the depth could be set wrong, but that didn&apos;t solve the issue. Fix: Use json_last_error_msg() which will output why it is broken. We could write an entire error handler so we would know about these ...</description>
+    </item>
+    <item>
+      <title>Arrays in PHP 7</title>
+      <link>https://johnnydevriese.github.io/#arrays-in-php-7</link>
+      <guid>https://johnnydevriese.github.io/#arrays-in-php-7</guid>
+      <pubDate>Sat, 21 Oct 2017 00:52:21 GMT</pubDate>
+      <description>Turns out it&apos;s not good to instantiate an array by using: . PHP does not appreciate or tolerate such things. So we have to change them to in order for things to work properly.</description>
+    </item>
+    <item>
+      <title>How to Train A Tiger</title>
+      <link>https://johnnydevriese.github.io/#how-to-train-a-tiger</link>
+      <guid>https://johnnydevriese.github.io/#how-to-train-a-tiger</guid>
+      <pubDate>Fri, 30 Jun 2017 00:52:21 GMT</pubDate>
+      <description>Training a Tiger is no simple task. You first need salmon. In actuality you need a LOT of salmon.</description>
+    </item>
+    <item>
+      <title>Building My Photography Website</title>
+      <link>https://johnnydevriese.github.io/#building-my-photography-website</link>
+      <guid>https://johnnydevriese.github.io/#building-my-photography-website</guid>
+      <pubDate>Sun, 15 Mar 2015 23:52:21 GMT</pubDate>
+      <description>Back in 2015 I decided I would dedicate my spring break to building my first website. Being a photographer it had to be as current and modern as possible. However, web development has gotten incredibly complicated so I chose to instead spend a few bucks on a nice parallax single page website. It see...</description>
+    </item>
+    <item>
+      <title>Solving The Schrodinger Equation Using Chebfun!</title>
+      <link>https://johnnydevriese.github.io/#solving-the-schrodinger-equation-using-chebfun</link>
+      <guid>https://johnnydevriese.github.io/#solving-the-schrodinger-equation-using-chebfun</guid>
+      <pubDate>Mon, 01 Sep 2014 23:52:21 GMT</pubDate>
+      <description>My first introduction to scientific computing was working with [Jared L. Aurentz][jared-github]. Over the summer of 2014 we worked on developing an algorithm in C, Python, and eventually Matlab to solve the Schrodinger and then calculate the hyperpolerizatbility of with the given potential. You can ...</description>
+    </item>
+  </channel>
+</rss>

@@ -103,7 +103,7 @@ npm run build
 ## Continuous Updates
 
 To add new blog posts:
-1. Create markdown file in `_posts`
+1. Create markdown file in `content/posts`
 2. Run `npm run parse-posts`
 3. Commit and push
 4. GitHub Actions deploys automatically

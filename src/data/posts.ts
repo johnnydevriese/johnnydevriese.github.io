@@ -1,5 +1,5 @@
-// Auto-generated from Jekyll posts
-// Run 'node parse-posts.js' to regenerate
+// Auto-generated from content/posts
+// Run 'node parse-posts.cjs' to regenerate
 
 export interface Post {
   slug: string;
@@ -102,6 +102,19 @@ export const posts: Post[] = [
     "tags": [
       "kaggle",
       "machine-learning"
+    ]
+  },
+  {
+    "slug": "my-macos-setup",
+    "date": "2024 · 10",
+    "dateObj": "2024-11-01T00:00:00.000Z",
+    "title": "My macOS Setup",
+    "excerpt": "My macOS Setup This is my current macOS development setup that I've refined over the years to maximize productivity and maintain a clean workflow. Essential Apps Development Tools - **VS Code** - My primary code editor with GitHub Copilot integration - **iTerm2** - Superior terminal emulator with sp...",
+    "content": "## My macOS Setup\n\nThis is my current macOS development setup that I've refined over the years to maximize productivity and maintain a clean workflow.\n\n### Essential Apps\n\n#### Development Tools\n- **VS Code** - My primary code editor with GitHub Copilot integration\n- **iTerm2** - Superior terminal emulator with split panes and customization\n- **Homebrew** - Package manager for macOS\n- **Docker Desktop** - Container management\n- **Postman** - API development and testing\n\n#### Productivity\n- **Alfred** - Spotlight replacement with powerful workflows\n- **Rectangle** - Window management with keyboard shortcuts\n- **Bear** - Note-taking with markdown support\n- **Things 3** - Task management\n\n#### Utilities\n- **1Password** - Password management\n- **CleanShot X** - Screenshot and screen recording tool\n- **Bartender** - Menu bar organization\n- **Monitor Control** - External display brightness control\n\n### Terminal Setup\n\n#### Shell Configuration\nI use **zsh** with Oh My Zsh for a better terminal experience:\n\n```bash\n# Install Oh My Zsh\nsh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"\n\n# Install powerlevel10k theme\ngit clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k\n```\n\n#### Useful Aliases\n```bash\nalias gs=\"git status\"\nalias gc=\"git commit -m\"\nalias gp=\"git push\"\nalias gpl=\"git pull\"\nalias ll=\"ls -la\"\nalias ..=\"cd ..\"\nalias ...=\"cd ../..\"\n```\n\n### Development Environment\n\n#### Python\n```bash\n# Install pyenv for Python version management\nbrew install pyenv\n\n# Add to .zshrc\nexport PYENV_ROOT=\"$HOME/.pyenv\"\nexport PATH=\"$PYENV_ROOT/bin:$PATH\"\neval \"$(pyenv init -)\"\n```\n\n#### Node.js\n```bash\n# Install nvm for Node version management\nbrew install nvm\n\n# Add to .zshrc\nexport NVM_DIR=\"$HOME/.nvm\"\n[ -s \"/opt/homebrew/opt/nvm/nvm.sh\" ] && \\. \"/opt/homebrew/opt/nvm/nvm.sh\"\n```\n\n### macOS System Preferences\n\n#### Keyboard Shortcuts\n- **Cmd + Space** - Alfred\n- **Cmd + Shift + 5** - CleanShot X\n- **Ctrl + Opt + Arrow** - Rectangle window management\n\n#### System Settings\n```bash\n# Show hidden files in Finder\ndefaults write com.apple.finder AppleShowAllFiles YES\n\n# Faster key repeat rate\ndefaults write -g KeyRepeat -int 1\ndefaults write -g InitialKeyRepeat -int 10\n\n# Disable press-and-hold for accents\ndefaults write -g ApplePressAndHoldEnabled -bool false\n\n# Show path bar in Finder\ndefaults write com.apple.finder ShowPathbar -bool true\n\n# Show status bar in Finder\ndefaults write com.apple.finder ShowStatusBar -bool true\n```\n\n### VS Code Extensions\n\nEssential extensions I can't live without:\n- GitHub Copilot\n- Prettier - Code formatter\n- ESLint\n- Python\n- GitLens\n- Docker\n- Remote - SSH\n- Material Icon Theme\n\n### Homebrew Packages\n\nCore packages I install on every Mac:\n\n```bash\nbrew install git\nbrew install node\nbrew install python\nbrew install wget\nbrew install htop\nbrew install tree\nbrew install jq\nbrew install ripgrep\nbrew install fzf\nbrew install bat\n```\n\n### Backup and Sync\n\n- **iCloud Drive** - Documents and Desktop sync\n- **Time Machine** - Full system backups to external drive\n- **GitHub** - All code is version controlled\n- **Mackup** - Sync application settings\n\n```bash\n# Install Mackup\nbrew install mackup\n\n# Backup settings\nmackup backup\n```\n\n### Workflow Automation\n\nI use **Keyboard Maestro** for custom automations:\n- Text expansion snippets\n- Application-specific shortcuts\n- Clipboard history management\n- Window arrangement presets\n\n### Final Thoughts\n\nThis setup has evolved over years of experimentation. The key is finding tools that reduce friction and let you focus on the work that matters. Your setup should work for you, not the other way around.\n\nWhat's in your macOS setup? Let me know on [Twitter](https://twitter.com)!\n\n---\n\n*Last updated: November 2024*",
+    "tags": [
+      "macos",
+      "productivity",
+      "tools"
     ]
   },
   {

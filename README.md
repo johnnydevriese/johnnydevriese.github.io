@@ -1,31 +1,40 @@
 # Johnny Devriese Personal Website
 
-This website was built using the [Material Jekyll Theme by Alex Carpenter](https://alexcarpenter.github.io/material-jekyll-theme).
+React + TypeScript + Vite blog with markdown source files in `content/posts`.
 
+## Development
 
-<!--
-[Demo](http://alexcarpenter.github.io/material-jekyll-theme)
+```bash
+npm install
+npm run dev
+```
 
-![Material Jekyll Theme](https://d13yacurqjgara.cloudfront.net/users/37718/screenshots/2430279/slice_1.jpg)
+`npm run dev` regenerates `src/data/posts.ts` from `content/posts` before starting Vite.
 
-## Getting started
-1. `git clone https://github.com/alexcarpenter/material-jekyll-theme.git`
-2. `cd material-jekyll-theme`
-3. Configure the `_config.yml` file as needed
-4. `jekyll serve`
-5. might have to do `bundle exec jekyll serve` on macOS
+## Adding Posts
 
-## Options
-Customize your options within the `_config.yml` file.
+1. Create a markdown file in `content/posts` using a date-prefixed filename:
+   `YYYY-MM-DD-title-of-post.md`
+2. Add frontmatter:
 
-+ Theme
-  - Green
-  - Blue
-  - Orange
-  - Purple
-  - Grey
-+ Fixed Navigation
-  - True
-  - False
+```yaml
+---
+title: "Your Post Title"
+date: YYYY-MM-DD HH:MM:SS
+categories: tag1 tag2 tag3
+---
+```
 
--->
+3. Run `npm run dev` or `npm run parse-posts`.
+
+## Build
+
+```bash
+npm run build
+```
+
+## Content Pipeline
+
+- `content/posts/` contains the source markdown posts
+- `parse-posts.cjs` converts them into `src/data/posts.ts`
+- `src/App.tsx` renders the generated post data
