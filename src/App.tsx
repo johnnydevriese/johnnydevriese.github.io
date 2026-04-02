@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { posts, Post } from './data/posts';
+import { photography } from './data/photography';
 import { renderMarkdown } from './utils/markdown';
 import { SocialIcons } from './components/SocialIcons';
 import './highlight-theme.css';
@@ -12,38 +13,7 @@ declare global {
 
 type Section = 'posts' | 'about' | 'photography' | 'post-detail';
 
-type Photo = {
-  title: string;
-  location: string;
-  date: string;
-  image?: string;
-  description: string;
-};
-
 export default function Blog() {
-  const photography: Photo[] = [
-    {
-      title: 'Mount Rainier',
-      location: 'Washington',
-      date: 'Summer 2017',
-      image:
-        'https://lh3.googleusercontent.com/xN7fFeqwfFevQE1SVoG1-b3Hehi0kWwdbCZButfo5CcMTg1JOSj0tAc_4C4zlUZPlFp0usee2z3xQBqTRzz-ibc9KXq_THRU7_E5R4uhTLCxxJa3ZC8EitMT9oDxXs6xPOSgwtobXRaw99WNsVyEPPlFp_tLftGJVVDKZB3Ws-Jg0u-Mza-y5ENbCYcqPTRViaWJJv4bge60_fMQFmUGz2pzl9OBL2ztuP3JN_6a4rQnkwExSb6SQ4f_EcXyR-7_7jjvzljTBWfGhtchswfzD3VhhUhZSYylLwBJ_QNvsxjxaEzUNQSmpi3MmIWIhf4VpK6WQspZ-WgRtd6CD3Ef3HeEr9RmgCDn8gHARiAEHdEo5Nft3ACOc7GXHSx3NETs1fS5ugkmz4tCclfY6miezxWkGKvNflSd7gUallIVhLsAf1vgfnu7Ix68NvdWkQM0FO4emQyMQzZMdfXtd576-Y9jft0cr5g-g6cfycd8wCkZjY0Oi6CxLDdzCKln-O2Y3uyVbSt3uc3uaT-Qc-cIOXF9XmzwUNLe29VIIixBRttrxaSFNWje6EnhxFvWcT-xs-pzjSOu_tm8HCv5dkO6J9ZO5yDIWn5ozpNQGRa_7-vJfS92uA=w1200-h800-no',
-      description: 'A clear-day view of Rainier rising over the tree line. Captured on a brisk morning when the atmosphere was perfectly still.',
-    },
-    {
-      title: 'High Desert',
-      location: 'Oregon',
-      date: 'Autumn 2019',
-      description: 'Golden hour across the sagebrush. The light hitting the basalt columns created a depth that only the high desert can provide.',
-    },
-    {
-      title: 'Pacific Coast',
-      location: 'California',
-      date: 'Winter 2021',
-      description: 'Mist rolling in over the headlands. A study in gray and blue, where the ocean meets the sky in a seamless gradient.',
-    },
-  ];
-
   const [isDark, setIsDark] = useState(() => {
     // Check system preference on initial load
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -266,8 +236,30 @@ export default function Blog() {
     return renderMarkdown(content, isDark, themeColors);
   };
 
+  const getDisplayLocation = (location: string) => {
+    const trimmed = location.trim();
+    if (!trimmed || trimmed === 'Location Unavailable') {
+      return null;
+    }
+
+    const coordinatePattern = /^-?\d+(?:\.\d+)?,\s*-?\d+(?:\.\d+)?$/;
+    if (coordinatePattern.test(trimmed)) {
+      return null;
+    }
+
+    return trimmed;
+  };
+
   const selectedPhoto = photography[selectedPhotoIndex] ?? photography[0];
-  const photographyPanelBg = isDark ? '#121212' : '#F6F1E8';
+  const photoCount = photography.length;
+  const archiveStart = photography[photography.length - 1]?.date ?? '';
+  const archiveEnd = photography[0]?.date ?? '';
+  const archivedLocations = new Set(
+    photography
+      .map((photo) => getDisplayLocation(photo.location))
+      .filter((location): location is string => Boolean(location))
+  ).size;
+  const selectedPhotoLocation = getDisplayLocation(selectedPhoto.location);
   const photographyAccent = isDark ? '#E7DED0' : '#1F2024';
   const photographyAccentAlt = isDark ? '#9CA3AF' : '#6B7280';
   const photographyFrameBorder = isDark ? '#D7D3CB' : '#23252B';
@@ -311,72 +303,66 @@ export default function Blog() {
         .photography-shell {
           display: flex;
           flex-direction: column;
-          gap: 2rem;
-          margin-top: 1rem;
+          gap: 1rem;
+          margin-top: 0;
         }
-        .photography-intro {
-          display: grid;
-          grid-template-columns: 1.5fr 1fr;
-          gap: 1.5rem;
-          align-items: stretch;
-        }
-        .photography-intro-main {
-          border: 2px solid ${photographyFrameBorder};
-          background: ${photographyPanelBg};
-          box-shadow: ${photographyShadow};
-          padding: 2.5rem;
+        .photography-rail {
           display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-        .photography-intro-stats {
-          border: 2px solid ${photographyFrameBorder};
-          background: ${isDark ? '#1A1A1A' : '#FDFBF7'};
-          box-shadow: ${photographyShadow};
-          padding: 2.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+          justify-content: space-between;
+          align-items: baseline;
+          gap: 1rem;
+          flex-wrap: wrap;
+          padding-bottom: 0.2rem;
         }
         .photography-stage {
-          display: grid;
-          grid-template-columns: 1.8fr 1fr;
-          gap: 1.5rem;
-          align-items: stretch;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
         }
         .photography-frame-panel {
-          border: 2px solid ${photographyFrameBorder};
-          background: ${isDark ? '#121212' : '#F8F5F0'};
-          box-shadow: ${photographyShadow};
-          padding: 1.5rem;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
+          background: transparent;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
         }
         .photography-frame {
           position: relative;
-          aspect-ratio: 16 / 10;
+          aspect-ratio: 16 / 9;
           overflow: hidden;
-          border: 2px solid ${photographyFrameBorder};
-          background: ${isDark ? '#1A1A1A' : '#EFE9DE'};
+          border: 1px solid ${isDark ? '#3B3A38' : '#CFC5B7'};
+          background: ${isDark ? '#141414' : '#EEE7DB'};
+        }
+        .photography-frame-rail {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          gap: 1rem;
+          padding: 0;
+          flex-wrap: wrap;
         }
         .photography-meta-panel {
-          border: 2px solid ${photographyFrameBorder};
-          background: ${isDark ? '#161616' : '#FDFBF7'};
-          box-shadow: ${photographyShadow};
-          padding: 2.5rem;
+          border-top: 1px solid ${isDark ? '#343434' : '#D8D0C4'};
+          background: transparent;
+          box-shadow: none;
+          padding: 1rem 0 0 0;
           display: flex;
-          flex-direction: column;
           justify-content: space-between;
+          align-items: flex-start;
+          gap: 1.5rem;
         }
         .photography-strip-container {
           position: relative;
-          margin-top: 1rem;
+          margin-top: 0.5rem;
+          border-top: 1px solid ${isDark ? '#343434' : '#D8D0C4'};
+          padding-top: 1rem;
         }
         .photography-strip {
           display: flex;
-          gap: 1.5rem;
+          gap: 1rem;
           overflow-x: auto;
           scroll-snap-type: x mandatory;
-          padding: 0.5rem 0 2rem 0;
+          padding: 0.25rem 0 1.5rem 0;
           -ms-overflow-style: none;  /* IE and Edge */
           scrollbar-width: none;  /* Firefox */
         }
@@ -384,7 +370,7 @@ export default function Blog() {
           display: none; /* Chrome, Safari and Opera */
         }
         .photography-thumb {
-          flex: 0 0 300px;
+          flex: 0 0 260px;
           scroll-snap-align: start;
           border: 2px solid ${photographyFrameBorder};
           background: ${isDark ? '#161616' : '#FDFBF7'};
@@ -396,6 +382,7 @@ export default function Blog() {
           transition: transform 0.2s ease, box-shadow 0.2s ease;
           display: flex;
           flex-direction: column;
+          align-self: flex-start;
         }
         .photography-thumb:hover {
           transform: translate(-4px, -4px);
@@ -413,77 +400,95 @@ export default function Blog() {
           background: ${isDark ? '#1A1A1A' : '#EFE9DE'};
         }
         .photography-thumb-copy {
-          padding: 1.5rem;
+          padding: 0.8rem 0.95rem 0.95rem 0.95rem;
         }
         .photography-kicker {
           font-family: IBM Plex Mono;
-          font-size: 0.7rem;
+          font-size: 0.62rem;
           font-weight: 600;
-          letter-spacing: 0.2em;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
           color: ${photographyAccentAlt};
-          margin-bottom: 0.75rem;
+          margin-bottom: 0.45rem;
         }
         .photography-title {
           font-family: ${photographyDisplayFont};
-          font-size: clamp(2.5rem, 5vw, 4rem);
-          line-height: 0.9;
+          font-size: clamp(1.45rem, 2.9vw, 2.35rem);
+          line-height: 0.94;
           letter-spacing: -0.04em;
           color: ${photographyAccent};
           margin: 0;
         }
         .photography-stage-title {
           font-family: ${photographyDisplayFont};
-          font-size: clamp(2rem, 3.5vw, 3.2rem);
-          line-height: 0.95;
+          font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+          line-height: 0.98;
           letter-spacing: -0.03em;
-          margin: 0.5rem 0 1rem 0;
+          margin: 0;
           color: ${photographyAccent};
         }
         .photography-body {
           font-family: IBM Plex Mono;
-          font-size: 0.9rem;
-          line-height: 1.8;
+          font-size: 0.78rem;
+          line-height: 1.6;
           color: ${isDark ? darkText : lightText};
+        }
+        .photography-meta-block {
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+          max-width: 44rem;
+        }
+        .photography-detail-list {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
         }
         .photography-actions {
           display: flex;
-          gap: 1rem;
-          margin-top: 2rem;
+          gap: 0.9rem;
+          flex-shrink: 0;
         }
         .photography-action {
-          border: 2px solid ${photographyFrameBorder};
-          background: ${isDark ? '#1A1A1A' : '#FDFBF7'};
+          border: 1px solid ${isDark ? '#4A4946' : '#BFB5A6'};
+          background: transparent;
           color: ${isDark ? '#F5F1E8' : '#23252B'};
-          padding: 0.8rem 1.2rem;
+          padding: 0.7rem 1rem;
           font-family: IBM Plex Mono;
-          font-size: 0.75rem;
+          font-size: 0.68rem;
           font-weight: 600;
           letter-spacing: 0.1em;
           text-transform: uppercase;
           cursor: pointer;
-          box-shadow: 3px 3px 0px ${photographyFrameBorder};
-          transition: transform 0.15s ease, box-shadow 0.15s ease;
+          box-shadow: none;
+          transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
         }
         .photography-action:hover {
-          transform: translate(-2px, -2px);
-          box-shadow: 5px 5px 0px ${photographyFrameBorder};
+          background: ${isDark ? '#1A1A1A' : '#F4EEE4'};
         }
         .photography-action:active {
-          transform: translate(0, 0);
-          box-shadow: 1px 1px 0px ${photographyFrameBorder};
+          background: ${isDark ? '#202020' : '#ECE3D6'};
         }
         .photography-action.is-primary {
-          background: ${photographyAccent};
-          color: ${isDark ? '#101010' : '#FDFBF7'};
+          background: ${isDark ? '#EFE5D5' : '#23252B'};
+          color: ${isDark ? '#111111' : '#FDFBF7'};
+          border-color: ${isDark ? '#EFE5D5' : '#23252B'};
         }
         @media (max-width: 960px) {
-          .photography-intro,
-          .photography-stage {
-            grid-template-columns: 1fr;
+          .photography-meta-panel {
+            flex-direction: column;
+            align-items: stretch;
           }
-          .photography-strip {
-            grid-template-columns: 1fr;
+          .photography-thumb {
+            flex-basis: 220px;
+          }
+        }
+        @media (max-width: 640px) {
+          .photography-actions {
+            width: 100%;
+          }
+          .photography-action {
+            flex: 1;
           }
         }
         /* Selection color */
@@ -499,21 +504,26 @@ export default function Blog() {
         transition: 'background-color 0.3s, color 0.3s'
       }}>
         <div className="grain" style={{filter: isDark ? 'invert(1) brightness(1.1)' : 'invert(0)'}}></div>
-        <div className="content-wrapper" style={{maxWidth: activeSection === 'photography' ? '72rem' : '42rem', margin: '0 auto', padding: '4rem 2rem', transition: 'max-width 0.3s ease'}}>
+        <div className="content-wrapper" style={{
+          maxWidth: activeSection === 'photography' ? '72rem' : '42rem',
+          margin: '0 auto',
+          padding: activeSection === 'photography' ? '1rem 2rem 4rem 2rem' : '4rem 2rem',
+          transition: 'max-width 0.3s ease, padding 0.3s ease'
+        }}>
           
           {/* Header */}
           <header style={{
-            marginBottom: '3rem',
+            marginBottom: activeSection === 'photography' ? '1.25rem' : '3rem',
             borderBottomColor: isDark ? darkBorder : lightBorder,
             borderBottomWidth: '1px',
-            paddingBottom: '2.5rem'
+            paddingBottom: activeSection === 'photography' ? '1.25rem' : '2.5rem'
           }}>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem'}}>
-              <div style={{display: 'flex', gap: '1rem', alignItems: 'flex-start'}}>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 0, flexWrap: 'wrap', gap: activeSection === 'photography' ? '0.75rem' : '1rem'}}>
+              <div style={{display: 'flex', gap: activeSection === 'photography' ? '0.85rem' : '1rem', alignItems: 'flex-start'}}>
                 <div style={{
-                  width: '64px',
-                  height: '64px',
-                  minWidth: '64px',
+                  width: activeSection === 'photography' ? '56px' : '64px',
+                  height: activeSection === 'photography' ? '56px' : '64px',
+                  minWidth: activeSection === 'photography' ? '56px' : '64px',
                   borderRadius: '50%',
                   backgroundColor: isDark ? kanagawa.dragon.bgSoft : kanagawa.lotus.bgSoft,
                   border: `2px solid ${isDark ? darkBorder : lightBorder}`,
@@ -527,9 +537,9 @@ export default function Blog() {
                 <div>
                   <h1 
                     style={{
-                      fontSize: '1.5rem', 
+                      fontSize: activeSection === 'photography' ? '1.35rem' : '1.5rem', 
                       fontWeight: 700, 
-                      marginBottom: '0.375rem', 
+                      marginBottom: activeSection === 'photography' ? '0.2rem' : '0.375rem', 
                       fontFamily: 'IBM Plex Mono',
                       cursor: activeSection === 'post-detail' ? 'pointer' : 'default',
                       color: isDark ? '#3AA99F' : '#24837B'
@@ -540,16 +550,16 @@ export default function Blog() {
                   </h1>
                   <p style={{
                     fontFamily: 'IBM Plex Mono',
-                    fontSize: '0.875rem',
+                    fontSize: activeSection === 'photography' ? '0.82rem' : '0.875rem',
                     color: isDark ? darkMuted : lightMuted
                   }}>
                     Thoughts on AI, research, and engineering
                   </p>
                 </div>
               </div>
-              <div style={{display: 'flex', gap: '1.5rem', alignItems: 'center'}}>
+              <div style={{display: 'flex', gap: activeSection === 'photography' ? '1rem' : '1.5rem', alignItems: 'center'}}>
                 {activeSection !== 'post-detail' && (
-                  <nav style={{display: 'flex', gap: '1.5rem'}}>
+                  <nav style={{display: 'flex', gap: activeSection === 'photography' ? '1.1rem' : '1.5rem'}}>
                     {['posts', 'photography', 'about'].map((section) => (
                       <button
                         key={section}
@@ -800,28 +810,11 @@ export default function Blog() {
 
           {activeSection === 'photography' && (
             <section className="photography-shell">
-              <div className="photography-intro">
-                <div className="photography-intro-main">
-                  <p className="photography-kicker">Photography</p>
-                  <h2 className="photography-title">Selected works with a little more ceremony.</h2>
-                </div>
-
-                <div className="photography-intro-stats">
-                  <p className="photography-kicker">Collection</p>
-                  <p style={{
-                    fontFamily: photographyDisplayFont,
-                    fontSize: '2.5rem',
-                    lineHeight: 0.9,
-                    letterSpacing: '-0.03em',
-                    margin: '0.25rem 0 0.5rem 0',
-                    color: photographyAccent
-                  }}>
-                    {String(selectedPhotoIndex + 1).padStart(2, '0')} / {String(photography.length).padStart(2, '0')}
-                  </p>
-                  <p className="photography-body" style={{margin: 0, fontSize: '0.8rem', opacity: 0.8}}>
-                    Film & Digital Archive
-                  </p>
-                </div>
+              <div className="photography-rail">
+                <p className="photography-kicker" style={{margin: 0}}>Photography Archive</p>
+                <p className="photography-body" style={{margin: 0, fontSize: '0.72rem', opacity: 0.78}}>
+                  {archiveStart} to {archiveEnd} / {photoCount} frames / {archivedLocations} tagged places
+                </p>
               </div>
 
               <div className="photography-stage">
@@ -834,7 +827,7 @@ export default function Blog() {
                         style={{
                           width: '100%',
                           height: '100%',
-                          objectFit: 'cover',
+                          objectFit: 'contain',
                           display: 'block',
                           filter: isDark ? 'contrast(1.02) saturate(0.96)' : 'contrast(1.03) saturate(1.01)'
                         }}
@@ -856,27 +849,46 @@ export default function Blog() {
                       </div>
                     )}
                   </div>
+                  <div className="photography-frame-rail">
+                    <p className="photography-kicker" style={{margin: 0}}>
+                      Frame {String(selectedPhotoIndex + 1).padStart(2, '0')}
+                    </p>
+                    <p className="photography-body" style={{margin: 0, fontSize: '0.72rem', opacity: 0.72}}>
+                      {selectedPhotoLocation ? `${selectedPhotoLocation} / ${selectedPhoto.date}` : selectedPhoto.date}
+                    </p>
+                  </div>
                 </div>
 
                 <aside className="photography-meta-panel">
-                  <div>
-                    <p className="photography-kicker">Field Note</p>
+                  <div className="photography-meta-block">
                     <h3 className="photography-stage-title">{selectedPhoto.title}</h3>
-                    <p style={{
-                      fontFamily: 'IBM Plex Mono',
-                      fontSize: '0.75rem',
-                      fontWeight: 600,
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                      color: isDark ? darkMuted : lightMuted,
-                      margin: '0 0 1.5rem 0',
-                      borderBottom: `1px solid ${photographyFrameBorder}`,
-                      paddingBottom: '0.5rem',
-                      display: 'inline-block'
-                    }}>
-                      {selectedPhoto.location} / {selectedPhoto.date}
-                    </p>
-                    <p className="photography-body" style={{margin: 0}}>
+                    <div className="photography-detail-list">
+                      {selectedPhotoLocation && (
+                        <p style={{
+                          fontFamily: 'IBM Plex Mono',
+                          fontSize: '0.68rem',
+                          fontWeight: 600,
+                          letterSpacing: '0.1em',
+                          textTransform: 'uppercase',
+                          color: isDark ? darkMuted : lightMuted,
+                          margin: 0
+                        }}>
+                          {selectedPhotoLocation}
+                        </p>
+                      )}
+                      <p style={{
+                        fontFamily: 'IBM Plex Mono',
+                        fontSize: '0.68rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        color: isDark ? darkMuted : lightMuted,
+                        margin: 0
+                      }}>
+                        Captured {selectedPhoto.date}
+                      </p>
+                    </div>
+                    <p className="photography-body" style={{margin: 0, maxWidth: '42rem'}}>
                       {selectedPhoto.description}
                     </p>
                   </div>
@@ -899,6 +911,7 @@ export default function Blog() {
               </div>
 
               <div className="photography-strip-container">
+                <p className="photography-kicker" style={{marginTop: 0}}>Browse The Archive</p>
                 <div className="photography-strip" ref={photographyStripRef}>
                   {photography.map((photo, index) => (
                     <button
@@ -943,23 +956,23 @@ export default function Blog() {
                         </p>
                         <p style={{
                           fontFamily: photographyDisplayFont,
-                          fontSize: '1.4rem',
-                          lineHeight: 1,
+                          fontSize: '1.1rem',
+                          lineHeight: 0.98,
                           letterSpacing: '-0.02em',
-                          margin: '0.4rem 0 0.4rem 0',
+                          margin: '0.25rem 0 0.3rem 0',
                           color: photographyAccent
                         }}>
                           {photo.title}
                         </p>
                         <p style={{
                           fontFamily: 'IBM Plex Mono',
-                          fontSize: '0.7rem',
+                          fontSize: '0.65rem',
                           letterSpacing: '0.05em',
                           textTransform: 'uppercase',
                           color: isDark ? darkMuted : lightMuted,
                           margin: 0
                         }}>
-                          {photo.location}
+                          {getDisplayLocation(photo.location) ?? photo.date}
                         </p>
                       </div>
                     </button>
