@@ -5,9 +5,16 @@
     <link>https://johnnydevriese.github.io</link>
     <description>Thoughts on programming, data science, and more.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Apr 2026 03:19:06 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2026 02:25:53 GMT</lastBuildDate>
     <atom:link href="https://johnnydevriese.github.io/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title>Glucose Buddy: Turning an AI Agent into a Real Product</title>
+      <link>https://johnnydevriese.github.io/#glucose-buddy</link>
+      <guid>https://johnnydevriese.github.io/#glucose-buddy</guid>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Glucose Buddy: Turning an AI Agent into a Real Product Last year I wrote about building an AI agent for glucose tracking. That first version was useful as an experiment in agent design, typed tools, and natural-language interaction. It proved the concept. It did not yet feel like a product. This new...</description>
+    </item>
     <item>
       <title>The Shannon Problem: Why We Need a Mathematics of Neural Networks</title>
       <link>https://johnnydevriese.github.io/#the-shannon-problem</link>
