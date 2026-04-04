@@ -32,7 +32,7 @@ if (navigator.geolocation) {
 var foo = Math.floor(Date.now() / 1000);
 
 // send this off to Maps API. 
-fetch('https://maps.googleapis.com/maps/api/timezone/json?location=43.6779426,-116.35970530000002&timestamp=1522881075211&key=AIzaSyBQ4TieD5Zik7Axu1Rp8LsyY3ayPEhXVHA')
+fetch('https://maps.googleapis.com/maps/api/timezone/json?location=43.6779426,-116.35970530000002&timestamp=1522881075211&key=YOUR_GOOGLE_MAPS_API_KEY')
   .then(function(response) {
     return response.json();
   })
