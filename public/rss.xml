@@ -5,9 +5,37 @@
     <link>https://johnnydevriese.github.io</link>
     <description>Thoughts on programming, data science, and more.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Apr 2026 02:32:02 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2026 02:50:46 GMT</lastBuildDate>
     <atom:link href="https://johnnydevriese.github.io/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title>Building Enterprise Agents That Actually Work</title>
+      <link>https://johnnydevriese.github.io/#enterprise-agents-playbook</link>
+      <guid>https://johnnydevriese.github.io/#enterprise-agents-playbook</guid>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Building Enterprise Agents That Actually Work Over the past year our team built an agentic system for enterprise financial workflows — invoice extraction, lease parsing, payment matching, analytics. We learned most of our lessons the hard way. This post distills the architectural patterns that survi...</description>
+    </item>
+    <item>
+      <title>Prompting vs. Tuning: The Banking77 Intent Classification Bake-off</title>
+      <link>https://johnnydevriese.github.io/#banking77-bakeoff</link>
+      <guid>https://johnnydevriese.github.io/#banking77-bakeoff</guid>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Prompting vs. Tuning: The Banking77 Intent Classification Bake-off So, you&apos;ve got 77 possible banking intents and 10,000 customer queries. How do you build a classifier that doesn&apos;t just &quot;kind of work,&quot; but actually nails the nuances between &quot;my card was declined&quot; and &quot;my card is blocked&quot;—two very d...</description>
+    </item>
+    <item>
+      <title>The GenAI Inversion: Building the Map After You Have the Engine</title>
+      <link>https://johnnydevriese.github.io/#synthetic-data-genai-inversion</link>
+      <guid>https://johnnydevriese.github.io/#synthetic-data-genai-inversion</guid>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <description>The GenAI Inversion: Building the Map After You Have the Engine In traditional data science, the workflow is linear. You collect data, investigate it, engineer features, train a model, run your evals. The data _is_ your map, and getting your hands dirty in the dataset is how you learn the actual sha...</description>
+    </item>
+    <item>
+      <title>Deconstructing DeepSeek&apos;s Engine: A Physicist&apos;s Guide to GRPO</title>
+      <link>https://johnnydevriese.github.io/#grpo-physicists-guide</link>
+      <guid>https://johnnydevriese.github.io/#grpo-physicists-guide</guid>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Deconstructing DeepSeek&apos;s Engine: A Physicist&apos;s Guide to GRPO The release of DeepSeek-R1-Zero energized the AI community, demonstrating that massive reasoning capabilities can be unlocked using pure reinforcement learning—without the crutch of sophisticated supervised fine-tuning. At the heart of th...</description>
+    </item>
     <item>
       <title>Glucose Buddy: Turning an AI Agent into a Real Product</title>
       <link>https://johnnydevriese.github.io/#glucose-buddy</link>
