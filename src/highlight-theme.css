@@ -1,166 +1,32 @@
-/* Flexoki-based syntax highlighting for code blocks */
+/* Syntax highlighting — Kanagawa-light palette */
 
-/* Base styles */
 .hljs {
   background: transparent !important;
   padding: 0 !important;
-  color: #100F0F !important; /* Flexoki base.black for light mode */
+  color: #1c1b18 !important;
 }
 
-[data-theme="dark"] .hljs {
-  color: #FFFCF0 !important; /* Flexoki base.paper for dark mode */
-}
-
-/* Keywords, control flow (for, if, async, def, class, return) */
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-section,
-.hljs-link {
-  color: #AF3029; /* Flexoki red */
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-section, .hljs-link {
+  color: #AF3029;
   font-weight: 600;
 }
 
-[data-theme="dark"] .hljs-keyword,
-[data-theme="dark"] .hljs-selector-tag,
-[data-theme="dark"] .hljs-literal,
-[data-theme="dark"] .hljs-section,
-[data-theme="dark"] .hljs-link {
-  color: #D14D41; /* Flexoki red.light */
-  font-weight: 600;
+.hljs-string { color: #66800B; }
+
+.hljs-title, .hljs-title.class_, .hljs-title.function_, .hljs-meta, .hljs-meta .hljs-keyword {
+  color: #5E409D;
 }
 
-/* Strings */
-.hljs-string {
-  color: #66800B; /* Flexoki green */
-}
-
-[data-theme="dark"] .hljs-string {
-  color: #879A39; /* Flexoki green.light */
-}
-
-/* Functions, methods, decorators */
-.hljs-title,
-.hljs-title.class_,
-.hljs-title.function_,
-.hljs-meta,
-.hljs-meta .hljs-keyword {
-  color: #5E409D; /* Flexoki purple */
-}
-
-[data-theme="dark"] .hljs-title,
-[data-theme="dark"] .hljs-title.class_,
-[data-theme="dark"] .hljs-title.function_,
-[data-theme="dark"] .hljs-meta,
-[data-theme="dark"] .hljs-meta .hljs-keyword {
-  color: #8B7EC8; /* Flexoki purple.light */
-}
-
-/* Comments */
-.hljs-comment,
-.hljs-quote {
-  color: #6F6E69; /* Flexoki base.600 */
+.hljs-comment, .hljs-quote {
+  color: #6b6558;
   font-style: italic;
 }
 
-[data-theme="dark"] .hljs-comment,
-[data-theme="dark"] .hljs-quote {
-  color: #878580; /* Flexoki base.500 */
-  font-style: italic;
-}
-
-/* Numbers, constants, booleans */
-.hljs-number,
-.hljs-regexp,
-.hljs-variable.constant_,
-.hljs-built_in {
-  color: #BC5215; /* Flexoki orange */
-}
-
-[data-theme="dark"] .hljs-number,
-[data-theme="dark"] .hljs-regexp,
-[data-theme="dark"] .hljs-variable.constant_,
-[data-theme="dark"] .hljs-built_in {
-  color: #DA702C; /* Flexoki orange.light */
-}
-
-/* Attributes, properties, parameters */
-.hljs-attr,
-.hljs-property,
-.hljs-variable,
-.hljs-params {
-  color: #205EA6; /* Flexoki blue */
-}
-
-[data-theme="dark"] .hljs-attr,
-[data-theme="dark"] .hljs-property,
-[data-theme="dark"] .hljs-variable,
-[data-theme="dark"] .hljs-params {
-  color: #4385BE; /* Flexoki blue.light */
-}
-
-/* Types, classes */
-.hljs-type,
-.hljs-class {
-  color: #24837B; /* Flexoki cyan */
-  font-weight: 600;
-}
-
-[data-theme="dark"] .hljs-type,
-[data-theme="dark"] .hljs-class {
-  color: #3AA99F; /* Flexoki cyan.light */
-  font-weight: 600;
-}
-
-/* Operators, punctuation */
-.hljs-operator,
-.hljs-punctuation {
-  color: #403E3C; /* Flexoki base.800 */
-}
-
-[data-theme="dark"] .hljs-operator,
-[data-theme="dark"] .hljs-punctuation {
-  color: #B7B5AC; /* Flexoki base.300 */
-}
-
-/* Names (function names, identifiers) */
-.hljs-name {
-  color: #100F0F; /* Flexoki base.black */
-}
-
-[data-theme="dark"] .hljs-name {
-  color: #FFFCF0; /* Flexoki base.paper */
-}
-
-/* Special language identifiers */
-.hljs-variable.language_ {
-  color: #A02F6F; /* Flexoki magenta */
-  font-style: italic;
-}
-
-[data-theme="dark"] .hljs-variable.language_ {
-  color: #CE5D97; /* Flexoki magenta.light */
-  font-style: italic;
-}
-
-/* Tags (HTML/XML) */
-.hljs-tag {
-  color: #205EA6; /* Flexoki blue */
-}
-
-[data-theme="dark"] .hljs-tag {
-  color: #4385BE; /* Flexoki blue.light */
-}
-
-/* Symbols, escape sequences */
-.hljs-symbol,
-.hljs-subst,
-.hljs-char.escape_ {
-  color: #AD8301; /* Flexoki yellow */
-}
-
-[data-theme="dark"] .hljs-symbol,
-[data-theme="dark"] .hljs-subst,
-[data-theme="dark"] .hljs-char.escape_ {
-  color: #D0A215; /* Flexoki yellow.light */
-}
+.hljs-number, .hljs-regexp, .hljs-variable.constant_, .hljs-built_in { color: #BC5215; }
+.hljs-attr, .hljs-property, .hljs-variable, .hljs-params { color: #205EA6; }
+.hljs-type, .hljs-class { color: #24837B; font-weight: 600; }
+.hljs-operator, .hljs-punctuation { color: #3d3a32; }
+.hljs-name { color: #1c1b18; }
+.hljs-variable.language_ { color: #A02F6F; font-style: italic; }
+.hljs-tag { color: #205EA6; }
+.hljs-symbol, .hljs-subst, .hljs-char.escape_ { color: #AD8301; }
