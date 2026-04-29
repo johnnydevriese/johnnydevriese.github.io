@@ -78,7 +78,7 @@ export function renderMarkdown(content: string, isDark: boolean, colors: any): s
     return `<code style="background-color: ${codeBg}; padding: 0.125rem 0.375rem; border-radius: 3px; font-family: ${font}; font-size: 0.9em;">${text}</code>`;
   };
 
-  renderer.link = function (this: Renderer, { href, title, tokens }: Tokens.Link) {
+  renderer.link = function (this: Renderer, { href, tokens }: Tokens.Link) {
     const text = this.parser.parseInline(tokens);
     return `<a href="${href}" target="_blank" rel="noopener noreferrer" style="color: ${linkColor}; text-decoration: underline;">${text}</a>`;
   };
