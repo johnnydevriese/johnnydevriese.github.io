@@ -13,6 +13,12 @@ declare global {
 
 type Section = 'posts' | 'about' | 'photography' | 'post-detail';
 
+const archivedPostSlugs = new Set([
+  'monet-cyclegan-tutorial',
+  'exploring-features',
+  'tpu-flowers',
+]);
+
 function decodeHtmlEntities(str: string): string {
   const el = document.createElement('textarea');
   el.innerHTML = str;
@@ -131,8 +137,8 @@ export default function Blog() {
     window.scrollTo(0, 0);
   };
 
-  const recentPosts = posts.filter(p => new Date(p.dateObj).getFullYear() >= 2021);
-  const archivePosts = posts.filter(p => new Date(p.dateObj).getFullYear() <= 2020);
+  const recentPosts = posts.filter(p => new Date(p.dateObj).getFullYear() >= 2021 && !archivedPostSlugs.has(p.slug));
+  const archivePosts = posts.filter(p => new Date(p.dateObj).getFullYear() <= 2020 || archivedPostSlugs.has(p.slug));
 
   const renderedContent = useMemo(() => {
     if (!currentPost) return '';
@@ -373,6 +379,14 @@ export default function Blog() {
           <div>
             <p>© 2026 Johnny Devriese</p>
             <p style={{ marginTop: '2px' }}>human made</p>
+            <img
+              className="footer-badge"
+              src="/assets/images/footer/kagifeedback-88x31.gif"
+              alt="Fun feedback badge"
+              width="88"
+              height="31"
+              loading="lazy"
+            />
           </div>
           <div className="social-icons">
             <a href="https://github.com/johnnydevriese/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">

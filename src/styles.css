@@ -798,6 +798,13 @@ a:hover { color: var(--dragon-blue-deep); }
   margin: 0;
 }
 
+.footer-badge {
+  width: 88px;
+  height: 31px;
+  margin-top: 8px;
+  image-rendering: auto;
+}
+
 .site-footer a {
   color: var(--ink-muted);
   text-decoration: none;
