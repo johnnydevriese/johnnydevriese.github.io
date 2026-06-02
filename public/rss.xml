@@ -5,9 +5,23 @@
     <link>https://johnnydevriese.github.io</link>
     <description>Thoughts on programming, data science, and more.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Apr 2026 02:56:36 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2026 21:40:38 GMT</lastBuildDate>
     <atom:link href="https://johnnydevriese.github.io/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title>The Functional Analysis of DeepSeek-V4</title>
+      <link>https://johnnydevriese.github.io/#functional-analysis-deepseek-v4</link>
+      <guid>https://johnnydevriese.github.io/#functional-analysis-deepseek-v4</guid>
+      <pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate>
+      <description>The Functional Analysis of DeepSeek-V4: Bounding Operators at 1.6 Trillion Parameters When DeepSeek-V4 dropped, the immediate industry focus was on the replacement of Multi-head Latent Attention (MLA) with sequence-level compression. But focusing purely on the KV cache misses the forest for the tree...</description>
+    </item>
+    <item>
+      <title>The Bitter Lesson Is Not a Law</title>
+      <link>https://johnnydevriese.github.io/#bitter-lesson-is-not-a-law</link>
+      <guid>https://johnnydevriese.github.io/#bitter-lesson-is-not-a-law</guid>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+      <description>The Selection Effect _On benchmarks, compression, and what counts as a principle_ --- Rich Sutton&apos;s _Bitter Lesson_ is routinely cited as the organizing truth of modern AI — seventy years of history distilled into a single directive, presented as something close to a law. A law is only as strong as ...</description>
+    </item>
     <item>
       <title>Building Enterprise Agents That Actually Work</title>
       <link>https://johnnydevriese.github.io/#enterprise-agents-playbook</link>
