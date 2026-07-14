@@ -5,7 +5,7 @@
     <link>https://johnnydevriese.github.io</link>
     <description>Thoughts on programming, data science, and more.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jul 2026 03:08:20 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2026 03:12:49 GMT</lastBuildDate>
     <atom:link href="https://johnnydevriese.github.io/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -20,7 +20,7 @@
       <link>https://johnnydevriese.github.io/#functional-analysis-deepseek-v4</link>
       <guid>https://johnnydevriese.github.io/#functional-analysis-deepseek-v4</guid>
       <pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate>
-      <description>The Functional Analysis of DeepSeek-V4: Bounding Operators at 1.6 Trillion Parameters When DeepSeek-V4 dropped, the immediate industry focus was on the replacement of Multi-head Latent Attention (MLA) with sequence-level compression. But focusing purely on the KV cache misses the forest for the tree...</description>
+      <description>The Functional Analysis of DeepSeek-V4: Bounding Operators at 1.6 Trillion Parameters When DeepSeek-V4 dropped, most of the attention went to the replacement of Multi-head Latent Attention (MLA) with sequence-level compression. The KV cache story matters, but it is not the whole architecture. At 1.6...</description>
     </item>
     <item>
       <title>The Bitter Lesson Is Not a Law</title>
@@ -83,7 +83,7 @@
       <link>https://johnnydevriese.github.io/#the-librarian-in-the-machine</link>
       <guid>https://johnnydevriese.github.io/#the-librarian-in-the-machine</guid>
       <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
-      <description>The Librarian in the Machine: Retrieval, Generation, and the Search for Truth In the popular imagination, a Large Language Model is a brilliant, albeit somewhat eccentric, scholar who has read everything but remembers nothing specifically. Ask it about the intricacies of the Byzantine tax code or th...</description>
+      <description>The Librarian in the Machine: Retrieval, Generation, and the Search for Truth An LLM can sound like it has read everything while still failing to remember anything specific. Ask it about Medicare rules or orbital mechanics and it may answer confidently, but the confidence is not evidence. Check the ...</description>
     </item>
     <item>
       <title>The Loop Unwound - How Deep Networks Are Just Optimized Algorithms in Disguise</title>
@@ -104,7 +104,7 @@
       <link>https://johnnydevriese.github.io/#glucose-agent</link>
       <guid>https://johnnydevriese.github.io/#glucose-agent</guid>
       <pubDate>Mon, 03 Mar 2025 07:00:00 GMT</pubDate>
-      <description>Building an AI Agent for Glucose Tracking The Promise of Agentic AI in Healthcare AI agents represent a fundamental shift in how we interact with intelligent systems. Unlike traditional models that simply predict the next token, agents can reason about which tools to use, when to use them, and how t...</description>
+      <description>Building an AI Agent for Glucose Tracking The Promise of Agentic AI in Healthcare AI agents are useful when a model needs to do more than produce text. Instead of only answering a prompt, an agent can choose tools, call APIs, inspect results, and decide what to do next from a natural language reques...</description>
     </item>
     <item>
       <title>How To Debug A Model</title>

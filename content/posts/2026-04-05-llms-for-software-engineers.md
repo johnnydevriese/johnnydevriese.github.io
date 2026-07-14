@@ -40,20 +40,20 @@ This probabilistic nature explains several LLM behaviors:
 - Why small prompt changes can have large effects (they shift the probability landscape)
 - Why the model sometimes "changes its mind" mid-generation (early low-probability choices constrain later options)
 
-### Your prompt shapes the probability manifold
+### Your prompt narrows the search space
 
-Here's the mental model that makes prompt engineering intuitive: **your prompt positions the model in a high-dimensional space of possible continuations**.
+Here's the mental model that makes prompt engineering intuitive: **your prompt changes which continuations are likely**.
 
-![A visual intuition for the "probability manifold": prompts move you to regions where different continuations are more/less likely.](/blog_assets/llm_manifold_v4.png)
+![A visual intuition for prompt specificity: prompts move the model toward different likely continuations.](/blog_assets/llm_manifold_v4.png)
 
 
-Imagine all possible text sequences as points in a vast manifold. A vague prompt leaves you in a broad, unfocused region:
+Imagine all possible completions the model could write. A vague prompt leaves too many of them on the table:
 
 
 > `Write code to process data.`
 
 
-This could mean Python, JavaScript, SQL, or shell scripts. It could process CSVs, JSON, databases, or binary formats. The probability mass spreads across thousands of plausible but different continuations.
+This could mean Python, JavaScript, SQL, or shell scripts. It could process CSVs, JSON, databases, or binary formats. The model has too many reasonable directions to choose from.
 
 Now consider a detailed prompt:
 
@@ -63,15 +63,15 @@ of the 'revenue' column, and returns it as a float. Treat missing
 revenue values as zero.`
 
 
-You've moved to a narrow region of the manifold where the model's training data contains similar patterns. The probability mass concentrates on continuations that match your specification.
+Now the model has fewer degrees of freedom. The likely completions are much closer to the thing you actually wanted.
 
 **The practical upshot:**
 - Specificity narrows the probability distribution
-- Constraints (format, style, edge cases) geometrically restrict the space of valid continuations
-- Examples are extremely efficient navigation tools—they directly show which manifold region you want
-- Ambiguity allows the model to drift into "nearby" regions that may not match your intent
+- Constraints such as format, style, and edge cases rule out bad completions
+- Examples are efficient because they show the model the output pattern directly
+- Ambiguity lets the model drift into answers that are plausible but wrong
 
-This perspective explains why few-shot prompting works: instead of verbally describing your desired output, you provide examples that position the model precisely where you need it.
+This is why few-shot prompting works: instead of describing the output in prose, you show the pattern directly.
 
 *The generation loop: compute probabilities, sample a token, append it, repeat until done.*
 
