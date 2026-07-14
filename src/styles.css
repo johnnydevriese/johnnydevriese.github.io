@@ -544,6 +544,102 @@ a:hover { color: var(--dragon-blue-deep); }
   font-size: 0.85em;
 }
 
+/* RoPE inline diagrams */
+.post-content .rope-diagram-wrap {
+  --rope-ink: #100f0f;
+  --rope-muted: #6f6e69;
+  --rope-dim: #cecdc3;
+  --rope-diagram-bg: #f2f0e5;
+  --rope-freq-fast: #d14d41;
+  --rope-freq-mid: #da702c;
+  --rope-freq-slow: #24837b;
+  --rope-constructive: #66800b;
+  --rope-destructive: #af3029;
+  --rope-base-100: #e6e4d9;
+  --rope-base-150: #dad8ce;
+  --rope-base-950: #1c1b1a;
+  --ink: var(--rope-ink);
+  --muted: var(--rope-muted);
+  --dim: var(--rope-dim);
+  --diagram-bg: var(--rope-diagram-bg);
+  --freq-fast: var(--rope-freq-fast);
+  --freq-mid: var(--rope-freq-mid);
+  --freq-slow: var(--rope-freq-slow);
+  --constructive: var(--rope-constructive);
+  --destructive: var(--rope-destructive);
+  --accent: var(--rope-destructive);
+  --base-100: var(--rope-base-100);
+  --base-150: var(--rope-base-150);
+  --base-950: var(--rope-base-950);
+  margin: 36px -16px;
+  padding: 40px 24px;
+  background: var(--rope-diagram-bg);
+  border: 1px solid rgba(16, 15, 15, 0.06);
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  overflow-x: auto;
+}
+
+.post-content .rope-diagram-wrap .caption {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rope-muted);
+  margin-bottom: 24px;
+}
+
+.post-content .rope-diagram-wrap .note {
+  display: block;
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--rope-muted);
+  margin: 20px auto 0;
+  max-width: 44ch;
+  line-height: 1.55;
+}
+
+.post-content svg.rope-diagram {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.post-content .rope-diagram-wrap .wave-path {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: ropeDrawWave 2s ease forwards;
+}
+
+.post-content .rope-diagram-wrap .wave-path.delay {
+  animation-delay: 0.4s;
+}
+
+.post-content .rope-diagram-wrap .pulse-dot {
+  animation: ropePulse 2s ease-in-out infinite;
+}
+
+@keyframes ropeDrawWave {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes ropePulse {
+  0%, 100% { r: 4; opacity: 0.8; }
+  50% { r: 7; opacity: 0.3; }
+}
+
+@media (max-width: 700px) {
+  .post-content .rope-diagram-wrap {
+    margin: 28px -8px;
+    padding: 28px 12px;
+  }
+}
+
 /* Math content */
 .math-content {
   overflow-x: auto;
