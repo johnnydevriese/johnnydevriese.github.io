@@ -57,6 +57,7 @@ a:hover { color: var(--dragon-blue-deep); }
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 0 56px;
+  align-items: start;
 }
 
 .page--has-toc .page-main {
@@ -154,7 +155,8 @@ a:hover { color: var(--dragon-blue-deep); }
   max-height: calc(100vh - 64px);
   overflow-y: auto;
   align-self: start;
-  padding: 80px 8px 40px 0;
+  padding: 80px 8px 24px 0;
+  margin-bottom: 80px;
   font-family: 'Source Serif 4', serif;
   font-size: 0.92rem;
   line-height: 1.5;
