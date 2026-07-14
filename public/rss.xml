@@ -5,9 +5,16 @@
     <link>https://johnnydevriese.github.io</link>
     <description>Thoughts on programming, data science, and more.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Jun 2026 21:46:04 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2026 02:25:33 GMT</lastBuildDate>
     <atom:link href="https://johnnydevriese.github.io/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title>RoPE Is Just a Clock with a Thousand Hands</title>
+      <link>https://johnnydevriese.github.io/#rope-clock-thousand-hands</link>
+      <guid>https://johnnydevriese.github.io/#rope-clock-thousand-hands</guid>
+      <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
+      <description>RoPE Is Just a Clock with a Thousand Hands *A visual guide to Rotary Position Embeddings. Forget the linear algebra for a moment. Think in rotations, frequencies, and resonance — the way a physicist would.* &gt; ~~&quot;RoPE encodes absolute position by multiplying query and key vectors by a block-diagonal ...</description>
+    </item>
     <item>
       <title>The Functional Analysis of DeepSeek-V4</title>
       <link>https://johnnydevriese.github.io/#functional-analysis-deepseek-v4</link>
