@@ -72,35 +72,35 @@ A single token, then, is not a list of numbers. It is **a clock with 2,048 hands
 Now comes the trick that makes the whole scheme sing: **every hand rotates at a different speed.**
 
 <div class="rope-diagram-wrap">
-      <span class="caption">Figure 1 — Three hands, three frequencies</span>
-      <svg class="rope-diagram" viewBox="0 0 600 240" width="600" height="240">
-        <g transform="translate(100,120)">
-          <circle cx="0" cy="0" r="72" fill="none" stroke="var(--base-100)" stroke-width="1"/>
-          <circle cx="0" cy="0" r="2.5" fill="var(--freq-fast)"/>
-          <g stroke="var(--base-150)" stroke-width="0.7"><line x1="0" y1="-72" x2="0" y2="-66"/><line x1="72" y1="0" x2="66" y2="0"/><line x1="0" y1="72" x2="0" y2="66"/><line x1="-72" y1="0" x2="-66" y2="0"/></g>
-          <g><line x1="0" y1="0" x2="0" y2="-58" stroke="var(--freq-fast)" stroke-width="2.2" stroke-linecap="round"/><circle cx="0" cy="-58" r="3" fill="var(--freq-fast)" opacity="0.7"/><animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="3s" repeatCount="indefinite"/></g>
-          <text y="100" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-fast)" letter-spacing="0.08em">HIGH FREQ</text>
-          <text y="112" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9.5" fill="var(--muted)" font-style="italic">pair #1</text>
-        </g>
-        <g transform="translate(300,120)">
-          <circle cx="0" cy="0" r="72" fill="none" stroke="var(--base-100)" stroke-width="1"/>
-          <circle cx="0" cy="0" r="2.5" fill="var(--freq-mid)"/>
-          <g stroke="var(--base-150)" stroke-width="0.7"><line x1="0" y1="-72" x2="0" y2="-66"/><line x1="72" y1="0" x2="66" y2="0"/><line x1="0" y1="72" x2="0" y2="66"/><line x1="-72" y1="0" x2="-66" y2="0"/></g>
-          <g><line x1="0" y1="0" x2="0" y2="-58" stroke="var(--freq-mid)" stroke-width="2.2" stroke-linecap="round"/><circle cx="0" cy="-58" r="3" fill="var(--freq-mid)" opacity="0.7"/><animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="8s" repeatCount="indefinite"/></g>
-          <text y="100" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-mid)" letter-spacing="0.08em">MID FREQ</text>
-          <text y="112" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9.5" fill="var(--muted)" font-style="italic">pair #1024</text>
-        </g>
-        <g transform="translate(500,120)">
-          <circle cx="0" cy="0" r="72" fill="none" stroke="var(--base-100)" stroke-width="1"/>
-          <circle cx="0" cy="0" r="2.5" fill="var(--freq-slow)"/>
-          <g stroke="var(--base-150)" stroke-width="0.7"><line x1="0" y1="-72" x2="0" y2="-66"/><line x1="72" y1="0" x2="66" y2="0"/><line x1="0" y1="72" x2="0" y2="66"/><line x1="-72" y1="0" x2="-66" y2="0"/></g>
-          <g><line x1="0" y1="0" x2="0" y2="-58" stroke="var(--freq-slow)" stroke-width="2.2" stroke-linecap="round"/><circle cx="0" cy="-58" r="3" fill="var(--freq-slow)" opacity="0.7"/><animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="24s" repeatCount="indefinite"/></g>
-          <text y="100" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-slow)" letter-spacing="0.08em">LOW FREQ</text>
-          <text y="112" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9.5" fill="var(--muted)" font-style="italic">pair #2048</text>
-        </g>
-      </svg>
-      <span class="note">Watch the hands. The leftmost completes a full revolution in seconds; the rightmost barely moves. Position is encoded in their combined arrangement.</span>
-    </div>
+<span class="caption">Figure 1 — Three hands, three frequencies</span>
+<svg class="rope-diagram" viewBox="0 0 600 240" width="600" height="240">
+<g transform="translate(100,120)">
+<circle cx="0" cy="0" r="72" fill="none" stroke="var(--base-100)" stroke-width="1"/>
+<circle cx="0" cy="0" r="2.5" fill="var(--freq-fast)"/>
+<g stroke="var(--base-150)" stroke-width="0.7"><line x1="0" y1="-72" x2="0" y2="-66"/><line x1="72" y1="0" x2="66" y2="0"/><line x1="0" y1="72" x2="0" y2="66"/><line x1="-72" y1="0" x2="-66" y2="0"/></g>
+<g><line x1="0" y1="0" x2="0" y2="-58" stroke="var(--freq-fast)" stroke-width="2.2" stroke-linecap="round"/><circle cx="0" cy="-58" r="3" fill="var(--freq-fast)" opacity="0.7"/><animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="3s" repeatCount="indefinite"/></g>
+<text y="100" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-fast)" letter-spacing="0.08em">HIGH FREQ</text>
+<text y="112" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9.5" fill="var(--muted)" font-style="italic">pair #1</text>
+</g>
+<g transform="translate(300,120)">
+<circle cx="0" cy="0" r="72" fill="none" stroke="var(--base-100)" stroke-width="1"/>
+<circle cx="0" cy="0" r="2.5" fill="var(--freq-mid)"/>
+<g stroke="var(--base-150)" stroke-width="0.7"><line x1="0" y1="-72" x2="0" y2="-66"/><line x1="72" y1="0" x2="66" y2="0"/><line x1="0" y1="72" x2="0" y2="66"/><line x1="-72" y1="0" x2="-66" y2="0"/></g>
+<g><line x1="0" y1="0" x2="0" y2="-58" stroke="var(--freq-mid)" stroke-width="2.2" stroke-linecap="round"/><circle cx="0" cy="-58" r="3" fill="var(--freq-mid)" opacity="0.7"/><animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="8s" repeatCount="indefinite"/></g>
+<text y="100" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-mid)" letter-spacing="0.08em">MID FREQ</text>
+<text y="112" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9.5" fill="var(--muted)" font-style="italic">pair #1024</text>
+</g>
+<g transform="translate(500,120)">
+<circle cx="0" cy="0" r="72" fill="none" stroke="var(--base-100)" stroke-width="1"/>
+<circle cx="0" cy="0" r="2.5" fill="var(--freq-slow)"/>
+<g stroke="var(--base-150)" stroke-width="0.7"><line x1="0" y1="-72" x2="0" y2="-66"/><line x1="72" y1="0" x2="66" y2="0"/><line x1="0" y1="72" x2="0" y2="66"/><line x1="-72" y1="0" x2="-66" y2="0"/></g>
+<g><line x1="0" y1="0" x2="0" y2="-58" stroke="var(--freq-slow)" stroke-width="2.2" stroke-linecap="round"/><circle cx="0" cy="-58" r="3" fill="var(--freq-slow)" opacity="0.7"/><animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="24s" repeatCount="indefinite"/></g>
+<text y="100" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-slow)" letter-spacing="0.08em">LOW FREQ</text>
+<text y="112" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9.5" fill="var(--muted)" font-style="italic">pair #2048</text>
+</g>
+</svg>
+<span class="note">Watch the hands. The leftmost completes a full revolution in seconds; the rightmost barely moves. Position is encoded in their combined arrangement.</span>
+</div>
 
 ### A worked example with real numbers
 
@@ -115,65 +115,65 @@ Each pair is a point on a circle. Both hands start pointing straight to the righ
 Now RoPE assigns each pair a rotation speed. Pair 1 (the fast hand) rotates by 45° per position. Pair 2 (the slow hand) rotates by just 5° per position. When *"dog"* appears at different positions in the sequence, here is what happens:
 
 <div class="rope-diagram-wrap">
-      <span class="caption">Figure 2 — The same token at three different positions</span>
-      <svg class="rope-diagram" viewBox="0 0 600 310" width="600" height="310">
-        <!-- POSITION 0 -->
-        <text x="100" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ink)" font-weight="500">Position 0</text>
-        <text x="100" y="32" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">no rotation</text>
-        <g transform="translate(68,108)">
-          <circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
-          <line x1="0" y1="0" x2="42" y2="0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="42" cy="0" r="3" fill="var(--accent)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
-          <text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--accent)">FAST 0°</text>
-        </g>
-        <g transform="translate(132,108)">
-          <circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
-          <line x1="0" y1="0" x2="42" y2="0" stroke="var(--freq-slow)" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="42" cy="0" r="3" fill="var(--freq-slow)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
-          <text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-slow)">SLOW 0°</text>
-        </g>
-        <text x="100" y="198" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--muted)">(1.0, 0.0, 1.0, 0.0)</text>
+<span class="caption">Figure 2 — The same token at three different positions</span>
+<svg class="rope-diagram" viewBox="0 0 600 310" width="600" height="310">
+<!-- POSITION 0 -->
+<text x="100" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ink)" font-weight="500">Position 0</text>
+<text x="100" y="32" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">no rotation</text>
+<g transform="translate(68,108)">
+<circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
+<line x1="0" y1="0" x2="42" y2="0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+<circle cx="42" cy="0" r="3" fill="var(--accent)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
+<text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--accent)">FAST 0°</text>
+</g>
+<g transform="translate(132,108)">
+<circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
+<line x1="0" y1="0" x2="42" y2="0" stroke="var(--freq-slow)" stroke-width="2" stroke-linecap="round"/>
+<circle cx="42" cy="0" r="3" fill="var(--freq-slow)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
+<text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-slow)">SLOW 0°</text>
+</g>
+<text x="100" y="198" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--muted)">(1.0, 0.0, 1.0, 0.0)</text>
 
-        <!-- POSITION 2 -->
-        <text x="300" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ink)" font-weight="500">Position 2</text>
-        <text x="300" y="32" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">fast: 2×45°=90°   slow: 2×5°=10°</text>
-        <g transform="translate(268,108)">
-          <circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
-          <line x1="0" y1="0" x2="0" y2="-42" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="0" cy="-42" r="3" fill="var(--accent)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
-          <text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--accent)">FAST 90°</text>
-        </g>
-        <g transform="translate(332,108)">
-          <circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
-          <line x1="0" y1="0" x2="41.4" y2="-7.3" stroke="var(--freq-slow)" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="41.4" cy="-7.3" r="3" fill="var(--freq-slow)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
-          <text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-slow)">SLOW 10°</text>
-        </g>
-        <text x="300" y="198" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--muted)">(0.0, 1.0, 0.98, 0.17)</text>
+<!-- POSITION 2 -->
+<text x="300" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ink)" font-weight="500">Position 2</text>
+<text x="300" y="32" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">fast: 2×45°=90°   slow: 2×5°=10°</text>
+<g transform="translate(268,108)">
+<circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
+<line x1="0" y1="0" x2="0" y2="-42" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+<circle cx="0" cy="-42" r="3" fill="var(--accent)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
+<text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--accent)">FAST 90°</text>
+</g>
+<g transform="translate(332,108)">
+<circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
+<line x1="0" y1="0" x2="41.4" y2="-7.3" stroke="var(--freq-slow)" stroke-width="2" stroke-linecap="round"/>
+<circle cx="41.4" cy="-7.3" r="3" fill="var(--freq-slow)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
+<text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-slow)">SLOW 10°</text>
+</g>
+<text x="300" y="198" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--muted)">(0.0, 1.0, 0.98, 0.17)</text>
 
-        <!-- POSITION 8 -->
-        <text x="500" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ink)" font-weight="500">Position 8</text>
-        <text x="500" y="32" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">fast: 8×45°=360°   slow: 8×5°=40°</text>
-        <g transform="translate(468,108)">
-          <circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
-          <line x1="0" y1="0" x2="42" y2="0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="42" cy="0" r="3" fill="var(--accent)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
-          <text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--accent)">FAST 360°</text>
-        </g>
-        <g transform="translate(532,108)">
-          <circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
-          <line x1="0" y1="0" x2="32.2" y2="-27" stroke="var(--freq-slow)" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="32.2" cy="-27" r="3" fill="var(--freq-slow)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
-          <text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-slow)">SLOW 40°</text>
-        </g>
-        <text x="500" y="198" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--muted)">(1.0, 0.0, 0.77, 0.64)</text>
+<!-- POSITION 8 -->
+<text x="500" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ink)" font-weight="500">Position 8</text>
+<text x="500" y="32" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">fast: 8×45°=360°   slow: 8×5°=40°</text>
+<g transform="translate(468,108)">
+<circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
+<line x1="0" y1="0" x2="42" y2="0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+<circle cx="42" cy="0" r="3" fill="var(--accent)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
+<text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--accent)">FAST 360°</text>
+</g>
+<g transform="translate(532,108)">
+<circle r="50" fill="none" stroke="var(--base-100)" stroke-width="0.7"/>
+<line x1="0" y1="0" x2="32.2" y2="-27" stroke="var(--freq-slow)" stroke-width="2" stroke-linecap="round"/>
+<circle cx="32.2" cy="-27" r="3" fill="var(--freq-slow)" opacity="0.5"/><circle r="2" fill="var(--ink)"/>
+<text y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-slow)">SLOW 40°</text>
+</g>
+<text x="500" y="198" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--muted)">(1.0, 0.0, 0.77, 0.64)</text>
 
-        <line x1="40" y1="225" x2="560" y2="225" stroke="var(--dim)" stroke-width="0.5"/>
-        <text x="300" y="250" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="10.5" fill="var(--ink)">Notice: at position 8 the fast hand has completed a full revolution and returned to 0°.</text>
-        <text x="300" y="268" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="10.5" fill="var(--ink)">But the slow hand has only reached 40°. The slow hand is what distinguishes position 8 from position 0.</text>
-        <text x="300" y="292" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="10.5" fill="var(--accent)" font-style="italic" font-weight="600">This is exactly how the hour hand distinguishes 3:00 AM from 3:00 PM.</text>
-      </svg>
-    </div>
+<line x1="40" y1="225" x2="560" y2="225" stroke="var(--dim)" stroke-width="0.5"/>
+<text x="300" y="250" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="10.5" fill="var(--ink)">Notice: at position 8 the fast hand has completed a full revolution and returned to 0°.</text>
+<text x="300" y="268" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="10.5" fill="var(--ink)">But the slow hand has only reached 40°. The slow hand is what distinguishes position 8 from position 0.</text>
+<text x="300" y="292" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="10.5" fill="var(--accent)" font-style="italic" font-weight="600">This is exactly how the hour hand distinguishes 3:00 AM from 3:00 PM.</text>
+</svg>
+</div>
 
 This is the key insight: the fast pairs cycle rapidly and resolve fine-grained, nearby positions — they can tell apart token 4 from token 5. The slow pairs change glacially and resolve coarse, large-scale distances — they can tell apart token 100 from token 10,000. Working together, the full set of pairs can uniquely identify any position, no matter how far into the sequence.
 
@@ -198,36 +198,36 @@ When both vectors have first been rotated by RoPE, something elegant falls out o
 > when you ring them together.
 
 <div class="rope-diagram-wrap">
-      <span class="caption">Figure 3 — Constructive vs. destructive interference</span>
-      <svg class="rope-diagram" viewBox="0 0 600 280" width="600" height="280">
-        <defs>
-          <linearGradient id="gC" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="var(--constructive)" stop-opacity="0"/><stop offset="50%" stop-color="var(--constructive)" stop-opacity="0.12"/><stop offset="100%" stop-color="var(--constructive)" stop-opacity="0"/></linearGradient>
-          <linearGradient id="gD" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="var(--destructive)" stop-opacity="0"/><stop offset="50%" stop-color="var(--destructive)" stop-opacity="0.12"/><stop offset="100%" stop-color="var(--destructive)" stop-opacity="0"/></linearGradient>
-        </defs>
-        <rect x="20" y="15" width="260" height="120" rx="4" fill="url(#gC)"/>
-        <text x="150" y="10" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--constructive)" letter-spacing="0.12em">CONSTRUCTIVE — NEARBY TOKENS</text>
-        <path class="wave-path" d="M40,75 C60,35 80,35 100,75 C120,115 140,115 160,75 C180,35 200,35 220,75 C240,115 256,115 260,95" fill="none" stroke="var(--constructive)" stroke-width="2" opacity="0.6"/>
-        <path class="wave-path delay" d="M40,75 C60,38 80,38 100,75 C120,112 140,112 160,75 C180,38 200,38 220,75 C240,112 256,112 260,92" fill="none" stroke="var(--constructive)" stroke-width="2" opacity="0.9"/>
-        <circle class="pulse-dot" cx="160" cy="35" fill="var(--constructive)"/>
-        <text x="150" y="148" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="10.5" fill="var(--muted)" font-style="italic">Waves align → signal amplified → high attention</text>
+<span class="caption">Figure 3 — Constructive vs. destructive interference</span>
+<svg class="rope-diagram" viewBox="0 0 600 280" width="600" height="280">
+<defs>
+<linearGradient id="gC" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="var(--constructive)" stop-opacity="0"/><stop offset="50%" stop-color="var(--constructive)" stop-opacity="0.12"/><stop offset="100%" stop-color="var(--constructive)" stop-opacity="0"/></linearGradient>
+<linearGradient id="gD" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="var(--destructive)" stop-opacity="0"/><stop offset="50%" stop-color="var(--destructive)" stop-opacity="0.12"/><stop offset="100%" stop-color="var(--destructive)" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="20" y="15" width="260" height="120" rx="4" fill="url(#gC)"/>
+<text x="150" y="10" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--constructive)" letter-spacing="0.12em">CONSTRUCTIVE — NEARBY TOKENS</text>
+<path class="wave-path" d="M40,75 C60,35 80,35 100,75 C120,115 140,115 160,75 C180,35 200,35 220,75 C240,115 256,115 260,95" fill="none" stroke="var(--constructive)" stroke-width="2" opacity="0.6"/>
+<path class="wave-path delay" d="M40,75 C60,38 80,38 100,75 C120,112 140,112 160,75 C180,38 200,38 220,75 C240,112 256,112 260,92" fill="none" stroke="var(--constructive)" stroke-width="2" opacity="0.9"/>
+<circle class="pulse-dot" cx="160" cy="35" fill="var(--constructive)"/>
+<text x="150" y="148" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="10.5" fill="var(--muted)" font-style="italic">Waves align → signal amplified → high attention</text>
 
-        <rect x="320" y="15" width="260" height="120" rx="4" fill="url(#gD)"/>
-        <text x="450" y="10" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--destructive)" letter-spacing="0.12em">DESTRUCTIVE — DISTANT TOKENS</text>
-        <path class="wave-path" d="M340,75 C360,35 380,35 400,75 C420,115 440,115 460,75 C480,35 500,35 520,75 C540,115 556,115 560,95" fill="none" stroke="var(--destructive)" stroke-width="2" opacity="0.6"/>
-        <path class="wave-path delay" d="M340,75 C360,112 380,112 400,75 C420,38 440,38 460,75 C480,112 500,112 520,75 C540,38 556,38 560,58" fill="none" stroke="var(--destructive)" stroke-width="2" opacity="0.9"/>
-        <text x="450" y="148" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="10.5" fill="var(--muted)" font-style="italic">Waves oppose → signal cancels → low attention</text>
+<rect x="320" y="15" width="260" height="120" rx="4" fill="url(#gD)"/>
+<text x="450" y="10" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--destructive)" letter-spacing="0.12em">DESTRUCTIVE — DISTANT TOKENS</text>
+<path class="wave-path" d="M340,75 C360,35 380,35 400,75 C420,115 440,115 460,75 C480,35 500,35 520,75 C540,115 556,115 560,95" fill="none" stroke="var(--destructive)" stroke-width="2" opacity="0.6"/>
+<path class="wave-path delay" d="M340,75 C360,112 380,112 400,75 C420,38 440,38 460,75 C480,112 500,112 520,75 C540,38 556,38 560,58" fill="none" stroke="var(--destructive)" stroke-width="2" opacity="0.9"/>
+<text x="450" y="148" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="10.5" fill="var(--muted)" font-style="italic">Waves oppose → signal cancels → low attention</text>
 
-        <line x1="20" y1="180" x2="580" y2="180" stroke="var(--dim)" stroke-width="0.5"/>
-        <text x="300" y="198" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--muted)" letter-spacing="0.1em">FREQUENCY DECOMPOSITION OF ATTENTION</text>
-        <path d="M40,245 Q150,210 300,245 Q450,280 560,245" fill="none" stroke="var(--freq-slow)" stroke-width="1.8" opacity="0.7"/>
-        <text x="574" y="249" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-slow)">LOW</text>
-        <path d="M40,245 C80,225 120,265 160,245 C200,225 240,265 280,245 C320,225 360,265 400,245 C440,225 480,265 520,245 C540,235 555,252 560,245" fill="none" stroke="var(--freq-mid)" stroke-width="1.4" opacity="0.55"/>
-        <text x="574" y="236" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-mid)">MID</text>
-        <path d="M40,245 C50,235 60,255 70,245 C80,235 90,255 100,245 C110,235 120,255 130,245 C140,235 150,255 160,245 C170,235 180,255 190,245 C200,235 210,255 220,245 C230,235 240,255 250,245 C260,235 270,255 280,245 C290,235 300,255 310,245 C320,235 330,255 340,245 C350,235 360,255 370,245 C380,235 390,255 400,245 C410,235 420,255 430,245 C440,235 450,255 460,245 C470,235 480,255 490,245 C500,235 510,255 520,245 C530,235 540,255 550,245 C555,240 558,248 560,245" fill="none" stroke="var(--freq-fast)" stroke-width="1" opacity="0.4"/>
-        <text x="574" y="223" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-fast)">HIGH</text>
-      </svg>
-      <span class="note">The attention score between two tokens is the sum of all these harmonics. Low frequencies track long-range structure; high frequencies resolve nearby detail.</span>
-    </div>
+<line x1="20" y1="180" x2="580" y2="180" stroke="var(--dim)" stroke-width="0.5"/>
+<text x="300" y="198" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--muted)" letter-spacing="0.1em">FREQUENCY DECOMPOSITION OF ATTENTION</text>
+<path d="M40,245 Q150,210 300,245 Q450,280 560,245" fill="none" stroke="var(--freq-slow)" stroke-width="1.8" opacity="0.7"/>
+<text x="574" y="249" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-slow)">LOW</text>
+<path d="M40,245 C80,225 120,265 160,245 C200,225 240,265 280,245 C320,225 360,265 400,245 C440,225 480,265 520,245 C540,235 555,252 560,245" fill="none" stroke="var(--freq-mid)" stroke-width="1.4" opacity="0.55"/>
+<text x="574" y="236" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-mid)">MID</text>
+<path d="M40,245 C50,235 60,255 70,245 C80,235 90,255 100,245 C110,235 120,255 130,245 C140,235 150,255 160,245 C170,235 180,255 190,245 C200,235 210,255 220,245 C230,235 240,255 250,245 C260,235 270,255 280,245 C290,235 300,255 310,245 C320,235 330,255 340,245 C350,235 360,255 370,245 C380,235 390,255 400,245 C410,235 420,255 430,245 C440,235 450,255 460,245 C470,235 480,255 490,245 C500,235 510,255 520,245 C530,235 540,255 550,245 C555,240 558,248 560,245" fill="none" stroke="var(--freq-fast)" stroke-width="1" opacity="0.4"/>
+<text x="574" y="223" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-fast)">HIGH</text>
+</svg>
+<span class="note">The attention score between two tokens is the sum of all these harmonics. Low frequencies track long-range structure; high frequencies resolve nearby detail.</span>
+</div>
 
 ### A concrete example: who attends to whom?
 
@@ -262,20 +262,20 @@ We have been speaking in analogies — clocks, bells, chords. Now let's open the
 Fourier's central insight is that **any sufficiently well-behaved function can be decomposed into a sum of sinusoids**, each oscillating at a different frequency. A square wave, a heartbeat, a vowel sound — all of them are secretly a stack of sine and cosine waves superimposed on one another. The frequencies form the *basis*; the amplitudes and phases form the *coefficients*. To reconstruct the original signal, you simply add the components back together.
 
 <div class="rope-diagram-wrap">
-      <span class="caption">Figure 4 — Fourier decomposition: a complex signal is a sum of simple sinusoids</span>
-      <svg class="rope-diagram" viewBox="0 0 600 260" width="600" height="260">
-        <text x="26" y="14" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--ink)" letter-spacing="0.08em">COMPOSITE SIGNAL</text>
-        <path d="M30,55 C45,25 55,30 70,55 C80,72 85,68 95,45 C105,22 115,35 130,55 C140,68 150,72 165,55 C175,38 185,25 200,55 C210,72 220,68 235,45 C245,22 255,35 270,55 C280,68 290,72 305,55 C315,38 325,25 340,55 C350,72 360,68 375,45 C385,22 395,35 410,55 C420,68 430,72 445,55 C455,38 465,25 480,55 C490,72 500,68 515,45 C525,30 535,35 545,55" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        <text x="300" y="95" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="18" fill="var(--dim)">=</text>
-        <text x="26" y="120" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--freq-slow)" letter-spacing="0.08em">ω₁ (LOW FREQUENCY)</text>
-        <path d="M30,155 Q160,120 300,155 Q440,190 545,155" fill="none" stroke="var(--freq-slow)" stroke-width="1.8" opacity="0.8"/>
-        <text x="300" y="182" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="16" fill="var(--dim)">+</text>
-        <text x="26" y="195" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--freq-mid)" letter-spacing="0.08em">ω₂ (MID FREQUENCY)</text>
-        <path d="M30,220 C65,200 100,240 135,220 C170,200 205,240 240,220 C275,200 310,240 345,220 C380,200 415,240 450,220 C485,200 520,240 545,220" fill="none" stroke="var(--freq-mid)" stroke-width="1.5" opacity="0.7"/>
-        <text x="300" y="247" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="16" fill="var(--dim)">+  ···</text>
-      </svg>
-      <span class="note">Any signal — no matter how complex — can be rebuilt as a weighted sum of sinusoids. This is Fourier's theorem. RoPE exploits this principle to encode position.</span>
-    </div>
+<span class="caption">Figure 4 — Fourier decomposition: a complex signal is a sum of simple sinusoids</span>
+<svg class="rope-diagram" viewBox="0 0 600 260" width="600" height="260">
+<text x="26" y="14" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--ink)" letter-spacing="0.08em">COMPOSITE SIGNAL</text>
+<path d="M30,55 C45,25 55,30 70,55 C80,72 85,68 95,45 C105,22 115,35 130,55 C140,68 150,72 165,55 C175,38 185,25 200,55 C210,72 220,68 235,45 C245,22 255,35 270,55 C280,68 290,72 305,55 C315,38 325,25 340,55 C350,72 360,68 375,45 C385,22 395,35 410,55 C420,68 430,72 445,55 C455,38 465,25 480,55 C490,72 500,68 515,45 C525,30 535,35 545,55" fill="none" stroke="var(--ink)" stroke-width="2"/>
+<text x="300" y="95" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="18" fill="var(--dim)">=</text>
+<text x="26" y="120" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--freq-slow)" letter-spacing="0.08em">ω₁ (LOW FREQUENCY)</text>
+<path d="M30,155 Q160,120 300,155 Q440,190 545,155" fill="none" stroke="var(--freq-slow)" stroke-width="1.8" opacity="0.8"/>
+<text x="300" y="182" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="16" fill="var(--dim)">+</text>
+<text x="26" y="195" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--freq-mid)" letter-spacing="0.08em">ω₂ (MID FREQUENCY)</text>
+<path d="M30,220 C65,200 100,240 135,220 C170,200 205,240 240,220 C275,200 310,240 345,220 C380,200 415,240 450,220 C485,200 520,240 545,220" fill="none" stroke="var(--freq-mid)" stroke-width="1.5" opacity="0.7"/>
+<text x="300" y="247" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="16" fill="var(--dim)">+  ···</text>
+</svg>
+<span class="note">Any signal — no matter how complex — can be rebuilt as a weighted sum of sinusoids. This is Fourier's theorem. RoPE exploits this principle to encode position.</span>
+</div>
 
 ### The rotation matrix
 
@@ -314,39 +314,39 @@ The geometric spacing gives **log-uniform coverage** of the frequency spectrum �
 Why geometric and not linear? A linearly spaced set of frequencies would waste most of its resolution on either local or global patterns. Geometric spacing ensures the model has equally fine discrimination at every scale — it can distinguish positions 5 apart just as precisely as positions 5,000 apart, because different pairs "own" different ranges of distance.
 
 <div class="rope-diagram-wrap">
-      <span class="caption">Figure 5 — Log-scale frequency coverage: each pair covers a different range of distance</span>
-      <svg class="rope-diagram" viewBox="0 0 600 180" width="600" height="180">
-        <line x1="50" y1="130" x2="560" y2="130" stroke="var(--ink)" stroke-width="1"/>
-        <text x="50" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--muted)">1</text>
-        <text x="177" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--muted)">10</text>
-        <text x="305" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--muted)">100</text>
-        <text x="432" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--muted)">1,000</text>
-        <text x="560" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--muted)">10,000</text>
-        <text x="305" y="175" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--muted)" font-style="italic">Distance between tokens (log scale)</text>
-        <line x1="50" y1="130" x2="50" y2="135" stroke="var(--ink)" stroke-width="0.7"/><line x1="177" y1="130" x2="177" y2="135" stroke="var(--ink)" stroke-width="0.7"/><line x1="305" y1="130" x2="305" y2="135" stroke="var(--ink)" stroke-width="0.7"/><line x1="432" y1="130" x2="432" y2="135" stroke="var(--ink)" stroke-width="0.7"/><line x1="560" y1="130" x2="560" y2="135" stroke="var(--ink)" stroke-width="0.7"/>
+<span class="caption">Figure 5 — Log-scale frequency coverage: each pair covers a different range of distance</span>
+<svg class="rope-diagram" viewBox="0 0 600 180" width="600" height="180">
+<line x1="50" y1="130" x2="560" y2="130" stroke="var(--ink)" stroke-width="1"/>
+<text x="50" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--muted)">1</text>
+<text x="177" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--muted)">10</text>
+<text x="305" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--muted)">100</text>
+<text x="432" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--muted)">1,000</text>
+<text x="560" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--muted)">10,000</text>
+<text x="305" y="175" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--muted)" font-style="italic">Distance between tokens (log scale)</text>
+<line x1="50" y1="130" x2="50" y2="135" stroke="var(--ink)" stroke-width="0.7"/><line x1="177" y1="130" x2="177" y2="135" stroke="var(--ink)" stroke-width="0.7"/><line x1="305" y1="130" x2="305" y2="135" stroke="var(--ink)" stroke-width="0.7"/><line x1="432" y1="130" x2="432" y2="135" stroke="var(--ink)" stroke-width="0.7"/><line x1="560" y1="130" x2="560" y2="135" stroke="var(--ink)" stroke-width="0.7"/>
 
-        <rect x="50" y="55" width="155" height="65" rx="3" fill="var(--freq-fast)" opacity="0.08"/>
-        <rect x="50" y="55" width="155" height="65" rx="3" fill="none" stroke="var(--freq-fast)" stroke-width="1" opacity="0.3"/>
-        <text x="127" y="45" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-fast)" letter-spacing="0.08em">PAIRS 0–512</text>
-        <text x="127" y="92" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-fast)" font-style="italic">Resolve local</text>
-        <text x="127" y="105" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-fast)" font-style="italic">syntax &amp; grammar</text>
+<rect x="50" y="55" width="155" height="65" rx="3" fill="var(--freq-fast)" opacity="0.08"/>
+<rect x="50" y="55" width="155" height="65" rx="3" fill="none" stroke="var(--freq-fast)" stroke-width="1" opacity="0.3"/>
+<text x="127" y="45" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-fast)" letter-spacing="0.08em">PAIRS 0–512</text>
+<text x="127" y="92" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-fast)" font-style="italic">Resolve local</text>
+<text x="127" y="105" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-fast)" font-style="italic">syntax &amp; grammar</text>
 
-        <rect x="177" y="55" width="180" height="65" rx="3" fill="var(--freq-mid)" opacity="0.06"/>
-        <rect x="177" y="55" width="180" height="65" rx="3" fill="none" stroke="var(--freq-mid)" stroke-width="1" opacity="0.3"/>
-        <text x="267" y="45" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-mid)" letter-spacing="0.08em">PAIRS 512–1024</text>
-        <text x="267" y="92" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-mid)" font-style="italic">Resolve paragraph</text>
-        <text x="267" y="105" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-mid)" font-style="italic">&amp; sentence structure</text>
+<rect x="177" y="55" width="180" height="65" rx="3" fill="var(--freq-mid)" opacity="0.06"/>
+<rect x="177" y="55" width="180" height="65" rx="3" fill="none" stroke="var(--freq-mid)" stroke-width="1" opacity="0.3"/>
+<text x="267" y="45" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-mid)" letter-spacing="0.08em">PAIRS 512–1024</text>
+<text x="267" y="92" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-mid)" font-style="italic">Resolve paragraph</text>
+<text x="267" y="105" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-mid)" font-style="italic">&amp; sentence structure</text>
 
-        <rect x="355" y="55" width="205" height="65" rx="3" fill="var(--freq-slow)" opacity="0.06"/>
-        <rect x="355" y="55" width="205" height="65" rx="3" fill="none" stroke="var(--freq-slow)" stroke-width="1" opacity="0.3"/>
-        <text x="457" y="45" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-slow)" letter-spacing="0.08em">PAIRS 1024–2048</text>
-        <text x="457" y="92" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-slow)" font-style="italic">Resolve document</text>
-        <text x="457" y="105" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-slow)" font-style="italic">&amp; cross-passage</text>
+<rect x="355" y="55" width="205" height="65" rx="3" fill="var(--freq-slow)" opacity="0.06"/>
+<rect x="355" y="55" width="205" height="65" rx="3" fill="none" stroke="var(--freq-slow)" stroke-width="1" opacity="0.3"/>
+<text x="457" y="45" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="var(--freq-slow)" letter-spacing="0.08em">PAIRS 1024–2048</text>
+<text x="457" y="92" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-slow)" font-style="italic">Resolve document</text>
+<text x="457" y="105" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9" fill="var(--freq-slow)" font-style="italic">&amp; cross-passage</text>
 
-        <line x1="50" y1="32" x2="560" y2="32" stroke="var(--dim)" stroke-width="0.7" stroke-dasharray="3,3"/>
-        <text x="305" y="26" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--muted)" letter-spacing="0.1em">EQUAL NUMBER OF PAIRS PER DECADE → EQUAL RESOLUTION AT EVERY SCALE</text>
-      </svg>
-    </div>
+<line x1="50" y1="32" x2="560" y2="32" stroke="var(--dim)" stroke-width="0.7" stroke-dasharray="3,3"/>
+<text x="305" y="26" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--muted)" letter-spacing="0.1em">EQUAL NUMBER OF PAIRS PER DECADE → EQUAL RESOLUTION AT EVERY SCALE</text>
+</svg>
+</div>
 
 ### The key derivation: attention as a Fourier series
 
@@ -386,25 +386,25 @@ Fourier's theorem guarantees that *any smooth, periodic function* can be approxi
 All three patterns — and infinitely many others — emerge from the same mechanism. The Fourier basis is universal; the learned coefficients specialise it.
 
 <div class="rope-diagram-wrap">
-      <span class="caption">Figure 6 — Three kernels, one mechanism</span>
-      <svg class="rope-diagram" viewBox="0 0 600 185" width="600" height="185">
-        <text x="110" y="20" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-fast)" letter-spacing="0.1em">LOCAL</text>
-        <text x="110" y="34" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">syntax &amp; agreement</text>
-        <line x1="40" y1="95" x2="180" y2="95" stroke="var(--dim)" stroke-width="0.6" stroke-dasharray="3,3"/>
-        <path d="M40.0,53.0 L41.8,53.9 L43.5,56.6 L45.2,60.7 L47.0,65.6 L48.8,70.8 L50.5,75.6 L52.2,79.6 L54.0,82.5 L55.8,84.4 L57.5,85.3 L59.2,85.5 L61.0,85.5 L62.8,85.5 L64.5,85.8 L66.2,86.6 L68.0,87.7 L69.8,89.2 L71.5,90.7 L73.2,92.0 L75.0,93.1 L76.8,93.7 L78.5,94.0 L80.2,93.9 L82.0,93.8 L83.8,93.7 L85.5,93.8 L87.2,94.2 L89.0,94.9 L90.8,95.7 L92.5,96.6 L94.2,97.4 L96.0,98.0 L97.8,98.3 L99.5,98.3 L101.2,98.1 L103.0,97.9 L104.8,97.7 L106.5,97.7 L108.2,98.0 L110.0,98.5 L111.8,99.1 L113.5,99.7 L115.2,100.3 L117.0,100.6 L118.8,100.7 L120.5,100.6 L122.2,100.3 L124.0,99.9 L125.8,99.7 L127.5,99.7 L129.2,99.8 L131.0,100.2 L132.8,100.8 L134.5,101.3 L136.2,101.7 L138.0,102.0 L139.8,101.9 L141.5,101.6 L143.2,101.2 L145.0,100.8 L146.8,100.4 L148.5,100.3 L150.2,100.4 L152.0,100.8 L153.8,101.3 L155.5,101.9 L157.2,102.3 L159.0,102.5 L160.8,102.4 L162.5,102.0 L164.2,101.3 L166.0,100.7 L167.8,100.2 L169.5,99.9 L171.2,100.0 L173.0,100.4 L174.8,101.0 L176.5,101.8 L178.2,102.4 L180.0,102.7" fill="none" stroke="var(--freq-fast)" stroke-width="1.8"/>
-        <text x="235" y="20" text-anchor="start" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-mid)" letter-spacing="0.1em">PERIODIC</text>
-        <text x="235" y="34" text-anchor="start" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">code &amp; tabular structure</text>
-        <line x1="235" y1="95" x2="375" y2="95" stroke="var(--dim)" stroke-width="0.6" stroke-dasharray="3,3"/>
-        <path d="M235.0,53.0 L236.8,56.3 L238.5,65.7 L240.2,79.8 L242.0,96.2 L243.8,112.5 L245.5,126.0 L247.2,134.6 L249.0,136.9 L250.8,132.7 L252.5,122.5 L254.2,107.9 L256.0,91.3 L257.8,75.3 L259.5,62.4 L261.2,54.7 L263.0,53.3 L264.8,58.5 L266.5,69.4 L268.2,84.4 L270.0,101.1 L271.8,116.8 L273.5,129.1 L275.2,135.9 L277.0,136.4 L278.8,130.2 L280.5,118.6 L282.2,103.2 L284.0,86.5 L285.8,71.1 L287.5,59.6 L289.2,53.6 L291.0,54.1 L292.8,61.2 L294.5,73.5 L296.2,89.3 L298.0,105.9 L299.8,120.8 L301.5,131.7 L303.2,136.8 L305.0,135.2 L306.8,127.3 L308.5,114.3 L310.2,98.3 L312.0,81.7 L313.8,67.3 L315.5,57.2 L317.2,53.1 L319.0,55.6 L320.8,64.3 L322.5,77.9 L324.2,94.1 L326.0,110.6 L327.8,124.5 L329.5,133.8 L331.2,137.0 L333.0,133.5 L334.8,124.0 L336.5,109.9 L338.2,93.4 L340.0,77.2 L341.8,63.8 L343.5,55.3 L345.2,53.1 L347.0,57.5 L348.8,67.8 L350.5,82.4 L352.2,99.0 L354.0,115.0 L355.8,127.8 L357.5,135.4 L359.2,136.7 L361.0,131.3 L362.8,120.3 L364.5,105.2 L366.2,88.5 L368.0,72.9 L369.8,60.7 L371.5,54.0 L373.2,53.7 L375.0,60.0" fill="none" stroke="var(--freq-mid)" stroke-width="1.8"/>
-        <text x="500" y="20" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-slow)" letter-spacing="0.1em">LONG-RANGE</text>
-        <text x="500" y="34" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">coreference &amp; theme</text>
-        <line x1="430" y1="95" x2="570" y2="95" stroke="var(--dim)" stroke-width="0.6" stroke-dasharray="3,3"/>
-        <path d="M430.0,53.0 L433.5,53.1 L437.0,53.4 L440.5,53.8 L444.0,54.4 L447.5,55.2 L451.0,56.1 L454.5,57.2 L458.0,58.4 L461.5,59.8 L465.0,61.3 L468.5,62.9 L472.0,64.5 L475.5,66.3 L479.0,68.2 L482.5,70.0 L486.0,72.0 L489.5,73.9 L493.0,75.9 L496.5,77.8 L500.0,79.8 L503.5,81.7 L507.0,83.6 L510.5,85.4 L514.0,87.1 L517.5,88.8 L521.0,90.4 L524.5,91.9 L528.0,93.3 L531.5,94.6 L535.0,95.8 L538.5,96.9 L542.0,97.9 L545.5,98.7 L549.0,99.5 L552.5,100.1 L556.0,100.7 L559.5,101.1 L563.0,101.4 L566.5,101.7 L570.0,101.9" fill="none" stroke="var(--freq-slow)" stroke-width="1.8"/>
-        <line x1="40" y1="155" x2="570" y2="155" stroke="var(--dim)" stroke-width="0.5"/>
-        <text x="305" y="175" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9.5" fill="var(--muted)" font-style="italic">Δ, distance between tokens → (each panel: Δ from 0 to 40, dashed line = zero attention contribution)</text>
-      </svg>
-      <span class="note">Each curve is a genuine trigonometric sum Σ&thinsp;a<sub>k</sub>&thinsp;cos(ω<sub>k</sub>Δ) — computed, not sketched. A head chooses its kernel by learning its query and key weights; the basis never changes.</span>
-    </div>
+<span class="caption">Figure 6 — Three kernels, one mechanism</span>
+<svg class="rope-diagram" viewBox="0 0 600 185" width="600" height="185">
+<text x="110" y="20" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-fast)" letter-spacing="0.1em">LOCAL</text>
+<text x="110" y="34" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">syntax &amp; agreement</text>
+<line x1="40" y1="95" x2="180" y2="95" stroke="var(--dim)" stroke-width="0.6" stroke-dasharray="3,3"/>
+<path d="M40.0,53.0 L41.8,53.9 L43.5,56.6 L45.2,60.7 L47.0,65.6 L48.8,70.8 L50.5,75.6 L52.2,79.6 L54.0,82.5 L55.8,84.4 L57.5,85.3 L59.2,85.5 L61.0,85.5 L62.8,85.5 L64.5,85.8 L66.2,86.6 L68.0,87.7 L69.8,89.2 L71.5,90.7 L73.2,92.0 L75.0,93.1 L76.8,93.7 L78.5,94.0 L80.2,93.9 L82.0,93.8 L83.8,93.7 L85.5,93.8 L87.2,94.2 L89.0,94.9 L90.8,95.7 L92.5,96.6 L94.2,97.4 L96.0,98.0 L97.8,98.3 L99.5,98.3 L101.2,98.1 L103.0,97.9 L104.8,97.7 L106.5,97.7 L108.2,98.0 L110.0,98.5 L111.8,99.1 L113.5,99.7 L115.2,100.3 L117.0,100.6 L118.8,100.7 L120.5,100.6 L122.2,100.3 L124.0,99.9 L125.8,99.7 L127.5,99.7 L129.2,99.8 L131.0,100.2 L132.8,100.8 L134.5,101.3 L136.2,101.7 L138.0,102.0 L139.8,101.9 L141.5,101.6 L143.2,101.2 L145.0,100.8 L146.8,100.4 L148.5,100.3 L150.2,100.4 L152.0,100.8 L153.8,101.3 L155.5,101.9 L157.2,102.3 L159.0,102.5 L160.8,102.4 L162.5,102.0 L164.2,101.3 L166.0,100.7 L167.8,100.2 L169.5,99.9 L171.2,100.0 L173.0,100.4 L174.8,101.0 L176.5,101.8 L178.2,102.4 L180.0,102.7" fill="none" stroke="var(--freq-fast)" stroke-width="1.8"/>
+<text x="235" y="20" text-anchor="start" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-mid)" letter-spacing="0.1em">PERIODIC</text>
+<text x="235" y="34" text-anchor="start" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">code &amp; tabular structure</text>
+<line x1="235" y1="95" x2="375" y2="95" stroke="var(--dim)" stroke-width="0.6" stroke-dasharray="3,3"/>
+<path d="M235.0,53.0 L236.8,56.3 L238.5,65.7 L240.2,79.8 L242.0,96.2 L243.8,112.5 L245.5,126.0 L247.2,134.6 L249.0,136.9 L250.8,132.7 L252.5,122.5 L254.2,107.9 L256.0,91.3 L257.8,75.3 L259.5,62.4 L261.2,54.7 L263.0,53.3 L264.8,58.5 L266.5,69.4 L268.2,84.4 L270.0,101.1 L271.8,116.8 L273.5,129.1 L275.2,135.9 L277.0,136.4 L278.8,130.2 L280.5,118.6 L282.2,103.2 L284.0,86.5 L285.8,71.1 L287.5,59.6 L289.2,53.6 L291.0,54.1 L292.8,61.2 L294.5,73.5 L296.2,89.3 L298.0,105.9 L299.8,120.8 L301.5,131.7 L303.2,136.8 L305.0,135.2 L306.8,127.3 L308.5,114.3 L310.2,98.3 L312.0,81.7 L313.8,67.3 L315.5,57.2 L317.2,53.1 L319.0,55.6 L320.8,64.3 L322.5,77.9 L324.2,94.1 L326.0,110.6 L327.8,124.5 L329.5,133.8 L331.2,137.0 L333.0,133.5 L334.8,124.0 L336.5,109.9 L338.2,93.4 L340.0,77.2 L341.8,63.8 L343.5,55.3 L345.2,53.1 L347.0,57.5 L348.8,67.8 L350.5,82.4 L352.2,99.0 L354.0,115.0 L355.8,127.8 L357.5,135.4 L359.2,136.7 L361.0,131.3 L362.8,120.3 L364.5,105.2 L366.2,88.5 L368.0,72.9 L369.8,60.7 L371.5,54.0 L373.2,53.7 L375.0,60.0" fill="none" stroke="var(--freq-mid)" stroke-width="1.8"/>
+<text x="500" y="20" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-slow)" letter-spacing="0.1em">LONG-RANGE</text>
+<text x="500" y="34" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">coreference &amp; theme</text>
+<line x1="430" y1="95" x2="570" y2="95" stroke="var(--dim)" stroke-width="0.6" stroke-dasharray="3,3"/>
+<path d="M430.0,53.0 L433.5,53.1 L437.0,53.4 L440.5,53.8 L444.0,54.4 L447.5,55.2 L451.0,56.1 L454.5,57.2 L458.0,58.4 L461.5,59.8 L465.0,61.3 L468.5,62.9 L472.0,64.5 L475.5,66.3 L479.0,68.2 L482.5,70.0 L486.0,72.0 L489.5,73.9 L493.0,75.9 L496.5,77.8 L500.0,79.8 L503.5,81.7 L507.0,83.6 L510.5,85.4 L514.0,87.1 L517.5,88.8 L521.0,90.4 L524.5,91.9 L528.0,93.3 L531.5,94.6 L535.0,95.8 L538.5,96.9 L542.0,97.9 L545.5,98.7 L549.0,99.5 L552.5,100.1 L556.0,100.7 L559.5,101.1 L563.0,101.4 L566.5,101.7 L570.0,101.9" fill="none" stroke="var(--freq-slow)" stroke-width="1.8"/>
+<line x1="40" y1="155" x2="570" y2="155" stroke="var(--dim)" stroke-width="0.5"/>
+<text x="305" y="175" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="9.5" fill="var(--muted)" font-style="italic">Δ, distance between tokens → (each panel: Δ from 0 to 40, dashed line = zero attention contribution)</text>
+</svg>
+<span class="note">Each curve is a genuine trigonometric sum Σ&thinsp;a<sub>k</sub>&thinsp;cos(ω<sub>k</sub>Δ) — computed, not sketched. A head chooses its kernel by learning its query and key weights; the basis never changes.</span>
+</div>
 
 ### Connection to the original sinusoidal encoding
 
@@ -441,44 +441,44 @@ That final assertion is the entire payoff of this article, executable in four li
 This property — that only the gap survives — is why RoPE has quietly become the positional encoding of the modern era. Llama, Mistral, Gemma, PaLM, DeepSeek: the architectures differ, but inside every one, the same clock is ticking.
 
 <div class="rope-diagram-wrap">
-      <span class="caption">Figure 7 — Absolute positions differ, relative angle is invariant</span>
-      <svg class="rope-diagram" viewBox="0 0 600 200" width="600" height="200">
-        <g transform="translate(120,100)">
-          <g transform="translate(-55,0)">
-            <circle r="42" fill="none" stroke="var(--base-100)" stroke-width="1"/>
-            <line x1="0" y1="0" x2="0" y2="-34" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" transform="rotate(30)"/>
-            <circle r="2" fill="var(--ink)"/>
-            <text y="58" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--muted)">pos 1</text>
-          </g>
-          <g transform="translate(55,0)">
-            <circle r="42" fill="none" stroke="var(--base-100)" stroke-width="1"/>
-            <line x1="0" y1="0" x2="0" y2="-34" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" transform="rotate(120)"/>
-            <circle r="2" fill="var(--ink)"/>
-            <text y="58" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--muted)">pos 4</text>
-          </g>
-          <path d="M-30,-26 A55,55 0 0,1 30,26" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="3,3"/>
-          <text x="0" y="-48" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--accent)" font-weight="500">Δ = 90°</text>
-        </g>
-        <text x="300" y="105" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="28" fill="var(--dim)">=</text>
-        <g transform="translate(480,100)">
-          <g transform="translate(-55,0)">
-            <circle r="42" fill="none" stroke="var(--base-100)" stroke-width="1"/>
-            <line x1="0" y1="0" x2="0" y2="-34" stroke="var(--freq-slow)" stroke-width="2" stroke-linecap="round" transform="rotate(200)"/>
-            <circle r="2" fill="var(--ink)"/>
-            <text y="58" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--muted)">pos 1001</text>
-          </g>
-          <g transform="translate(55,0)">
-            <circle r="42" fill="none" stroke="var(--base-100)" stroke-width="1"/>
-            <line x1="0" y1="0" x2="0" y2="-34" stroke="var(--freq-slow)" stroke-width="2" stroke-linecap="round" transform="rotate(290)"/>
-            <circle r="2" fill="var(--ink)"/>
-            <text y="58" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--muted)">pos 1004</text>
-          </g>
-          <path d="M-22,-38 A55,55 0 0,1 38,20" fill="none" stroke="var(--freq-slow)" stroke-width="1.2" stroke-dasharray="3,3"/>
-          <text x="0" y="-48" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-slow)" font-weight="500">Δ = 90°</text>
-        </g>
-      </svg>
-      <span class="note">Positions 1→4 and 1001→1004 produce the same angular gap. The model perceives only the gap — never the absolute position. This is the rotational invariance that makes RoPE work.</span>
-    </div>
+<span class="caption">Figure 7 — Absolute positions differ, relative angle is invariant</span>
+<svg class="rope-diagram" viewBox="0 0 600 200" width="600" height="200">
+<g transform="translate(120,100)">
+<g transform="translate(-55,0)">
+<circle r="42" fill="none" stroke="var(--base-100)" stroke-width="1"/>
+<line x1="0" y1="0" x2="0" y2="-34" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" transform="rotate(30)"/>
+<circle r="2" fill="var(--ink)"/>
+<text y="58" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--muted)">pos 1</text>
+</g>
+<g transform="translate(55,0)">
+<circle r="42" fill="none" stroke="var(--base-100)" stroke-width="1"/>
+<line x1="0" y1="0" x2="0" y2="-34" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" transform="rotate(120)"/>
+<circle r="2" fill="var(--ink)"/>
+<text y="58" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--muted)">pos 4</text>
+</g>
+<path d="M-30,-26 A55,55 0 0,1 30,26" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="3,3"/>
+<text x="0" y="-48" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--accent)" font-weight="500">Δ = 90°</text>
+</g>
+<text x="300" y="105" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="28" fill="var(--dim)">=</text>
+<g transform="translate(480,100)">
+<g transform="translate(-55,0)">
+<circle r="42" fill="none" stroke="var(--base-100)" stroke-width="1"/>
+<line x1="0" y1="0" x2="0" y2="-34" stroke="var(--freq-slow)" stroke-width="2" stroke-linecap="round" transform="rotate(200)"/>
+<circle r="2" fill="var(--ink)"/>
+<text y="58" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--muted)">pos 1001</text>
+</g>
+<g transform="translate(55,0)">
+<circle r="42" fill="none" stroke="var(--base-100)" stroke-width="1"/>
+<line x1="0" y1="0" x2="0" y2="-34" stroke="var(--freq-slow)" stroke-width="2" stroke-linecap="round" transform="rotate(290)"/>
+<circle r="2" fill="var(--ink)"/>
+<text y="58" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--muted)">pos 1004</text>
+</g>
+<path d="M-22,-38 A55,55 0 0,1 38,20" fill="none" stroke="var(--freq-slow)" stroke-width="1.2" stroke-dasharray="3,3"/>
+<text x="0" y="-48" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--freq-slow)" font-weight="500">Δ = 90°</text>
+</g>
+</svg>
+<span class="note">Positions 1→4 and 1001→1004 produce the same angular gap. The model perceives only the gap — never the absolute position. This is the rotational invariance that makes RoPE work.</span>
+</div>
 
 Hold a clock at 1:00 in your left hand and another at 1:15 in your right. The angle between the two minute hands is 90°. Now set them to 5:00 and 5:15. The absolute positions have changed completely, but the angle — the relationship — is still 90°.
 
@@ -499,37 +499,37 @@ This is the invariance that RoPE buys you. Because position is encoded as rotati
 One caveat, and it deserves the same honesty as everything above. RoPE generalises beautifully across the distances it has *seen* — but not into distances it hasn't. Train a model on 4,096-token contexts and ask it to read position 6,000, and quality falls off a cliff. The reason is visible on the clock face. The fast hands are fine: they have lapped the dial thousands of times during training, and one more lap is nothing new. It is the **slow hands** that betray you. The hour hand has simply never been past four o'clock. The attention kernel is handed angles it never learned coefficients for, scores drift out of distribution, and the Fourier series extrapolates the way polynomials do: badly.
 
 <div class="rope-diagram-wrap">
-      <span class="caption">Figure 8 — Context extension is clock repair</span>
-      <svg class="rope-diagram" viewBox="0 0 600 230" width="600" height="230">
-        <text x="150" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ink)" font-weight="500">VANILLA ROPE</text>
-        <text x="150" y="32" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">trained on 4,096 tokens, asked for position 6,000</text>
-        <g transform="translate(150,115)">
-          <path d="M0,0 L0,-60 A60,60 0 1,1 -52,30 Z" fill="var(--constructive)" opacity="0.09"/>
-          <path d="M0,0 L-52,30 A60,60 0 0,1 0,-60 Z" fill="var(--destructive)" opacity="0.10"/>
-          <circle r="60" fill="none" stroke="var(--base-150)" stroke-width="1"/>
-          <text x="30" y="26" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--constructive)" letter-spacing="0.08em">SEEN</text>
-          <text x="-26" y="-30" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--destructive)" letter-spacing="0.08em">NEVER SEEN</text>
-          <line x1="0" y1="0" x2="0" y2="-48" stroke="var(--destructive)" stroke-width="2.2" stroke-linecap="round" transform="rotate(280)"/>
-          <circle r="2.5" fill="var(--ink)"/>
-        </g>
-        <text x="150" y="200" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--destructive)">hand enters the unseen zone → scores go feral</text>
-        <text x="300" y="112" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="26" fill="var(--dim)">→</text>
-        <text x="300" y="132" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--muted)">m → m/2</text>
-        <text x="450" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ink)" font-weight="500">POSITION INTERPOLATION</text>
-        <text x="450" y="32" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">every hand slowed ×½ — position 6,000 reads as 3,000</text>
-        <g transform="translate(450,115)">
-          <path d="M0,0 L0,-60 A60,60 0 1,1 -52,30 Z" fill="var(--constructive)" opacity="0.09"/>
-          <path d="M0,0 L-52,30 A60,60 0 0,1 0,-60 Z" fill="var(--destructive)" opacity="0.10"/>
-          <circle r="60" fill="none" stroke="var(--base-150)" stroke-width="1"/>
-          <text x="30" y="26" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--constructive)" letter-spacing="0.08em">SEEN</text>
-          <text x="-26" y="-30" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--destructive)" letter-spacing="0.08em">NEVER SEEN</text>
-          <line x1="0" y1="0" x2="0" y2="-48" stroke="var(--constructive)" stroke-width="2.2" stroke-linecap="round" transform="rotate(140)"/>
-          <circle r="2.5" fill="var(--ink)"/>
-        </g>
-        <text x="450" y="200" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--constructive)">hand back on familiar angles → attention intact</text>
-      </svg>
-      <span class="note">Trained on 4,096 tokens, the slow hands have swept only part of the dial. Rescaling the frequencies folds new positions back onto angles the model already understands.</span>
-    </div>
+<span class="caption">Figure 8 — Context extension is clock repair</span>
+<svg class="rope-diagram" viewBox="0 0 600 230" width="600" height="230">
+<text x="150" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ink)" font-weight="500">VANILLA ROPE</text>
+<text x="150" y="32" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">trained on 4,096 tokens, asked for position 6,000</text>
+<g transform="translate(150,115)">
+<path d="M0,0 L0,-60 A60,60 0 1,1 -52,30 Z" fill="var(--constructive)" opacity="0.09"/>
+<path d="M0,0 L-52,30 A60,60 0 0,1 0,-60 Z" fill="var(--destructive)" opacity="0.10"/>
+<circle r="60" fill="none" stroke="var(--base-150)" stroke-width="1"/>
+<text x="30" y="26" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--constructive)" letter-spacing="0.08em">SEEN</text>
+<text x="-26" y="-30" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--destructive)" letter-spacing="0.08em">NEVER SEEN</text>
+<line x1="0" y1="0" x2="0" y2="-48" stroke="var(--destructive)" stroke-width="2.2" stroke-linecap="round" transform="rotate(280)"/>
+<circle r="2.5" fill="var(--ink)"/>
+</g>
+<text x="150" y="200" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--destructive)">hand enters the unseen zone → scores go feral</text>
+<text x="300" y="112" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="26" fill="var(--dim)">→</text>
+<text x="300" y="132" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--muted)">m → m/2</text>
+<text x="450" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--ink)" font-weight="500">POSITION INTERPOLATION</text>
+<text x="450" y="32" text-anchor="middle" font-family="'Source Serif 4',serif" font-size="8.5" fill="var(--muted)" font-style="italic">every hand slowed ×½ — position 6,000 reads as 3,000</text>
+<g transform="translate(450,115)">
+<path d="M0,0 L0,-60 A60,60 0 1,1 -52,30 Z" fill="var(--constructive)" opacity="0.09"/>
+<path d="M0,0 L-52,30 A60,60 0 0,1 0,-60 Z" fill="var(--destructive)" opacity="0.10"/>
+<circle r="60" fill="none" stroke="var(--base-150)" stroke-width="1"/>
+<text x="30" y="26" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--constructive)" letter-spacing="0.08em">SEEN</text>
+<text x="-26" y="-30" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="6.5" fill="var(--destructive)" letter-spacing="0.08em">NEVER SEEN</text>
+<line x1="0" y1="0" x2="0" y2="-48" stroke="var(--constructive)" stroke-width="2.2" stroke-linecap="round" transform="rotate(140)"/>
+<circle r="2.5" fill="var(--ink)"/>
+</g>
+<text x="450" y="200" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="var(--constructive)">hand back on familiar angles → attention intact</text>
+</svg>
+<span class="note">Trained on 4,096 tokens, the slow hands have swept only part of the dial. Rescaling the frequencies folds new positions back onto angles the model already understands.</span>
+</div>
 
 The remarkable part is the fix. Because position lives entirely in the frequency schedule — that single line defining $\\omega_k$ — you do not retrain the model. You repair the clock:
 
