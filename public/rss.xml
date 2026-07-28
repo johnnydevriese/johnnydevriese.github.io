@@ -5,9 +5,16 @@
     <link>https://johnnydevriese.github.io</link>
     <description>Thoughts on programming, data science, and more.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jul 2026 03:12:49 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2026 16:25:02 GMT</lastBuildDate>
     <atom:link href="https://johnnydevriese.github.io/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title>The Big Three Trap: Why Open Weights Are Squeezing Closed AI Labs</title>
+      <link>https://johnnydevriese.github.io/#the-big-three-trap</link>
+      <guid>https://johnnydevriese.github.io/#the-big-three-trap</guid>
+      <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+      <description>The Big Three Trap: Why Open Weights Are Squeezing Closed AI Labs The competitive landscape in AI is changing faster than many expected. Just a year ago, proprietary models held a clear lead in capability, making premium API pricing relatively easy to justify. Today, that gap is narrowing. Recent op...</description>
+    </item>
     <item>
       <title>RoPE Is Just a Clock with a Thousand Hands</title>
       <link>https://johnnydevriese.github.io/#rope-clock-thousand-hands</link>
