@@ -5,9 +5,23 @@
     <link>https://johnnydevriese.github.io</link>
     <description>Thoughts on programming, data science, and more.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jul 2026 16:25:02 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 23:49:28 GMT</lastBuildDate>
     <atom:link href="https://johnnydevriese.github.io/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title>Eigenvalues Never See the Bucket Change Hands</title>
+      <link>https://johnnydevriese.github.io/#eigenvalues-never-see-the-bucket</link>
+      <guid>https://johnnydevriese.github.io/#eigenvalues-never-see-the-bucket</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Eigenvalues Never See the Bucket Change Hands *Part II of II. The textbook way to ask how fast a loop settles is to read the eigenvalues of its Jacobian. For a looped transformer that answer is true, precise, and about the wrong question. Here is why, with matrices small enough to check by hand and ...</description>
+    </item>
+    <item>
+      <title>Looped Transformers Pass the Bucket</title>
+      <link>https://johnnydevriese.github.io/#looped-transformers-pass-the-bucket</link>
+      <guid>https://johnnydevriese.github.io/#looped-transformers-pass-the-bucket</guid>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Looped Transformers Pass the Bucket *Part I of II. A looped transformer runs one block of shared weights over and over before it answers. What does one more loop actually buy? Worked out on a toy you can run by hand and on a small model you can take apart on a laptop, the answer turns out to be a li...</description>
+    </item>
     <item>
       <title>The Big Three Trap: Why Open Weights Are Squeezing Closed AI Labs</title>
       <link>https://johnnydevriese.github.io/#the-big-three-trap</link>
