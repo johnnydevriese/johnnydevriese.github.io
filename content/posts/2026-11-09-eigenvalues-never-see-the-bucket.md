@@ -26,6 +26,8 @@ You can ask a loop two different questions.
 
 Both involve a **fixed point** $h^\ast = F(h^\ast, e)$, a state one more pass leaves unchanged. But reaching a fixed point is not the same as being right - Part I's no-recall model settled to a wrong answer by loop 14 - and a correct output can appear while the state is still moving. Stability theory is a theory of the second experiment. A loop budget needs the first.
 
+---
+
 ## 02 - The Jacobian, by Hand
 
 Take a loop with two stored numbers, $a$ and $b$:
@@ -60,6 +62,8 @@ r_{\text{stab}} \approx \frac{\ln(1/\varepsilon)}{\ln(1/\rho)} .
 $$
 
 For $\rho = 0.5$ and $\varepsilon = 10^{-6}$ that is 19.9 passes. Notice what the formula doesn't contain: the length of the input. For enso, the radii measured at settled 24-token inputs work out to 3.5 to 3.9 loops per factor of ten, and nothing in the formula would change that for a longer input.
+
+---
 
 ## 03 - A Line Whose Eigenvalues Are All Zero
 
@@ -165,11 +169,15 @@ The leak changed the constants - a slower, softer front means more rounds - but 
 > Eigenvalues measure how fast each person lets go of their own bucket.
 > They never see a bucket change hands.
 
+---
+
 ## 04 - Why the Eigenvalues Are Blind
 
-The toy isn't a special case. Every causal looped transformer has the same structure.
+The toy isn't a special case. Every causal looped transformer has the same structure, and the derivation is three steps.
 
-Group the Jacobian by token: block $J_{pq}$ says how much token $p$'s next state responds to token $q$'s current state. Causality makes every block with $q > p$ zero, so $J$ is **block lower triangular**. For a block triangular matrix, the eigenvalues are just the eigenvalues of the diagonal blocks:
+**Step 1 - Group the Jacobian by token.** Block $J_{pq}$ measures how much token $p$'s next state responds to token $q$'s current state. Because attention is causal, token $p$ never reads a future token $q > p$. Every block above the diagonal is zero, so $J$ is **block lower triangular**.
+
+**Step 2 - Read off the spectrum.** The determinant of a block lower triangular matrix is the product of the determinants of its diagonal blocks, $\det(J - \lambda I) = \prod_p \det(J_{pp} - \lambda I)$. So the eigenvalues of $J$ are just the eigenvalues of the diagonal blocks:
 
 $$
 \operatorname{spec}(J) = \bigcup_{p} \operatorname{spec}(J_{pp}).
@@ -177,7 +185,7 @@ $$
 
 The blocks below the diagonal, $J_{pq}$ with $q < p$, are the hand-offs - the only place information moves between tokens. They drop out of the spectrum entirely, however large they are. An eigenvalue measures what comes back to where it started, and in a one-way line nothing comes back.
 
-What does see the hand-offs is a blunter argument about wiring. Suppose one loop can move information at most $w$ positions to the right. Then after $t$ loops,
+**Step 3 - Count how far the buckets can reach.** What does see the hand-offs is a blunter argument about wiring. Suppose one loop can move information at most $w$ positions to the right. Then after $t$ loops,
 
 $$
 h_t[p] \ \text{depends only on} \ h_0[p - tw \,..\, p] \ \text{and} \ e[p - tw \,..\, p].
@@ -190,6 +198,8 @@ r \;\ge\; \frac{n-1}{w}.
 $$
 
 No fixed points, no eigenvalues. Just how far the buckets can travel per round.
+
+---
 
 ## 05 - Inside enso
 
@@ -974,6 +984,8 @@ Now the nudge experiment, the thing eigenvalues do describe. Take a settled 64-t
 
 Same cone as Part I's Figure 4, completely different experiment. The total size of the disturbance shrinks on every loop, to about $2 \times 10^{-6}$ of where it started after 48 loops. That is the endgame the eigenvalues talk about: a finished answer absorbing a small shock. The solve is the other thing. From noise, token 96 can't settle until the hand-offs from token 1 have physically arrived - 48 loops at two tokens per loop - plus a couple more to lock in.
 
+---
+
 ## 06 - Radius Below One, Norms Above One
 
 There's one more way the eigenvalue forecast misleads, and it's the hand-offs again. The spectral radius describes the long run. The **operator norm** $\lVert J \rVert_2$ - the most any unit-size nudge can grow in a single pass - describes the short run. For a triangular matrix with large hand-offs, the two can disagree wildly.
@@ -1052,6 +1064,8 @@ Across eight other settled 24-token inputs, $\rho$ runs from 0.5178 to 0.5423, y
 
 Radius and norm are both true, and both are about the nudge experiment. Neither one is a solve-time guarantee.
 
+---
+
 ## 07 - Solve Time and Loop Budgets
 
 Put the pieces side by side for enso:
@@ -1059,6 +1073,7 @@ Put the pieces side by side for enso:
 - **Solving from noise** is reach-limited: about $n/2$ loops for the front to cross, plus one or two. At 96 tokens, 99% of strings are exact at loop 50, against a floor of 48.
 - **Recovering from a nudge** is what $\rho$ and $\lVert J^k \rVert_2$ describe - locally, to first order, near a settled state. It is fast, and it has no $n$ in it.
 - **Settling** is neither. In the length-48 run from Part I, 99% of strings are exact at loop 27 while the median step size at loop 26 is still 0.116; the step size first drops below $10^{-6}$ at loop 48. The no-recall model drops below $10^{-6}$ at loop 14 and never gets a string right.
+- **Damping slows the line down.** A textbook way to tame a fixed-point iteration is Krasnoselskii-Mann damping: blend each new bucket with the old one, $h_{t+1} = (1-\alpha) h_t + \alpha F_\theta(h_t, e)$. That is the leaky grip from Section 03 applied at test time. On 48-bit parity, reaching 99% exact strings takes 27 / 29 / 40 loops for $\alpha = 1 / 0.75 / 0.5$, and at $\alpha = 0.25$ the slowed front only reaches 98.4% by loop 192. Making people hold on to their old bucket doesn't make the answer better; it makes the hand-offs take longer.
 
 So a loop budget has to come from measured task accuracy, at the lengths and loop counts you plan to serve. A residual measures a step size, not an answer, and nothing here supports a halting rule built on one.
 
@@ -1091,6 +1106,8 @@ assert min(loops) > forecast and loops == sorted(set(loops))  # True: one radius
 
 Those are the numbers in Figure 1 and its table: the same $\rho$ at every length, and a loop count that keeps climbing.
 
+---
+
 ## 08 - The Fine Print
 
 1. **Window attention only.** The banded Jacobian and the two-tokens-per-loop front come from enso's window-one attention over two layers. With full causal attention, $w$ is effectively $n$ and the reach bound says nothing. The Jacobian is still block lower triangular, so the eigenvalues are still blind to the hand-offs, but what extra loops buy in that setting isn't tested here.
@@ -1098,6 +1115,8 @@ Those are the numbers in Figure 1 and its table: the same $\rho$ at every length
 3. **Local means local.** Every Jacobian statement here holds near one fixed point, to first order. The toy's global argument works because the toy is affine. It does not carry over to a nonlinear model started far from its fixed point.
 4. **One checkpoint, separate batches.** The enso numbers come from one trained checkpoint. The length-scaling runs, the length-48 step-size run, and the Jacobian probes are separate evaluation batches - which is why both 26 and 27 appear as the 99% loop at length 48. Compare timings within a batch, not across batches.
 5. **Teaching examples are arithmetic.** The two-number loop, the three-person relay, and the $2 \times 2$ matrix are exact illustrations chosen to explain the vocabulary, not evidence about enso.
+
+---
 
 ## 09 - Coda: Letting Go Versus Passing On
 
@@ -1117,6 +1136,6 @@ A looped transformer doesn't hold its answer and polish it. It passes it down th
 ### Further reading
 
 - **Part I of this series** - *Looped Transformers Pass the Bucket*: the bucket brigade, enso, and why settling is not correctness.
-- **Trefethen & Embree, 2005** - *Spectra and Pseudospectra: The Behavior of Nonnormal Matrices and Operators* (Princeton University Press) - the standard account of why eigenvalues mislead about transient behaviour.
-- **Bai, Kolter & Koltun, 2019** - [Deep Equilibrium Models](https://arxiv.org/abs/1909.01377) - networks defined directly by their fixed point, where "settled" is the whole design.
-- **Geiping et al., 2025** - [Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach](https://arxiv.org/abs/2502.05171) - Huginn, a recurrent-depth language model with full causal attention, where the reach argument above does not apply.
+- **Trefethen & Embree, 2005** - *Spectra and Pseudospectra: The Behavior of Nonnormal Matrices and Operators* (Princeton University Press) - the definitive treatment of why eigenvalues miss transient growth when hand-offs are large.
+- **Bai, Kolter & Koltun, 2019** - [Deep Equilibrium Models](https://arxiv.org/abs/1909.01377) - networks defined directly by their fixed point $h^\ast = F_\theta(h^\ast, x)$, where the Jacobian at $h^\ast$ governs both forward solvers and backward gradients.
+- **Geiping et al., 2025** - [Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach](https://arxiv.org/abs/2502.05171) - Huginn, a recurrent-depth language model with full causal attention, where the spatial reach bound above does not apply.

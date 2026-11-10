@@ -8,7 +8,7 @@ slug: looped-transformers-pass-the-bucket
 
 # Looped Transformers Pass the Bucket
 
-*Part I of II. A looped transformer runs one block of shared weights over and over before it answers. What does one more loop actually buy? Worked out on a toy you can run by hand and on a small model you can take apart on a laptop, the answer turns out to be a line of people passing buckets.*
+*Part I of II. A looped transformer runs one block of shared weights over and over before it answers. Forget the fixed-point jargon for a moment. Think of a line of people passing buckets - and watch how far the buckets can travel.*
 
 > ~~"A looped transformer is a weight-tied, recurrent-depth architecture that scales test-time compute by iterating a shared block toward a fixed point of its latent dynamics."~~
 
@@ -115,6 +115,8 @@ Notice the $e$ inside $F_\theta$. Feeding the input back in on every loop, calle
 <span class="note">Top: tokens climb through N different blocks, the LM head scores every possible next token, and the winner is appended before the whole stack runs again. Bottom: one block runs r times before the readout. The extra compute goes into depth - no new tokens, no new weights.</span>
 </div>
 
+---
+
 ## 02 - Loops Are Not Thinking Tokens
 
 The familiar way to spend more compute on a hard problem is **thinking tokens**: let the model write out intermediate steps before it answers. Each token buys one more trip through the whole stack, but it also lengthens the context, grows the KV cache, and forces the intermediate work into words.
@@ -125,17 +127,39 @@ Looping also changes what a fixed set of weights can compute. A stack of $N$ blo
 
 Which raises the question this whole series is about: **how many loops does a given input need?** Stop too early and the answer is wrong. Run too many and you burn compute. Ideally you would know the number before you spend it.
 
+---
+
 ## 03 - The Analogy: A Bucket Brigade
 
 Start with a toy that has nothing learned in it at all.
 
 Line up 12 people, one per token. Each person holds a **bucket** - a number playing the role of that token's hidden state - and a slip of paper with their own **item**, playing the role of that token's input. Person $p$'s job is to end up holding the running sum of the items from person 1 through person $p$.
 
-> **Twelve people, twelve items.** Items: `1 1 1 0 0 0 0 0 0 1 1 1`. Running sums: `1 2 3 3 3 3 3 3 3 4 5 6`.
+> **Twelve people, twelve items.**
+>
+> `items:` `1` `1` `1` `0` `0` `0` `0` `0` `0` `1` `1` `1`
+>
+> `running sums:` `1` `2` `3` `3` `3` `3` `3` `3` `3` `4` `5` `6`
 >
 > Every bucket starts full of random noise. Each round, everyone acts at once: **take the bucket your left neighbour held at the start of the round, add your own item, and hold the result.** Person 1 has no left neighbour, so they start each round from an empty bucket.
 
 Items never move. Only buckets move, and each one picks up exactly one new item per round.
+
+### A worked trace for the first four people
+
+Before looking at all 12 people, trace the first four by hand. Their items are `1, 1, 1, 0`, so their finished buckets should be `1, 2, 3, 3`. In our seeded run, their buckets start at `0.35, 0.82, 0.33, -1.30`:
+
+| Round $t$ | P1 (item `1`) | P2 (item `1`) | P3 (item `1`) | P4 (item `0`) | What happened on this round |
+|---|---|---|---|---|---|
+| 0 | 0.35 | 0.82 | 0.33 | -1.30 | Starting noise in every bucket |
+| 1 | **1.00** | 1.35 | 1.82 | 0.33 | P1 takes $0 + 1 = 1$; P2 takes $0.35 + 1 = 1.35$; P1's noise (`0.35`) is now in P2's bucket |
+| 2 | **1.00** | **2.00** | 2.35 | 1.82 | P2 takes P1's exact $1.00 + 1 = 2.00$; the `0.35` error has moved on to P3 |
+| 3 | **1.00** | **2.00** | **3.00** | 2.35 | P3 takes P2's exact $2.00 + 1 = 3.00$; the `0.35` error has reached P4 |
+| 4 | **1.00** | **2.00** | **3.00** | **3.00** | P4 takes P3's exact $3.00 + 0 = 3.00$; all four are solved |
+
+Look at where that `0.35` went: P1 at round 0, P2 at round 1 (inside `1.35`), P3 at round 2 (inside `2.35`), P4 at round 3 (inside `2.35`), and off the right edge of our four-person window at round 4. Nobody damped it out. Each person simply handed it to the right and replaced it with a fresh sum from the left.
+
+Now zoom out to all 12 people:
 
 <div class="rope-diagram-wrap">
 <span class="caption">Figure 2 - Twelve people, buckets started at noise, one round per row</span>
@@ -508,13 +532,13 @@ That is a ceiling, not a count: a line that happens to start correct is already 
 
 ### The brigade is a linear loop
 
-Write $S$ for the shift that hands every bucket one place to the right: $(Sh)_p = h_{p-1}$, and $(Sh)_1 = 0$. One round is then
+The analogy doesn't merely resemble the math; it *is* the math. Write $S$ for the shift matrix that hands every bucket one place to the right: $(Sh)_p = h_{p-1}$, and $(Sh)_1 = 0$. One round is then
 
 $$
 h_{t+1} = S\,h_t + x .
 $$
 
-That is the looped-transformer equation from Section 01, with $F(h, x) = Sh + x$. Its settled state - the **fixed point**, where one more round changes nothing - is $h^\ast_p = h^\ast_{p-1} + x_p$: the running sum. And the error $\delta_t = h_t - h^\ast$ obeys
+That is the looped-transformer equation from Section 01, with $F(h, x) = Sh + x$. Its settled state - the **fixed point**, where one more round changes nothing - satisfies $h^\ast = S h^\ast + x$, which component by component says $h^\ast_p = h^\ast_{p-1} + x_p$: the running sum. Subtract the two equations and the error $\delta_t = h_t - h^\ast$ obeys
 
 $$
 \delta_{t+1} = S\,\delta_t, \qquad (\delta_t)_p = (\delta_0)_{p-t}, \quad \text{which is zero once } t \ge p .
@@ -528,13 +552,21 @@ Now drop the $+x$. Hand everyone their item once, as the starting bucket ($h_0 =
 
 Zero is a perfectly good fixed point - one more round of passing leaves it zero - and in this example it is wrong for every person in the line. The brigade has settled by forgetting its input. Hold on to that; it comes back in Section 05.
 
+---
+
 ## 04 - enso: A Trained Brigade
 
 The toy is exact, but nobody trains toys. So I trained a small looped transformer, **enso**, on a task with the same shape: about 100k parameters, small enough to take apart on a laptop.
 
 The task is **prefix parity**: given a string of bits, output at every position whether the bits so far contain an odd number of ones (the running XOR). It is the brigade with XOR in place of addition, and it keeps the property that matters:
 
-> **Prefix parity, five bits.** Input `1 0 1 1 0`, target `1 1 0 1 1`. Flip the first bit and *every* output flips. For position 96 to be right, information from bit 1 has to reach position 96.
+> **Prefix parity, five bits.**
+>
+> `input:` `1` `0` `1` `1` `0`
+>
+> `target:` `1` `1` `0` `1` `1`
+>
+> Flip the first bit and *every* output flips. For position 96 to be right, information from bit 1 has to reach position 96.
 
 enso reads the whole bit string at once, starts its state from noise, re-reads the input on every loop, runs its shared block $r$ times, and reads out every position's answer at the end. The shared block is two causal attention layers, and each layer has an attention window of one: a position reads only itself and its left neighbour. That gives the model a built-in speed limit.
 
@@ -974,6 +1006,8 @@ The same rule holds across lengths. Counting a string as correct only if *every*
 
 The lag is measured, not derived. Two more things stand out. enso trained with at most 24 loops and still solves 96 bits in 50. And running past the solve doesn't hurt: at all four lengths it stays at 99% or better through loop 192, eight times the training maximum, and is at 100% there. A plausible reading is that what it learned is a local rule, the same at every position, so more loops simply run more of the same procedure. That is a reading of one model, not a law of looping.
 
+---
+
 ## 05 - The Trap: Settling Is Not Correctness
 
 If you don't know a task's dependency chain in advance, how would you decide when to stop looping? The natural rule is to watch the state and halt once one more loop barely changes it, $h_{t+1} \approx h_t$. In other words: stop at the fixed point.
@@ -1028,9 +1062,11 @@ With recall (teal), the state keeps moving while the front crosses the sequence.
 
 One honest caveat: the comparison changes two things at once. The recall model starts from noise; the no-recall model starts from the embedded input. So the difference can't be pinned on recall alone. What it does show, cleanly, is the direction of failure: a small step size is evidence that the loop stopped moving, not that it found the answer. Any settling rule needs to be checked against accuracy on labelled inputs before it sets a loop budget.
 
+---
+
 ## 06 - The Whole Brigade in Code
 
-Here is the toy from Section 03, both versions, in plain NumPy:
+After five figures, it is worth seeing how little machinery this actually is. Here is the toy from Section 03, both versions, in plain NumPy:
 
 <!-- code:brigade -->
 
@@ -1057,20 +1093,24 @@ assert rounds == n and not forgetful.any()    # True: n rounds to solve; without
 
 <!-- /code:brigade -->
 
-Twelve people, twelve rounds from noise. Take away the $+x$ and the line settles to all zeros: still, stable, and wrong.
+That final assertion is the whole first half of this series in one line: starting from noise, a 12-person brigade with recall solves the running sum in exactly 12 rounds; take away the $+x$ and the same line settles to all zeros - still, stable, and wrong.
+
+---
 
 ## 07 - The Fine Print
 
-1. **The speed limit is enso's, not every model's.** The two-positions-per-loop front comes from window-one attention. Full causal attention, which looped language models such as Huginn and Ouro use, lets every position read every earlier position within a single layer, so there is no distance to cross. What extra loops buy there - more steps of composition, perhaps - is a different question, and nothing here tests it.
+1. **The speed limit is enso's, not every model's.** The two-positions-per-loop front comes from window-one attention. Full causal attention, which looped language models such as Huginn and Ouro use, lets every position read every earlier position within a single layer, so there is no spatial distance to cross. What extra loops buy there is serial *depth* of composition - each pass can chain another step of reasoning onto the results of the last - which is a different kind of bucket line, and nothing here tests it.
 2. **One model, one seed.** The enso numbers come from one trained checkpoint, evaluated on 256 random strings per length with a single evaluation seed and no confidence intervals. The one-to-two loops of lag above $\lceil n/2 \rceil$ is a measurement, not a constant.
-3. **Extra loops help only if training made them useful.** Looping gives a model room to run a longer procedure. Whether it learns one that keeps making progress is up to training.
+3. **Extra loops help only if training made them useful.** Looping gives a model room to run a longer procedure. Whether it learns one that keeps making progress is up to training. enso's recipe - keep input recall on every pass so the input never washes out, and sample the loop count at random during training (as Huginn does) so no single depth is baked in - is what makes loop 50 work when training stopped at 24.
 4. **Toy versus model.** The brigade's round counts are exact facts about arithmetic. The enso numbers are measurements of one small model. Neither is a measurement of a large language model.
+
+---
 
 ## 08 - Coda: The Loop Is a Line
 
 Strip away the notation and three correspondences remain:
 
-| The bucket | The hand-off | The loop count |
+| The Bucket | The Hand-Off | The Loop Count |
 |---|---|---|
 | is the hidden state | is attention to the left | is distance ÷ reach |
 
@@ -1080,7 +1120,7 @@ Which leaves a puzzle. There is a standard tool for asking how fast a loop settl
 
 ### Further reading
 
-- **Geiping et al., 2025** - [Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach](https://arxiv.org/abs/2502.05171) - Huginn, a recurrent-depth language model, and the source of the random loop-count training recipe enso borrows.
-- **Zhu et al., 2025** - [Scaling Latent Reasoning via Looped Language Models](https://arxiv.org/abs/2510.25741) - Ouro, a family of looped language models pre-trained at scale.
-- **Saunshi et al., 2025** - [Reasoning with Latent Thoughts: On the Power of Looped Transformers](https://arxiv.org/abs/2502.17416) - what a looped model can compute, and how loops relate to chain-of-thought steps.
-- **Dehghani et al., 2018** - [Universal Transformers](https://arxiv.org/abs/1807.03819) - the original weight-shared, recurrent-in-depth transformer, with a learned halting rule.
+- **Geiping et al., 2025** - [Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach](https://arxiv.org/abs/2502.05171) - Huginn, a 3.5B recurrent-depth language model, and the random loop-count training recipe enso borrows so the bucket line keeps working past its training depth.
+- **Zhu et al., 2025** - [Scaling Latent Reasoning via Looped Language Models](https://arxiv.org/abs/2510.25741) - Ouro, looped language models pre-trained at multi-billion scale with full causal attention.
+- **Saunshi et al., 2025** - [Reasoning with Latent Thoughts: On the Power of Looped Transformers](https://arxiv.org/abs/2502.17416) - the formal case that $r$ passes of a shared block can simulate $r$-step serial chains of thought.
+- **Dehghani et al., 2018** - [Universal Transformers](https://arxiv.org/abs/1807.03819) - the original weight-shared, recurrent-in-depth transformer, with a per-token halting rule.

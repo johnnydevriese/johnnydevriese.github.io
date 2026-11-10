@@ -5,7 +5,7 @@
     <link>https://johnnydevriese.github.io</link>
     <description>Thoughts on programming, data science, and more.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Nov 2026 23:49:28 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 00:42:01 GMT</lastBuildDate>
     <atom:link href="https://johnnydevriese.github.io/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -20,7 +20,7 @@
       <link>https://johnnydevriese.github.io/#looped-transformers-pass-the-bucket</link>
       <guid>https://johnnydevriese.github.io/#looped-transformers-pass-the-bucket</guid>
       <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-      <description>Looped Transformers Pass the Bucket *Part I of II. A looped transformer runs one block of shared weights over and over before it answers. What does one more loop actually buy? Worked out on a toy you can run by hand and on a small model you can take apart on a laptop, the answer turns out to be a li...</description>
+      <description>Looped Transformers Pass the Bucket *Part I of II. A looped transformer runs one block of shared weights over and over before it answers. Forget the fixed-point jargon for a moment. Think of a line of people passing buckets - and watch how far the buckets can travel.* &gt; ~~&quot;A looped transformer is a ...</description>
     </item>
     <item>
       <title>The Big Three Trap: Why Open Weights Are Squeezing Closed AI Labs</title>
